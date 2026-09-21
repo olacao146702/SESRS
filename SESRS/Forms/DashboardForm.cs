@@ -14,5 +14,11 @@ namespace SESRS.Forms
         {
             InitializeComponent();
         }
+
+        private void btnPrograms_Click(object sender, EventArgs e)
+        {
+            ProgramManagementForm programForm = new ProgramManagementForm();
+            programForm.ShowDialog();
+        }
     }
 }
