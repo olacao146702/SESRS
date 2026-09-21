@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             pnlLogin = new Panel();
+            lblNoaccountyet = new Label();
+            btnCreateAccount = new Button();
             btnLogin = new Button();
             txtPassword = new TextBox();
             lblPassword = new Label();
@@ -43,6 +45,8 @@
             // 
             pnlLogin.BackColor = Color.White;
             pnlLogin.BorderStyle = BorderStyle.FixedSingle;
+            pnlLogin.Controls.Add(lblNoaccountyet);
+            pnlLogin.Controls.Add(btnCreateAccount);
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(txtPassword);
             pnlLogin.Controls.Add(lblPassword);
@@ -52,8 +56,29 @@
             pnlLogin.Controls.Add(lblTitle);
             pnlLogin.Location = new Point(117, 62);
             pnlLogin.Name = "pnlLogin";
-            pnlLogin.Size = new Size(495, 494);
+            pnlLogin.Size = new Size(495, 598);
             pnlLogin.TabIndex = 0;
+            // 
+            // lblNoaccountyet
+            // 
+            lblNoaccountyet.AutoSize = true;
+            lblNoaccountyet.Location = new Point(134, 471);
+            lblNoaccountyet.Name = "lblNoaccountyet";
+            lblNoaccountyet.Size = new Size(216, 28);
+            lblNoaccountyet.TabIndex = 6;
+            lblNoaccountyet.Text = "Don't have an account?";
+            // 
+            // btnCreateAccount
+            // 
+            btnCreateAccount.BackColor = Color.DarkGreen;
+            btnCreateAccount.ForeColor = Color.White;
+            btnCreateAccount.Location = new Point(147, 502);
+            btnCreateAccount.Name = "btnCreateAccount";
+            btnCreateAccount.Size = new Size(186, 41);
+            btnCreateAccount.TabIndex = 1;
+            btnCreateAccount.Text = "CREATE ACCOUNT";
+            btnCreateAccount.UseVisualStyleBackColor = false;
+            btnCreateAccount.Click += btnCreateAccount_Click;
             // 
             // btnLogin
             // 
@@ -83,7 +108,7 @@
             lblPassword.ForeColor = Color.DimGray;
             lblPassword.Location = new Point(55, 269);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(104, 38);
+            lblPassword.Size = new Size(133, 38);
             lblPassword.TabIndex = 3;
             lblPassword.Text = "Password";
             // 
@@ -100,7 +125,7 @@
             lblUsername.ForeColor = Color.DimGray;
             lblUsername.Location = new Point(55, 155);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(104, 38);
+            lblUsername.Size = new Size(133, 38);
             lblUsername.TabIndex = 2;
             lblUsername.Text = "Username";
             // 
@@ -128,10 +153,11 @@
             // 
             // LoginForm
             // 
+            AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(752, 651);
+            ClientSize = new Size(752, 706);
             Controls.Add(pnlLogin);
             Font = new Font("Segoe UI", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -156,5 +182,7 @@
         private Label lblUsername;
         private Button btnLogin;
         private TextBox txtPassword;
+        private Button btnCreateAccount;
+        private Label lblNoaccountyet;
     }
 }

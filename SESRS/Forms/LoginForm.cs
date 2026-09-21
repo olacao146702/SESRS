@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using SESRS.Services;
-using SESRS.Forms;
 
 namespace SESRS.Forms
 {
@@ -15,14 +9,14 @@ namespace SESRS.Forms
         public LoginForm()
         {
             InitializeComponent();
+
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object? sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
@@ -43,13 +37,35 @@ namespace SESRS.Forms
             try
             {
                 UserService userService = new UserService();
+
                 var user = userService.Login(username, password);
 
                 if (user != null)
                 {
-                    DashboardForm dashboard = new DashboardForm();
-                    dashboard.Show();
-                    this.Hide();
+                    if (user.Role == "Admin")
+                    {
+                        DashboardForm dashboard = new DashboardForm();
+
+                        dashboard.Show();
+                        this.Hide();
+                    }
+                    else if (user.Role == "Student")
+                    {
+                        StudentDashboardForm studentDashboard =
+                            new StudentDashboardForm(user);
+
+                        studentDashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Invalid user role.",
+                            "Login Failed",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
                 }
                 else
                 {
@@ -70,6 +86,17 @@ namespace SESRS.Forms
                     MessageBoxIcon.Error
                 );
             }
+        }
+
+        private void btnCreateAccount_Click(object? sender, EventArgs e)
+        {
+            this.Hide();
+
+            StudentSignUpForm signUpForm = new StudentSignUpForm();
+
+            signUpForm.ShowDialog();
+
+            this.Show();
         }
     }
 }

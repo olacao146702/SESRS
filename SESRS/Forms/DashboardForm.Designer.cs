@@ -74,13 +74,13 @@
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(220, 491);
+            pnlSidebar.Size = new Size(220, 644);
             pnlSidebar.TabIndex = 0;
             // 
             // btnLogout
             // 
             btnLogout.Dock = DockStyle.Bottom;
-            btnLogout.Location = new Point(0, 446);
+            btnLogout.Location = new Point(0, 599);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(220, 45);
             btnLogout.TabIndex = 1;
@@ -172,7 +172,7 @@
             pnlContent.Dock = DockStyle.Fill;
             pnlContent.Location = new Point(220, 0);
             pnlContent.Name = "pnlContent";
-            pnlContent.Size = new Size(638, 491);
+            pnlContent.Size = new Size(958, 644);
             pnlContent.TabIndex = 1;
             // 
             // pnlSectionsCard
@@ -323,7 +323,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(858, 491);
+            ClientSize = new Size(1178, 644);
             Controls.Add(pnlContent);
             Controls.Add(pnlSidebar);
             Name = "DashboardForm";

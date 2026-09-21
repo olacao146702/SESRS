@@ -11,10 +11,9 @@ public class UserService
     public User? Login(string username, string password)
     {
         const string query = @"
-            SELECT user_id, username, full_name, role
+            SELECT user_id, username, password_hash, full_name, role, student_id, status
             FROM users
             WHERE username = @username
-            AND password = @password
             LIMIT 1;";
 
         using MySqlConnection connection = database.GetConnection();
@@ -23,18 +22,36 @@ public class UserService
         using MySqlCommand command = new MySqlCommand(query, connection);
 
         command.Parameters.AddWithValue("@username", username);
-        command.Parameters.AddWithValue("@password", password);
 
         using MySqlDataReader reader = command.ExecuteReader();
 
         if (reader.Read())
         {
+            string passwordHash = reader.GetString("password_hash");
+            string status = reader.GetString("status");
+
+            if (status != "Active")
+            {
+                return null;
+            }
+
+            bool passwordCorrect =
+                BCrypt.Net.BCrypt.Verify(password, passwordHash);
+
+            if (!passwordCorrect)
+            {
+                return null;
+            }
+
             return new User
             {
                 UserId = reader.GetInt32("user_id"),
                 Username = reader.GetString("username"),
                 FullName = reader.GetString("full_name"),
-                Role = reader.GetString("role")
+                Role = reader.GetString("role"),
+                StudentId = reader.IsDBNull(reader.GetOrdinal("student_id"))
+                    ? null
+                    : reader.GetInt32("student_id")
             };
         }
 

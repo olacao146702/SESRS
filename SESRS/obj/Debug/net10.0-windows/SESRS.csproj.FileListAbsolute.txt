@@ -21,3 +21,6 @@ C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\Microsoft.Exten
 C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\MySqlConnector.dll
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.csproj.AssemblyReference.cache
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.csproj.Up2Date
+C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\BCrypt-Net-Next.dll
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.StudentSignUpForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.StudentDashboardForm.resources
