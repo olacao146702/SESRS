@@ -62,7 +62,6 @@
             // 
             // pnlSidebar
             // 
-            pnlSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             pnlSidebar.BackColor = Color.DarkGreen;
             pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnReports);
@@ -72,6 +71,7 @@
             pnlSidebar.Controls.Add(btnStudents);
             pnlSidebar.Controls.Add(btnDashboard);
             pnlSidebar.Controls.Add(lblLogo);
+            pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(220, 491);
@@ -162,7 +162,6 @@
             // 
             // pnlContent
             // 
-            pnlContent.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlContent.BackColor = Color.WhiteSmoke;
             pnlContent.Controls.Add(pnlSectionsCard);
             pnlContent.Controls.Add(pnlEnrollmentCard);
@@ -170,6 +169,7 @@
             pnlContent.Controls.Add(pnlStudentsCard);
             pnlContent.Controls.Add(lblWelcome);
             pnlContent.Controls.Add(lblDashboardTitle);
+            pnlContent.Dock = DockStyle.Fill;
             pnlContent.Location = new Point(220, 0);
             pnlContent.Name = "pnlContent";
             pnlContent.Size = new Size(638, 491);

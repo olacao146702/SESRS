@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SESRS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d62c79448c8ab307fc7a454d9376972105f9071")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11ee14b20e7483df21e275099c53017107e7c7cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("SESRS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SESRS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

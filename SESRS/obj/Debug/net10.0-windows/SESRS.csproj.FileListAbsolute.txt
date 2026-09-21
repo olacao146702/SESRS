@@ -16,3 +16,8 @@ C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.pdb
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.genruntimeconfig.cache
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\ref\SESRS.dll
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.DashboardForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\MySqlConnector.dll
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.csproj.Up2Date
