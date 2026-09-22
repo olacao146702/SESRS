@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\SESRS\\SESRS\\SESRS.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\olacao146702\\SESRS\\SESRS\\SESRS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\SESRS\\SESRS\\SESRS.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\olacao146702\\SESRS\\SESRS\\SESRS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\SESRS\\SESRS\\SESRS.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\olacao146702\\SESRS\\SESRS\\SESRS.csproj",
         "projectName": "SESRS",
-        "projectPath": "C:\\Users\\user\\source\\repos\\SESRS\\SESRS\\SESRS.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\SESRS\\SESRS\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\olacao146702\\SESRS\\SESRS\\SESRS.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\olacao146702\\SESRS\\SESRS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

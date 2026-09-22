@@ -56,23 +56,26 @@
             pnlLogin.Controls.Add(lblTitle);
             pnlLogin.Location = new Point(117, 62);
             pnlLogin.Name = "pnlLogin";
+            pnlLogin.Padding = new Padding(20);
             pnlLogin.Size = new Size(495, 598);
             pnlLogin.TabIndex = 0;
             // 
             // lblNoaccountyet
             // 
             lblNoaccountyet.AutoSize = true;
-            lblNoaccountyet.Location = new Point(134, 471);
+            lblNoaccountyet.ForeColor = Color.Gray;
+            lblNoaccountyet.Location = new Point(154, 491);
             lblNoaccountyet.Name = "lblNoaccountyet";
-            lblNoaccountyet.Size = new Size(216, 28);
+            lblNoaccountyet.Size = new Size(191, 23);
             lblNoaccountyet.TabIndex = 6;
             lblNoaccountyet.Text = "Don't have an account?";
             // 
             // btnCreateAccount
             // 
-            btnCreateAccount.BackColor = Color.DarkGreen;
-            btnCreateAccount.ForeColor = Color.White;
-            btnCreateAccount.Location = new Point(147, 502);
+            btnCreateAccount.BackColor = Color.White;
+            btnCreateAccount.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCreateAccount.ForeColor = Color.DarkGreen;
+            btnCreateAccount.Location = new Point(154, 517);
             btnCreateAccount.Name = "btnCreateAccount";
             btnCreateAccount.Size = new Size(186, 41);
             btnCreateAccount.TabIndex = 1;
@@ -99,7 +102,7 @@
             txtPassword.Location = new Point(55, 310);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(338, 37);
+            txtPassword.Size = new Size(338, 32);
             txtPassword.TabIndex = 4;
             txtPassword.UseSystemPasswordChar = true;
             // 
@@ -117,7 +120,7 @@
             txtUsername.Font = new Font("Segoe UI", 11F);
             txtUsername.Location = new Point(55, 196);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(338, 37);
+            txtUsername.Size = new Size(338, 32);
             txtUsername.TabIndex = 3;
             // 
             // lblUsername
@@ -154,7 +157,7 @@
             // LoginForm
             // 
             AcceptButton = btnLogin;
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(752, 706);

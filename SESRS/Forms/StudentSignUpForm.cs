@@ -276,5 +276,25 @@ namespace SESRS.Forms
                 return Name;
             }
         }
+
+        private void dtpBirthDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblConfirmPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxStudentinfo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxAccountinfo_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
