@@ -82,7 +82,6 @@ namespace SESRS.Forms
             string password = txtPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
 
-            string studentNumber = txtStudentNumber.Text.Trim();
             string firstName = txtFirstName.Text.Trim();
             string middleName = txtMiddleName.Text.Trim();
             string lastName = txtLastName.Text.Trim();
@@ -94,10 +93,10 @@ namespace SESRS.Forms
             string phone = txtPhone.Text.Trim();
             string address = txtAddress.Text.Trim();
 
+            // Validate required fields
             if (string.IsNullOrWhiteSpace(username) ||
                 string.IsNullOrWhiteSpace(password) ||
                 string.IsNullOrWhiteSpace(confirmPassword) ||
-                string.IsNullOrWhiteSpace(studentNumber) ||
                 string.IsNullOrWhiteSpace(firstName) ||
                 string.IsNullOrWhiteSpace(lastName) ||
                 string.IsNullOrWhiteSpace(gender) ||
@@ -115,6 +114,7 @@ namespace SESRS.Forms
                 return;
             }
 
+            // Check password
             if (password != confirmPassword)
             {
                 MessageBox.Show(
@@ -128,6 +128,7 @@ namespace SESRS.Forms
                 return;
             }
 
+            // Check program
             if (cmbProgram.SelectedItem == null)
             {
                 MessageBox.Show(
@@ -141,6 +142,7 @@ namespace SESRS.Forms
                 return;
             }
 
+            // Check year level
             if (cmbYearLevel.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -154,19 +156,7 @@ namespace SESRS.Forms
                 return;
             }
 
-            if (_studentService.StudentNumberExists(studentNumber))
-            {
-                MessageBox.Show(
-                    "The student number is already registered.",
-                    "Duplicate Student Number",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                txtStudentNumber.Focus();
-                return;
-            }
-
+            // Check username
             if (_studentService.UsernameExists(username))
             {
                 MessageBox.Show(
@@ -187,9 +177,12 @@ namespace SESRS.Forms
 
             int yearLevel = cmbYearLevel.SelectedIndex + 1;
 
+            // Hash password
             string passwordHash =
                 BCrypt.Net.BCrypt.HashPassword(password);
 
+            // Register student as PENDING.
+            // Student number will be assigned by Admin later.
             bool registered = _studentService.RegisterStudent(
                 username,
                 passwordHash,
@@ -202,16 +195,16 @@ namespace SESRS.Forms
                 phone,
                 address,
                 programId,
-                yearLevel,
-                studentNumber
+                yearLevel
             );
 
             if (registered)
             {
                 MessageBox.Show(
-                    "Student account created successfully!\n\n" +
-                    "You can now log in using your username and password.",
-                    "Registration Successful",
+                    "Registration submitted successfully!\n\n" +
+                    "Your account is now pending Admin approval.\n" +
+                    "The Admin will assign your Student Number after approval.",
+                    "Registration Submitted",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -223,7 +216,7 @@ namespace SESRS.Forms
             else
             {
                 MessageBox.Show(
-                    "Unable to create the student account.\n\n" +
+                    "Unable to submit the student registration.\n\n" +
                     "Please check your information and try again.",
                     "Registration Failed",
                     MessageBoxButtons.OK,
@@ -243,7 +236,6 @@ namespace SESRS.Forms
             txtPassword.Clear();
             txtConfirmPassword.Clear();
 
-            txtStudentNumber.Clear();
             txtFirstName.Clear();
             txtMiddleName.Clear();
             txtLastName.Clear();

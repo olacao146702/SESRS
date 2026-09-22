@@ -1,5 +1,9 @@
 ﻿using MySqlConnector;
 using SESRS.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace SESRS.Services;
 
@@ -46,19 +50,18 @@ public class StudentService
     }
 
     public bool RegisterStudent(
-    string username,
-    string passwordHash,
-    string firstName,
-    string middleName,
-    string lastName,
-    string gender,
-    DateTime birthDate,
-    string email,
-    string phone,
-    string address,
-    int programId,
-    int yearLevel,
-    string studentNumber)
+        string username,
+        string passwordHash,
+        string firstName,
+        string middleName,
+        string lastName,
+        string gender,
+        DateTime birthDate,
+        string email,
+        string phone,
+        string address,
+        int programId,
+        int yearLevel)
     {
         using var connection = _database.GetConnection();
         connection.Open();
@@ -68,6 +71,7 @@ public class StudentService
         try
         {
             // 1. Insert student record
+            // Student Number is NULL because Admin will assign it later.
             string studentQuery = """
             INSERT INTO students
             (
@@ -87,7 +91,7 @@ public class StudentService
             )
             VALUES
             (
-                @studentNumber,
+                NULL,
                 @firstName,
                 @middleName,
                 @lastName,
@@ -98,7 +102,7 @@ public class StudentService
                 @address,
                 @programId,
                 @yearLevel,
-                'Active',
+                'Pending',
                 NOW()
             );
 
@@ -110,21 +114,51 @@ public class StudentService
                 connection,
                 transaction);
 
-            studentCommand.Parameters.AddWithValue("@studentNumber", studentNumber);
-            studentCommand.Parameters.AddWithValue("@firstName", firstName);
-            studentCommand.Parameters.AddWithValue("@middleName", middleName);
-            studentCommand.Parameters.AddWithValue("@lastName", lastName);
-            studentCommand.Parameters.AddWithValue("@gender", gender);
-            studentCommand.Parameters.AddWithValue("@birthDate", birthDate);
-            studentCommand.Parameters.AddWithValue("@email", email);
-            studentCommand.Parameters.AddWithValue("@phone", phone);
-            studentCommand.Parameters.AddWithValue("@address", address);
-            studentCommand.Parameters.AddWithValue("@programId", programId);
-            studentCommand.Parameters.AddWithValue("@yearLevel", yearLevel);
+            studentCommand.Parameters.AddWithValue(
+                "@firstName",
+                firstName);
 
-            int studentId = Convert.ToInt32(studentCommand.ExecuteScalar());
+            studentCommand.Parameters.AddWithValue(
+                "@middleName",
+                middleName);
+
+            studentCommand.Parameters.AddWithValue(
+                "@lastName",
+                lastName);
+
+            studentCommand.Parameters.AddWithValue(
+                "@gender",
+                gender);
+
+            studentCommand.Parameters.AddWithValue(
+                "@birthDate",
+                birthDate);
+
+            studentCommand.Parameters.AddWithValue(
+                "@email",
+                email);
+
+            studentCommand.Parameters.AddWithValue(
+                "@phone",
+                phone);
+
+            studentCommand.Parameters.AddWithValue(
+                "@address",
+                address);
+
+            studentCommand.Parameters.AddWithValue(
+                "@programId",
+                programId);
+
+            studentCommand.Parameters.AddWithValue(
+                "@yearLevel",
+                yearLevel);
+
+            int studentId = Convert.ToInt32(
+                studentCommand.ExecuteScalar());
 
             // 2. Insert user account
+            // Account is Pending until Admin approves the student.
             string userQuery = """
             INSERT INTO users
             (
@@ -144,33 +178,53 @@ public class StudentService
                 'Student',
                 @studentId,
                 NOW(),
-                'Active'
+                'Pending'
             );
             """;
 
-            string fullName = $"{firstName} {middleName} {lastName}".Trim();
+            string fullName =
+                $"{firstName} {middleName} {lastName}".Trim();
 
             using var userCommand = new MySqlCommand(
                 userQuery,
                 connection,
                 transaction);
 
-            userCommand.Parameters.AddWithValue("@username", username);
-            userCommand.Parameters.AddWithValue("@passwordHash", passwordHash);
-            userCommand.Parameters.AddWithValue("@fullName", fullName);
-            userCommand.Parameters.AddWithValue("@studentId", studentId);
+            userCommand.Parameters.AddWithValue(
+                "@username",
+                username);
+
+            userCommand.Parameters.AddWithValue(
+                "@passwordHash",
+                passwordHash);
+
+            userCommand.Parameters.AddWithValue(
+                "@fullName",
+                fullName);
+
+            userCommand.Parameters.AddWithValue(
+                "@studentId",
+                studentId);
 
             userCommand.ExecuteNonQuery();
 
-            // Both inserts succeeded
+            // Both inserts succeeded.
             transaction.Commit();
 
             return true;
         }
-        catch
+        catch (Exception ex)
         {
-            // Something failed, so undo everything
+            // Something failed, so undo everything.
             transaction.Rollback();
+
+            // Show the actual database error for debugging.
+            MessageBox.Show(
+                "Registration Error:\n\n" + ex.Message,
+                "Database Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
 
             return false;
         }
@@ -204,7 +258,8 @@ public class StudentService
         return programs;
     }
 
-    public (string StudentNumber, string ProgramName, int YearLevel)? GetStudentDashboardInfo(int studentId)
+    public (string StudentNumber, string ProgramName, int YearLevel)?
+        GetStudentDashboardInfo(int studentId)
     {
         using var connection = _database.GetConnection();
         connection.Open();
@@ -223,15 +278,21 @@ public class StudentService
 
         using var command = new MySqlCommand(query, connection);
 
-        command.Parameters.AddWithValue("@studentId", studentId);
+        command.Parameters.AddWithValue(
+            "@studentId",
+            studentId);
 
         using var reader = command.ExecuteReader();
 
         if (reader.Read())
         {
             return (
-                reader.GetString("student_number"),
+                reader.IsDBNull(reader.GetOrdinal("student_number"))
+                    ? ""
+                    : reader.GetString("student_number"),
+
                 reader.GetString("program_name"),
+
                 reader.GetInt32("year_level")
             );
         }
@@ -239,5 +300,38 @@ public class StudentService
         return null;
     }
 
+    public DataTable GetPendingStudents()
+    {
+        DataTable table = new DataTable();
 
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = @"
+        SELECT
+            s.student_id,
+            CONCAT(
+                s.first_name, ' ',
+                IFNULL(s.middle_name, ''), ' ',
+                s.last_name
+            ) AS student_name,
+            s.email,
+            p.program_code,
+            p.program_name,
+            s.year_level,
+            s.status
+        FROM students s
+        LEFT JOIN programs p
+            ON s.program_id = p.program_id
+        WHERE s.status = 'Pending'
+        ORDER BY s.created_at DESC;
+    ";
+
+        using var command = new MySqlCommand(query, connection);
+        using var adapter = new MySqlDataAdapter(command);
+
+        adapter.Fill(table);
+
+        return table;
+    }
 }

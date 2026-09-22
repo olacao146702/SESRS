@@ -36,8 +36,6 @@
             blPassword = new Label();
             txtConfirmPassword = new TextBox();
             lblConfirmPassword = new Label();
-            txtStudentNumber = new TextBox();
-            lblStudentNumber = new Label();
             lblStudentInfo = new Label();
             txtFirstName = new TextBox();
             lblFirstName = new Label();
@@ -137,23 +135,6 @@
             lblConfirmPassword.Size = new Size(168, 28);
             lblConfirmPassword.TabIndex = 6;
             lblConfirmPassword.Text = "Confirm Password";
-            // 
-            // txtStudentNumber
-            // 
-            txtStudentNumber.Location = new Point(740, 312);
-            txtStudentNumber.Name = "txtStudentNumber";
-            txtStudentNumber.Size = new Size(255, 31);
-            txtStudentNumber.TabIndex = 9;
-            // 
-            // lblStudentNumber
-            // 
-            lblStudentNumber.AutoSize = true;
-            lblStudentNumber.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblStudentNumber.Location = new Point(568, 315);
-            lblStudentNumber.Name = "lblStudentNumber";
-            lblStudentNumber.Size = new Size(157, 28);
-            lblStudentNumber.TabIndex = 8;
-            lblStudentNumber.Text = "Student Number";
             // 
             // lblStudentInfo
             // 
@@ -384,8 +365,6 @@
             Controls.Add(txtFirstName);
             Controls.Add(lblFirstName);
             Controls.Add(lblStudentInfo);
-            Controls.Add(txtStudentNumber);
-            Controls.Add(lblStudentNumber);
             Controls.Add(txtConfirmPassword);
             Controls.Add(lblConfirmPassword);
             Controls.Add(txtPassword);
@@ -415,8 +394,6 @@
         private Label blPassword;
         private TextBox txtConfirmPassword;
         private Label lblConfirmPassword;
-        private TextBox txtStudentNumber;
-        private Label lblStudentNumber;
         private Label lblStudentInfo;
         private TextBox txtFirstName;
         private Label lblFirstName;

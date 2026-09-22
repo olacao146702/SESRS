@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
+            btnPendingStudents = new Button();
             btnLogout = new Button();
             btnReports = new Button();
             btnEnrollment = new Button();
@@ -63,6 +64,7 @@
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.DarkGreen;
+            pnlSidebar.Controls.Add(btnPendingStudents);
             pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnReports);
             pnlSidebar.Controls.Add(btnEnrollment);
@@ -77,6 +79,17 @@
             pnlSidebar.Size = new Size(220, 644);
             pnlSidebar.TabIndex = 0;
             // 
+            // btnPendingStudents
+            // 
+            btnPendingStudents.Dock = DockStyle.Top;
+            btnPendingStudents.Location = new Point(0, 330);
+            btnPendingStudents.Name = "btnPendingStudents";
+            btnPendingStudents.Size = new Size(220, 45);
+            btnPendingStudents.TabIndex = 7;
+            btnPendingStudents.Text = "PENDING STUDENTS";
+            btnPendingStudents.UseVisualStyleBackColor = true;
+            btnPendingStudents.Click += btnPendingStudents_Click;
+            // 
             // btnLogout
             // 
             btnLogout.Dock = DockStyle.Bottom;
@@ -86,6 +99,7 @@
             btnLogout.TabIndex = 1;
             btnLogout.Text = "LOGOUT";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnReports
             // 
@@ -371,5 +385,6 @@
         private Panel pnlSubjectsCard;
         private Label lblSubjectsCount;
         private Label lblSubjectsTitle;
+        private Button btnPendingStudents;
     }
 }
