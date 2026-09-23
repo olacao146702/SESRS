@@ -110,6 +110,7 @@
             btnReports.TabIndex = 6;
             btnReports.Text = "REPORTS";
             btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // btnEnrollment
             // 
@@ -120,6 +121,7 @@
             btnEnrollment.TabIndex = 5;
             btnEnrollment.Text = "ENROLLMENT";
             btnEnrollment.UseVisualStyleBackColor = true;
+            btnEnrollment.Click += btnEnrollment_Click;
             // 
             // btnSections
             // 
@@ -130,6 +132,7 @@
             btnSections.TabIndex = 4;
             btnSections.Text = "SECTIONS";
             btnSections.UseVisualStyleBackColor = true;
+            btnSections.Click += btnSections_Click;
             // 
             // btnSubjects
             // 
@@ -140,6 +143,7 @@
             btnSubjects.TabIndex = 3;
             btnSubjects.Text = "SUBJECTS";
             btnSubjects.UseVisualStyleBackColor = true;
+            btnSubjects.Click += btnSubjects_Click;
             // 
             // btnStudents
             // 
@@ -150,6 +154,7 @@
             btnStudents.TabIndex = 2;
             btnStudents.Text = "STUDENTS";
             btnStudents.UseVisualStyleBackColor = true;
+            btnStudents.Click += btnStudents_Click;
             // 
             // btnDashboard
             // 
@@ -160,6 +165,7 @@
             btnDashboard.TabIndex = 1;
             btnDashboard.Text = "DASHBOARD";
             btnDashboard.UseVisualStyleBackColor = true;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // lblLogo
             // 
@@ -344,6 +350,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SESRS - Dashboard";
             WindowState = FormWindowState.Maximized;
+            Load += DashboardForm_Load;
             pnlSidebar.ResumeLayout(false);
             pnlSidebar.PerformLayout();
             pnlContent.ResumeLayout(false);

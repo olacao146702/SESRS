@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using SESRS.Forms;
 
 namespace SESRS.Forms
 {
@@ -16,10 +10,73 @@ namespace SESRS.Forms
             InitializeComponent();
         }
 
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            ShowDashboard();
+        }
+
+        private void ShowDashboard()
+        {
+            pnlContent.Controls.Clear();
+
+            pnlContent.Controls.Add(lblDashboardTitle);
+            pnlContent.Controls.Add(lblWelcome);
+
+            pnlContent.Controls.Add(pnlStudentsCard);
+            pnlContent.Controls.Add(pnlSubjectsCard);
+            pnlContent.Controls.Add(pnlEnrollmentCard);
+            pnlContent.Controls.Add(pnlSectionsCard);
+
+            lblDashboardTitle.BringToFront();
+            lblWelcome.BringToFront();
+        }
+
+        private void ShowPage(Form page)
+        {
+            pnlContent.Controls.Clear();
+
+            page.TopLevel = false;
+            page.FormBorderStyle = FormBorderStyle.None;
+            page.Dock = DockStyle.Fill;
+
+            pnlContent.Controls.Add(page);
+
+            page.Show();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            ShowDashboard();
+        }
+
         private void btnPendingStudents_Click(object sender, EventArgs e)
         {
-            PendingStudentsForm form = new PendingStudentsForm();
-            form.ShowDialog();
+            ShowPage(new PendingStudentsForm());
+
+        }
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            ShowPage(new StudentManagementForm());
+        }
+
+        private void btnSubjects_Click(object sender, EventArgs e)
+        {
+            ShowPage(new SubjectManagementForm());
+        }
+
+        private void btnSections_Click(object sender, EventArgs e)
+        {
+            ShowPage(new SectionManagementForm());
+        }
+
+        private void btnEnrollment_Click(object sender, EventArgs e)
+        {
+            ShowPage(new EnrollmentManagementForm());
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ShowPage(new ReportsForm());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -39,7 +96,6 @@ namespace SESRS.Forms
 
                 this.Close();
             }
-
         }
     }
 }

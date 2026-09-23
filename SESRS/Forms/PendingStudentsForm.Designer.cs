@@ -30,6 +30,7 @@
         {
             lblTitle = new Label();
             dgvPendingStudents = new DataGridView();
+            btnApprove = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPendingStudents).BeginInit();
             SuspendLayout();
             // 
@@ -52,11 +53,23 @@
             dgvPendingStudents.Size = new Size(1178, 644);
             dgvPendingStudents.TabIndex = 1;
             // 
+            // btnApprove
+            // 
+            btnApprove.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnApprove.Location = new Point(462, 513);
+            btnApprove.Name = "btnApprove";
+            btnApprove.Size = new Size(228, 61);
+            btnApprove.TabIndex = 2;
+            btnApprove.Text = "Approve Student";
+            btnApprove.UseVisualStyleBackColor = true;
+            btnApprove.Click += btnApprove_Click;
+            // 
             // PendingStudentsForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1178, 644);
+            Controls.Add(btnApprove);
             Controls.Add(lblTitle);
             Controls.Add(dgvPendingStudents);
             Name = "PendingStudentsForm";
@@ -72,5 +85,6 @@
 
         private Label lblTitle;
         private DataGridView dgvPendingStudents;
+        private Button btnApprove;
     }
 }

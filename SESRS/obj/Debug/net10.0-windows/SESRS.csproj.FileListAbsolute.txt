@@ -25,3 +25,8 @@ C:\Users\user\source\repos\SESRS\SESRS\bin\Debug\net10.0-windows\BCrypt-Net-Next
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.StudentSignUpForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.StudentDashboardForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.PendingStudentsForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.StudentManagementForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.SubjectManagementForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.SectionManagementForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EnrollmentManagementForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.ReportsForm.resources

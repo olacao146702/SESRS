@@ -4,16 +4,31 @@
     <Compile Update="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\EnrollmentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PendingStudentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SectionManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\StudentDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\StudentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\StudentSignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SubjectManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

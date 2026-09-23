@@ -334,4 +334,176 @@ public class StudentService
 
         return table;
     }
+
+    public bool ApproveStudent(int studentId)
+    {
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        using var transaction = connection.BeginTransaction();
+
+        try
+        {
+            // Get the current year
+            string year = DateTime.Now.Year.ToString();
+
+            // Find the next student number for this year
+            string numberQuery = @"
+            SELECT MAX(student_number)
+            FROM students
+            WHERE student_number LIKE @yearPrefix;";
+
+            using var numberCommand =
+                new MySqlCommand(numberQuery, connection, transaction);
+
+            numberCommand.Parameters.AddWithValue(
+                "@yearPrefix",
+                year + "%"
+            );
+
+            object? result = numberCommand.ExecuteScalar();
+
+            int nextNumber = 1;
+
+            if (result != null && result != DBNull.Value)
+            {
+                string lastNumber = result.ToString()!;
+
+                if (lastNumber.Length >= 8 &&
+                    int.TryParse(lastNumber.Substring(4), out int lastSequence))
+                {
+                    nextNumber = lastSequence + 1;
+                }
+            }
+
+            // Create the new Student Number
+            string studentNumber =
+                year + nextNumber.ToString("D4");
+
+            // Make sure the generated number is not already used
+            string checkQuery = @"
+            SELECT COUNT(*)
+            FROM students
+            WHERE student_number = @studentNumber;";
+
+            using var checkCommand =
+                new MySqlCommand(checkQuery, connection, transaction);
+
+            checkCommand.Parameters.AddWithValue(
+                "@studentNumber",
+                studentNumber
+            );
+
+            long existingCount =
+                Convert.ToInt64(checkCommand.ExecuteScalar());
+
+            if (existingCount > 0)
+            {
+                transaction.Rollback();
+                return false;
+            }
+
+            // Activate the student
+            string studentQuery = @"
+            UPDATE students
+            SET
+                student_number = @studentNumber,
+                status = 'Active'
+            WHERE student_id = @studentId
+              AND status = 'Pending';";
+
+            using var studentCommand =
+                new MySqlCommand(studentQuery, connection, transaction);
+
+            studentCommand.Parameters.AddWithValue(
+                "@studentNumber",
+                studentNumber
+            );
+
+            studentCommand.Parameters.AddWithValue(
+                "@studentId",
+                studentId
+            );
+
+            int studentRows =
+                studentCommand.ExecuteNonQuery();
+
+            if (studentRows == 0)
+            {
+                transaction.Rollback();
+                return false;
+            }
+
+            // Activate the student's login account
+            string userQuery = @"
+            UPDATE users
+            SET status = 'Active'
+            WHERE student_id = @studentId
+              AND role = 'Student'
+              AND status = 'Pending';";
+
+            using var userCommand =
+                new MySqlCommand(userQuery, connection, transaction);
+
+            userCommand.Parameters.AddWithValue(
+                "@studentId",
+                studentId
+            );
+
+            int userRows =
+                userCommand.ExecuteNonQuery();
+
+            if (userRows == 0)
+            {
+                transaction.Rollback();
+                return false;
+            }
+
+            transaction.Commit();
+
+            return true;
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
+        }
+    }
+
+    public DataTable GetAllStudents()
+    {
+        DataTable table = new DataTable();
+
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+    SELECT
+        s.student_id,
+        s.student_number,
+        CONCAT(
+            s.first_name, ' ',
+            IFNULL(s.middle_name, ''), ' ',
+            s.last_name
+        ) AS student_name,
+        s.email,
+        p.program_code,
+        p.program_name,
+        s.year_level,
+        s.gender,
+        s.phone,
+        s.status
+    FROM students s
+    LEFT JOIN programs p
+        ON s.program_id = p.program_id
+    ORDER BY s.student_number;
+    """;
+
+        using var command = new MySqlCommand(query, connection);
+        using var adapter = new MySqlDataAdapter(command);
+
+        adapter.Fill(table);
+
+        return table;
+    }
 }
