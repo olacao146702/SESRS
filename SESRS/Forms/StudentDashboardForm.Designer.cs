@@ -39,14 +39,34 @@
             lblStudentPortal = new Label();
             lblSystemTitle = new Label();
             panel1 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
             lblStudentNumber = new Label();
             lblYearLevel = new Label();
             lblProgram = new Label();
+            lblDashboardTitleStudent = new Label();
+            lblStatus = new Label();
             lblWelcome = new Label();
+            pnlSubjectsCard = new Panel();
+            lblSubjectsCount = new Label();
+            lblSubjectsTitle = new Label();
+            panel2 = new Panel();
+            lblStatusstudent = new Label();
+            label4 = new Label();
+            lblYearLevelstudent = new Label();
+            lblStudentNumberstudent = new Label();
+            lblProgramstudent = new Label();
+            label8 = new Label();
+            pnlStudentNumber = new Panel();
+            pnlProgram = new Panel();
+            pnlYearLevel = new Panel();
+            pnlStatus = new Panel();
             pnlSidebar.SuspendLayout();
             panel1.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            pnlSubjectsCard.SuspendLayout();
+            panel2.SuspendLayout();
+            pnlStudentNumber.SuspendLayout();
+            pnlProgram.SuspendLayout();
+            pnlYearLevel.SuspendLayout();
+            pnlStatus.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSidebar
@@ -210,8 +230,14 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(tableLayoutPanel1);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(pnlSubjectsCard);
+            panel1.Controls.Add(lblStatus);
             panel1.Controls.Add(lblWelcome);
+            panel1.Controls.Add(lblYearLevel);
+            panel1.Controls.Add(lblStudentNumber);
+            panel1.Controls.Add(lblProgram);
+            panel1.Controls.Add(lblDashboardTitleStudent);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(194, 0);
             panel1.Margin = new Padding(2);
@@ -219,62 +245,249 @@
             panel1.Size = new Size(748, 515);
             panel1.TabIndex = 1;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.8F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.2F));
-            tableLayoutPanel1.Controls.Add(lblStudentNumber, 0, 0);
-            tableLayoutPanel1.Controls.Add(lblYearLevel, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblProgram, 1, 0);
-            tableLayoutPanel1.Location = new Point(58, 111);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(405, 257);
-            tableLayoutPanel1.TabIndex = 4;
-            // 
             // lblStudentNumber
             // 
             lblStudentNumber.AutoSize = true;
-            lblStudentNumber.Location = new Point(2, 0);
+            lblStudentNumber.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStudentNumber.ForeColor = Color.Black;
+            lblStudentNumber.Location = new Point(453, 58);
             lblStudentNumber.Margin = new Padding(2, 0, 2, 0);
             lblStudentNumber.Name = "lblStudentNumber";
-            lblStudentNumber.Size = new Size(131, 20);
+            lblStudentNumber.Size = new Size(138, 23);
             lblStudentNumber.TabIndex = 1;
-            lblStudentNumber.Text = "Student Number: -";
+            lblStudentNumber.Text = "Student Number";
+            lblStudentNumber.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblYearLevel
             // 
             lblYearLevel.AutoSize = true;
-            lblYearLevel.Location = new Point(2, 128);
+            lblYearLevel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblYearLevel.ForeColor = Color.Black;
+            lblYearLevel.Location = new Point(631, 61);
             lblYearLevel.Margin = new Padding(2, 0, 2, 0);
             lblYearLevel.Name = "lblYearLevel";
-            lblYearLevel.Size = new Size(88, 20);
+            lblYearLevel.Size = new Size(86, 23);
             lblYearLevel.TabIndex = 3;
-            lblYearLevel.Text = "Year Level: -";
+            lblYearLevel.Text = "Year Level";
+            lblYearLevel.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblProgram
             // 
             lblProgram.AutoSize = true;
-            lblProgram.Location = new Point(207, 0);
+            lblProgram.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProgram.ForeColor = Color.Black;
+            lblProgram.Location = new Point(588, 110);
             lblProgram.Margin = new Padding(2, 0, 2, 0);
             lblProgram.Name = "lblProgram";
-            lblProgram.Size = new Size(79, 20);
+            lblProgram.Size = new Size(76, 23);
             lblProgram.TabIndex = 2;
-            lblProgram.Text = "Program: -";
+            lblProgram.Text = "Program";
+            lblProgram.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblDashboardTitleStudent
+            // 
+            lblDashboardTitleStudent.AutoSize = true;
+            lblDashboardTitleStudent.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDashboardTitleStudent.Location = new Point(22, 27);
+            lblDashboardTitleStudent.Margin = new Padding(2, 0, 2, 0);
+            lblDashboardTitleStudent.Name = "lblDashboardTitleStudent";
+            lblDashboardTitleStudent.Size = new Size(380, 54);
+            lblDashboardTitleStudent.TabIndex = 0;
+            lblDashboardTitleStudent.Text = "Welcome, Student!";
+            lblDashboardTitleStudent.Click += lblWelcome_Click;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatus.ForeColor = Color.Black;
+            lblStatus.Location = new Point(631, 211);
+            lblStatus.Margin = new Padding(2, 0, 2, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(57, 23);
+            lblStatus.TabIndex = 4;
+            lblStatus.Text = "Status";
+            lblStatus.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblWelcome.Location = new Point(22, 15);
+            lblWelcome.Font = new Font("Segoe UI", 11F);
+            lblWelcome.Location = new Point(45, 81);
             lblWelcome.Margin = new Padding(2, 0, 2, 0);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(321, 46);
-            lblWelcome.TabIndex = 0;
-            lblWelcome.Text = "Welcome, Student!";
+            lblWelcome.Size = new Size(168, 25);
+            lblWelcome.TabIndex = 5;
+            lblWelcome.Text = "Welcome to SESRS";
+            // 
+            // pnlSubjectsCard
+            // 
+            pnlSubjectsCard.BackColor = Color.White;
+            pnlSubjectsCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlSubjectsCard.Controls.Add(lblSubjectsCount);
+            pnlSubjectsCard.Controls.Add(lblSubjectsTitle);
+            pnlSubjectsCard.Location = new Point(45, 133);
+            pnlSubjectsCard.Margin = new Padding(2);
+            pnlSubjectsCard.Name = "pnlSubjectsCard";
+            pnlSubjectsCard.Size = new Size(200, 104);
+            pnlSubjectsCard.TabIndex = 6;
+            // 
+            // lblSubjectsCount
+            // 
+            lblSubjectsCount.AutoSize = true;
+            lblSubjectsCount.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubjectsCount.Location = new Point(76, 40);
+            lblSubjectsCount.Margin = new Padding(2, 0, 2, 0);
+            lblSubjectsCount.Name = "lblSubjectsCount";
+            lblSubjectsCount.Size = new Size(46, 54);
+            lblSubjectsCount.TabIndex = 1;
+            lblSubjectsCount.Text = "0";
+            // 
+            // lblSubjectsTitle
+            // 
+            lblSubjectsTitle.AutoSize = true;
+            lblSubjectsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubjectsTitle.Location = new Point(26, 16);
+            lblSubjectsTitle.Margin = new Padding(2, 0, 2, 0);
+            lblSubjectsTitle.Name = "lblSubjectsTitle";
+            lblSubjectsTitle.Size = new Size(147, 23);
+            lblSubjectsTitle.TabIndex = 0;
+            lblSubjectsTitle.Text = "TOTAL SUBJECTS";
+            // 
+            // panel2
+            // 
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(pnlStatus);
+            panel2.Controls.Add(pnlYearLevel);
+            panel2.Controls.Add(pnlProgram);
+            panel2.Controls.Add(pnlStudentNumber);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label8);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(748, 515);
+            panel2.TabIndex = 7;
+            // 
+            // lblStatusstudent
+            // 
+            lblStatusstudent.AutoSize = true;
+            lblStatusstudent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblStatusstudent.ForeColor = Color.Black;
+            lblStatusstudent.Location = new Point(25, 11);
+            lblStatusstudent.Margin = new Padding(2, 0, 2, 0);
+            lblStatusstudent.Name = "lblStatusstudent";
+            lblStatusstudent.Size = new Size(56, 23);
+            lblStatusstudent.TabIndex = 4;
+            lblStatusstudent.Text = "Status";
+            lblStatusstudent.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11F);
+            label4.Location = new Point(45, 81);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(168, 25);
+            label4.TabIndex = 5;
+            label4.Text = "Welcome to SESRS";
+            // 
+            // lblYearLevelstudent
+            // 
+            lblYearLevelstudent.AutoSize = true;
+            lblYearLevelstudent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblYearLevelstudent.ForeColor = Color.Black;
+            lblYearLevelstudent.Location = new Point(25, 8);
+            lblYearLevelstudent.Margin = new Padding(2, 0, 2, 0);
+            lblYearLevelstudent.Name = "lblYearLevelstudent";
+            lblYearLevelstudent.Size = new Size(85, 23);
+            lblYearLevelstudent.TabIndex = 3;
+            lblYearLevelstudent.Text = "Year Level";
+            lblYearLevelstudent.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblStudentNumberstudent
+            // 
+            lblStudentNumberstudent.AutoSize = true;
+            lblStudentNumberstudent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblStudentNumberstudent.ForeColor = Color.Black;
+            lblStudentNumberstudent.Location = new Point(19, 8);
+            lblStudentNumberstudent.Margin = new Padding(2, 0, 2, 0);
+            lblStudentNumberstudent.Name = "lblStudentNumberstudent";
+            lblStudentNumberstudent.Size = new Size(137, 23);
+            lblStudentNumberstudent.TabIndex = 1;
+            lblStudentNumberstudent.Text = "Student Number";
+            lblStudentNumberstudent.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // lblProgramstudent
+            // 
+            lblProgramstudent.AutoSize = true;
+            lblProgramstudent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblProgramstudent.ForeColor = Color.Black;
+            lblProgramstudent.Location = new Point(19, 11);
+            lblProgramstudent.Margin = new Padding(2, 0, 2, 0);
+            lblProgramstudent.Name = "lblProgramstudent";
+            lblProgramstudent.Size = new Size(76, 23);
+            lblProgramstudent.TabIndex = 2;
+            lblProgramstudent.Text = "Program";
+            lblProgramstudent.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(22, 27);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(380, 54);
+            label8.TabIndex = 0;
+            label8.Text = "Welcome, Student!";
+            // 
+            // pnlStudentNumber
+            // 
+            pnlStudentNumber.BackColor = Color.White;
+            pnlStudentNumber.BorderStyle = BorderStyle.FixedSingle;
+            pnlStudentNumber.Controls.Add(lblStudentNumberstudent);
+            pnlStudentNumber.ForeColor = SystemColors.ControlText;
+            pnlStudentNumber.Location = new Point(88, 174);
+            pnlStudentNumber.Name = "pnlStudentNumber";
+            pnlStudentNumber.Size = new Size(201, 73);
+            pnlStudentNumber.TabIndex = 6;
+            pnlStudentNumber.Paint += pnlStudentNumber_Paint;
+            // 
+            // pnlProgram
+            // 
+            pnlProgram.BackColor = Color.White;
+            pnlProgram.BorderStyle = BorderStyle.FixedSingle;
+            pnlProgram.Controls.Add(lblProgramstudent);
+            pnlProgram.Location = new Point(88, 265);
+            pnlProgram.Name = "pnlProgram";
+            pnlProgram.Size = new Size(201, 73);
+            pnlProgram.TabIndex = 7;
+            pnlProgram.Paint += pnlProgram_Paint;
+            // 
+            // pnlYearLevel
+            // 
+            pnlYearLevel.BackColor = Color.White;
+            pnlYearLevel.BorderStyle = BorderStyle.FixedSingle;
+            pnlYearLevel.Controls.Add(lblYearLevelstudent);
+            pnlYearLevel.Location = new Point(328, 174);
+            pnlYearLevel.Name = "pnlYearLevel";
+            pnlYearLevel.Size = new Size(201, 73);
+            pnlYearLevel.TabIndex = 8;
+            pnlYearLevel.Paint += pnlYearLevel_Paint;
+            // 
+            // pnlStatus
+            // 
+            pnlStatus.BackColor = Color.White;
+            pnlStatus.BorderStyle = BorderStyle.FixedSingle;
+            pnlStatus.Controls.Add(lblStatusstudent);
+            pnlStatus.Location = new Point(328, 265);
+            pnlStatus.Name = "pnlStatus";
+            pnlStatus.Size = new Size(201, 73);
+            pnlStatus.TabIndex = 9;
+            pnlStatus.Paint += pnlStatus_Paint;
             // 
             // StudentDashboardForm
             // 
@@ -294,8 +507,18 @@
             pnlSidebar.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
+            pnlSubjectsCard.ResumeLayout(false);
+            pnlSubjectsCard.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            pnlStudentNumber.ResumeLayout(false);
+            pnlStudentNumber.PerformLayout();
+            pnlProgram.ResumeLayout(false);
+            pnlProgram.PerformLayout();
+            pnlYearLevel.ResumeLayout(false);
+            pnlYearLevel.PerformLayout();
+            pnlStatus.ResumeLayout(false);
+            pnlStatus.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -312,10 +535,25 @@
         private Button btnNotifications;
         private Button btnLogout;
         private Panel panel1;
-        private Label lblWelcome;
+        private Label lblDashboardTitleStudent;
         private Label lblStudentNumber;
         private Label lblYearLevel;
         private Label lblProgram;
-        private TableLayoutPanel tableLayoutPanel1;
+        private Label lblStatus;
+        private Label lblWelcome;
+        private Panel pnlSubjectsCard;
+        private Label lblSubjectsCount;
+        private Label lblSubjectsTitle;
+        private Panel panel2;
+        private Label lblStatusstudent;
+        private Label label4;
+        private Label lblYearLevelstudent;
+        private Label lblStudentNumberstudent;
+        private Label lblProgramstudent;
+        private Label label8;
+        private Panel pnlStatus;
+        private Panel pnlYearLevel;
+        private Panel pnlProgram;
+        private Panel pnlStudentNumber;
     }
 }

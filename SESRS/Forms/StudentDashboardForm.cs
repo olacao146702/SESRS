@@ -54,7 +54,7 @@ namespace SESRS.Forms
                     return;
                 }
 
-                lblWelcome.Text =
+                lblDashboardTitleStudent.Text =
                     "Welcome, " + _user.FullName + "!";
 
                 lblStudentNumber.Text =
@@ -101,6 +101,36 @@ namespace SESRS.Forms
         }
 
         private void btnNotifications_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlStudent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlStudentNumber_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlYearLevel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlProgram_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlStatus_Paint(object sender, PaintEventArgs e)
         {
 
         }
