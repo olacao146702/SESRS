@@ -38,40 +38,47 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(428, 30);
+            lblTitle.ForeColor = Color.DarkGreen;
+            lblTitle.Location = new Point(342, 24);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(316, 32);
+            lblTitle.Size = new Size(261, 28);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Pending Student Accounts";
             // 
             // dgvPendingStudents
             // 
             dgvPendingStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPendingStudents.Location = new Point(1, 84);
+            dgvPendingStudents.Location = new Point(1, 67);
+            dgvPendingStudents.Margin = new Padding(2, 2, 2, 2);
             dgvPendingStudents.Name = "dgvPendingStudents";
             dgvPendingStudents.RowHeadersWidth = 62;
-            dgvPendingStudents.Size = new Size(1178, 644);
+            dgvPendingStudents.Size = new Size(942, 515);
             dgvPendingStudents.TabIndex = 1;
             // 
             // btnApprove
             // 
+            btnApprove.BackColor = Color.DarkGreen;
             btnApprove.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnApprove.Location = new Point(462, 513);
+            btnApprove.ForeColor = Color.White;
+            btnApprove.Location = new Point(370, 410);
+            btnApprove.Margin = new Padding(2, 2, 2, 2);
             btnApprove.Name = "btnApprove";
-            btnApprove.Size = new Size(228, 61);
+            btnApprove.Size = new Size(182, 49);
             btnApprove.TabIndex = 2;
             btnApprove.Text = "Approve Student";
-            btnApprove.UseVisualStyleBackColor = true;
+            btnApprove.UseVisualStyleBackColor = false;
             btnApprove.Click += btnApprove_Click;
             // 
             // PendingStudentsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1178, 644);
+            ClientSize = new Size(942, 515);
             Controls.Add(btnApprove);
             Controls.Add(lblTitle);
             Controls.Add(dgvPendingStudents);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "PendingStudentsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pending Student Accounts";

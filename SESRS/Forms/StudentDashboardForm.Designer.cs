@@ -61,7 +61,7 @@
             pnlSidebar.Controls.Add(lblSystemTitle);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
-            pnlSidebar.Margin = new Padding(2, 2, 2, 2);
+            pnlSidebar.Margin = new Padding(2);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(176, 515);
             pnlSidebar.TabIndex = 0;
@@ -74,7 +74,7 @@
             btnLogout.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 470);
-            btnLogout.Margin = new Padding(2, 2, 2, 2);
+            btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(176, 45);
             btnLogout.TabIndex = 7;
@@ -89,7 +89,7 @@
             btnNotifications.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNotifications.ForeColor = Color.White;
             btnNotifications.Location = new Point(0, 286);
-            btnNotifications.Margin = new Padding(2, 2, 2, 2);
+            btnNotifications.Margin = new Padding(2);
             btnNotifications.Name = "btnNotifications";
             btnNotifications.Size = new Size(176, 45);
             btnNotifications.TabIndex = 6;
@@ -105,7 +105,7 @@
             btnHistory.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHistory.ForeColor = Color.White;
             btnHistory.Location = new Point(0, 241);
-            btnHistory.Margin = new Padding(2, 2, 2, 2);
+            btnHistory.Margin = new Padding(2);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(176, 45);
             btnHistory.TabIndex = 5;
@@ -121,7 +121,7 @@
             btnSchedule.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSchedule.ForeColor = Color.White;
             btnSchedule.Location = new Point(0, 196);
-            btnSchedule.Margin = new Padding(2, 2, 2, 2);
+            btnSchedule.Margin = new Padding(2);
             btnSchedule.Name = "btnSchedule";
             btnSchedule.Size = new Size(176, 45);
             btnSchedule.TabIndex = 4;
@@ -137,7 +137,7 @@
             btnSubjects.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSubjects.ForeColor = Color.White;
             btnSubjects.Location = new Point(0, 151);
-            btnSubjects.Margin = new Padding(2, 2, 2, 2);
+            btnSubjects.Margin = new Padding(2);
             btnSubjects.Name = "btnSubjects";
             btnSubjects.Size = new Size(176, 45);
             btnSubjects.TabIndex = 3;
@@ -153,7 +153,7 @@
             btnEnrollment.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEnrollment.ForeColor = Color.White;
             btnEnrollment.Location = new Point(0, 106);
-            btnEnrollment.Margin = new Padding(2, 2, 2, 2);
+            btnEnrollment.Margin = new Padding(2);
             btnEnrollment.Name = "btnEnrollment";
             btnEnrollment.Size = new Size(176, 45);
             btnEnrollment.TabIndex = 2;
@@ -169,7 +169,7 @@
             btnDashboard.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 61);
-            btnDashboard.Margin = new Padding(2, 2, 2, 2);
+            btnDashboard.Margin = new Padding(2);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(176, 45);
             btnDashboard.TabIndex = 1;
@@ -213,7 +213,7 @@
             panel1.Controls.Add(lblWelcome);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(176, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(766, 515);
             panel1.TabIndex = 1;
@@ -221,30 +221,33 @@
             // lblYearLevel
             // 
             lblYearLevel.AutoSize = true;
+            lblYearLevel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblYearLevel.Location = new Point(86, 202);
             lblYearLevel.Margin = new Padding(2, 0, 2, 0);
             lblYearLevel.Name = "lblYearLevel";
-            lblYearLevel.Size = new Size(88, 20);
+            lblYearLevel.Size = new Size(92, 20);
             lblYearLevel.TabIndex = 3;
             lblYearLevel.Text = "Year Level: -";
             // 
             // lblProgram
             // 
             lblProgram.AutoSize = true;
+            lblProgram.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProgram.Location = new Point(380, 102);
             lblProgram.Margin = new Padding(2, 0, 2, 0);
             lblProgram.Name = "lblProgram";
-            lblProgram.Size = new Size(79, 20);
+            lblProgram.Size = new Size(83, 20);
             lblProgram.TabIndex = 2;
             lblProgram.Text = "Program: -";
             // 
             // lblStudentNumber
             // 
             lblStudentNumber.AutoSize = true;
+            lblStudentNumber.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblStudentNumber.Location = new Point(79, 102);
             lblStudentNumber.Margin = new Padding(2, 0, 2, 0);
             lblStudentNumber.Name = "lblStudentNumber";
-            lblStudentNumber.Size = new Size(131, 20);
+            lblStudentNumber.Size = new Size(138, 20);
             lblStudentNumber.TabIndex = 1;
             lblStudentNumber.Text = "Student Number: -";
             // 
@@ -268,7 +271,7 @@
             Controls.Add(panel1);
             Controls.Add(pnlSidebar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "StudentDashboardForm";

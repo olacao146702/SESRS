@@ -265,6 +265,7 @@
             // 
             lblSectionsTitle.AutoSize = true;
             lblSectionsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSectionsTitle.ForeColor = Color.DarkGreen;
             lblSectionsTitle.Location = new Point(26, 16);
             lblSectionsTitle.Margin = new Padding(2, 0, 2, 0);
             lblSectionsTitle.Name = "lblSectionsTitle";
@@ -299,6 +300,7 @@
             // 
             lblEnrollmentTitle.AutoSize = true;
             lblEnrollmentTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEnrollmentTitle.ForeColor = Color.DarkGreen;
             lblEnrollmentTitle.Location = new Point(10, 16);
             lblEnrollmentTitle.Margin = new Padding(2, 0, 2, 0);
             lblEnrollmentTitle.Name = "lblEnrollmentTitle";
@@ -333,6 +335,7 @@
             // 
             lblSubjectsTitle.AutoSize = true;
             lblSubjectsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubjectsTitle.ForeColor = Color.DarkGreen;
             lblSubjectsTitle.Location = new Point(26, 16);
             lblSubjectsTitle.Margin = new Padding(2, 0, 2, 0);
             lblSubjectsTitle.Name = "lblSubjectsTitle";
@@ -367,6 +370,7 @@
             // 
             lblStudentsTitle.AutoSize = true;
             lblStudentsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStudentsTitle.ForeColor = Color.DarkGreen;
             lblStudentsTitle.Location = new Point(26, 16);
             lblStudentsTitle.Margin = new Padding(2, 0, 2, 0);
             lblStudentsTitle.Name = "lblStudentsTitle";
