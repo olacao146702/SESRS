@@ -43,88 +43,115 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(54, 32);
+            lblTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.DarkGreen;
+            lblTitle.Location = new Point(31, 9);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(180, 25);
+            lblTitle.Size = new Size(359, 46);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Section Management";
             // 
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(54, 115);
+            lblSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(43, 92);
+            lblSearch.Margin = new Padding(2, 0, 2, 0);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(131, 25);
+            lblSearch.Size = new Size(113, 20);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search Section:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(208, 109);
+            txtSearch.Location = new Point(166, 87);
+            txtSearch.Margin = new Padding(2, 2, 2, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(429, 31);
+            txtSearch.Size = new Size(344, 27);
             txtSearch.TabIndex = 2;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(877, 107);
+            btnSearch.BackColor = Color.DarkGreen;
+            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(702, 86);
+            btnSearch.Margin = new Padding(2, 2, 2, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(112, 34);
+            btnSearch.Size = new Size(90, 35);
             btnSearch.TabIndex = 3;
-            btnSearch.Text = "SEARCH";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(995, 107);
+            btnRefresh.BackColor = Color.DarkGreen;
+            btnRefresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(796, 86);
+            btnRefresh.Margin = new Padding(2, 2, 2, 2);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(112, 34);
+            btnRefresh.Size = new Size(90, 35);
             btnRefresh.TabIndex = 4;
-            btnRefresh.Text = "REFRESH";
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
             // 
             // dgvSections
             // 
             dgvSections.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSections.Location = new Point(39, 185);
+            dgvSections.Location = new Point(31, 148);
+            dgvSections.Margin = new Padding(2, 2, 2, 2);
             dgvSections.Name = "dgvSections";
             dgvSections.RowHeadersWidth = 62;
-            dgvSections.Size = new Size(1068, 417);
+            dgvSections.Size = new Size(854, 334);
             dgvSections.TabIndex = 5;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(39, 625);
+            btnAdd.BackColor = Color.DarkGreen;
+            btnAdd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(31, 500);
+            btnAdd.Margin = new Padding(2, 2, 2, 2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(174, 34);
+            btnAdd.Size = new Size(139, 35);
             btnAdd.TabIndex = 6;
-            btnAdd.Text = "ADD SECTION";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Text = "Add Section";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(219, 625);
+            btnEdit.BackColor = Color.DarkGreen;
+            btnEdit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = Color.White;
+            btnEdit.Location = new Point(175, 500);
+            btnEdit.Margin = new Padding(2, 2, 2, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(174, 34);
+            btnEdit.Size = new Size(139, 35);
             btnEdit.TabIndex = 7;
-            btnEdit.Text = "EDIT SECTION";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Text = "Edit Section";
+            btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnDeactivate
             // 
-            btnDeactivate.Location = new Point(399, 625);
+            btnDeactivate.BackColor = Color.DarkGreen;
+            btnDeactivate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeactivate.ForeColor = Color.White;
+            btnDeactivate.Location = new Point(319, 500);
+            btnDeactivate.Margin = new Padding(2, 2, 2, 2);
             btnDeactivate.Name = "btnDeactivate";
-            btnDeactivate.Size = new Size(174, 34);
+            btnDeactivate.Size = new Size(139, 35);
             btnDeactivate.TabIndex = 8;
-            btnDeactivate.Text = "DEACTIVATE";
-            btnDeactivate.UseVisualStyleBackColor = true;
+            btnDeactivate.Text = "Deactivate";
+            btnDeactivate.UseVisualStyleBackColor = false;
             // 
             // SectionManagementForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1178, 744);
+            ClientSize = new Size(942, 595);
             Controls.Add(btnDeactivate);
             Controls.Add(btnEdit);
             Controls.Add(btnAdd);
@@ -134,6 +161,7 @@
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
             Controls.Add(lblTitle);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "SectionManagementForm";
             Text = "Section Management";
             ((System.ComponentModel.ISupportInitialize)dgvSections).EndInit();

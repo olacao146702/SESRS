@@ -42,79 +42,102 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(54, 32);
+            lblTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.DarkGreen;
+            lblTitle.Location = new Point(31, 9);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(183, 25);
+            lblTitle.Size = new Size(366, 46);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Student Management";
             // 
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(54, 115);
+            lblSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(43, 92);
+            lblSearch.Margin = new Padding(2, 0, 2, 0);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(134, 25);
+            lblSearch.Size = new Size(116, 20);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search Student:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(208, 109);
+            txtSearch.Location = new Point(166, 87);
+            txtSearch.Margin = new Padding(2, 2, 2, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(429, 31);
+            txtSearch.Size = new Size(344, 27);
             txtSearch.TabIndex = 2;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(877, 107);
+            btnSearch.BackColor = Color.DarkGreen;
+            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(702, 86);
+            btnSearch.Margin = new Padding(2, 2, 2, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(112, 34);
+            btnSearch.Size = new Size(90, 35);
             btnSearch.TabIndex = 3;
-            btnSearch.Text = "SEARCH";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(995, 107);
+            btnRefresh.BackColor = Color.DarkGreen;
+            btnRefresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(796, 86);
+            btnRefresh.Margin = new Padding(2, 2, 2, 2);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(112, 34);
+            btnRefresh.Size = new Size(90, 35);
             btnRefresh.TabIndex = 4;
-            btnRefresh.Text = "REFRESH";
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
             // 
             // dgvStudents
             // 
             dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(39, 185);
+            dgvStudents.Location = new Point(31, 148);
+            dgvStudents.Margin = new Padding(2, 2, 2, 2);
             dgvStudents.Name = "dgvStudents";
             dgvStudents.RowHeadersWidth = 62;
-            dgvStudents.Size = new Size(1068, 417);
+            dgvStudents.Size = new Size(854, 334);
             dgvStudents.TabIndex = 5;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(753, 625);
+            btnEdit.BackColor = Color.DarkGreen;
+            btnEdit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = Color.White;
+            btnEdit.Location = new Point(602, 500);
+            btnEdit.Margin = new Padding(2, 2, 2, 2);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(174, 34);
+            btnEdit.Size = new Size(139, 35);
             btnEdit.TabIndex = 6;
-            btnEdit.Text = "EDIT STUDENT";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Text = "Edit Student";
+            btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnDeactivate
             // 
-            btnDeactivate.Location = new Point(933, 625);
+            btnDeactivate.BackColor = Color.DarkGreen;
+            btnDeactivate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeactivate.ForeColor = Color.White;
+            btnDeactivate.Location = new Point(746, 500);
+            btnDeactivate.Margin = new Padding(2, 2, 2, 2);
             btnDeactivate.Name = "btnDeactivate";
-            btnDeactivate.Size = new Size(174, 34);
+            btnDeactivate.Size = new Size(139, 35);
             btnDeactivate.TabIndex = 7;
-            btnDeactivate.Text = "DEACTIVATE";
-            btnDeactivate.UseVisualStyleBackColor = true;
+            btnDeactivate.Text = "Deactivate";
+            btnDeactivate.UseVisualStyleBackColor = false;
             // 
             // StudentManagementForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1178, 744);
+            ClientSize = new Size(942, 595);
             Controls.Add(btnDeactivate);
             Controls.Add(btnEdit);
             Controls.Add(dgvStudents);
@@ -123,6 +146,7 @@
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
             Controls.Add(lblTitle);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "StudentManagementForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Management";

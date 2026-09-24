@@ -43,88 +43,115 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(54, 32);
+            lblTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.DarkGreen;
+            lblTitle.Location = new Point(31, 9);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(207, 25);
+            lblTitle.Size = new Size(418, 46);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Enrollment Management";
             // 
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(54, 115);
+            lblSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(43, 92);
+            lblSearch.Margin = new Padding(2, 0, 2, 0);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(134, 25);
+            lblSearch.Size = new Size(116, 20);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search Student:";
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(208, 109);
+            txtSearch.Location = new Point(166, 87);
+            txtSearch.Margin = new Padding(2, 2, 2, 2);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(429, 31);
+            txtSearch.Size = new Size(344, 27);
             txtSearch.TabIndex = 2;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(877, 107);
+            btnSearch.BackColor = Color.DarkGreen;
+            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(702, 86);
+            btnSearch.Margin = new Padding(2, 2, 2, 2);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(112, 34);
+            btnSearch.Size = new Size(90, 35);
             btnSearch.TabIndex = 3;
-            btnSearch.Text = "SEARCH";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(995, 107);
+            btnRefresh.BackColor = Color.DarkGreen;
+            btnRefresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(796, 86);
+            btnRefresh.Margin = new Padding(2, 2, 2, 2);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(112, 34);
+            btnRefresh.Size = new Size(90, 35);
             btnRefresh.TabIndex = 4;
-            btnRefresh.Text = "REFRESH";
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
             // 
             // dgvEnrollments
             // 
             dgvEnrollments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEnrollments.Location = new Point(39, 185);
+            dgvEnrollments.Location = new Point(31, 148);
+            dgvEnrollments.Margin = new Padding(2, 2, 2, 2);
             dgvEnrollments.Name = "dgvEnrollments";
             dgvEnrollments.RowHeadersWidth = 62;
-            dgvEnrollments.Size = new Size(1068, 417);
+            dgvEnrollments.Size = new Size(854, 334);
             dgvEnrollments.TabIndex = 5;
             // 
             // btnViewDetails
             // 
-            btnViewDetails.Location = new Point(39, 625);
+            btnViewDetails.BackColor = Color.DarkGreen;
+            btnViewDetails.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnViewDetails.ForeColor = Color.White;
+            btnViewDetails.Location = new Point(31, 500);
+            btnViewDetails.Margin = new Padding(2, 2, 2, 2);
             btnViewDetails.Name = "btnViewDetails";
-            btnViewDetails.Size = new Size(174, 34);
+            btnViewDetails.Size = new Size(145, 35);
             btnViewDetails.TabIndex = 6;
-            btnViewDetails.Text = "VIEW DETAILS";
-            btnViewDetails.UseVisualStyleBackColor = true;
+            btnViewDetails.Text = "View Details";
+            btnViewDetails.UseVisualStyleBackColor = false;
             // 
             // btnEnroll
             // 
-            btnEnroll.Location = new Point(219, 625);
+            btnEnroll.BackColor = Color.DarkGreen;
+            btnEnroll.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEnroll.ForeColor = Color.White;
+            btnEnroll.Location = new Point(175, 500);
+            btnEnroll.Margin = new Padding(2, 2, 2, 2);
             btnEnroll.Name = "btnEnroll";
-            btnEnroll.Size = new Size(174, 34);
+            btnEnroll.Size = new Size(145, 35);
             btnEnroll.TabIndex = 7;
-            btnEnroll.Text = "ENROLL STUDENT";
-            btnEnroll.UseVisualStyleBackColor = true;
+            btnEnroll.Text = "Enroll Student";
+            btnEnroll.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(399, 625);
+            btnCancel.BackColor = Color.DarkGreen;
+            btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(319, 500);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(174, 34);
+            btnCancel.Size = new Size(145, 35);
             btnCancel.TabIndex = 8;
-            btnCancel.Text = "CANCEL ENROLLMENT";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Text = "Cancel Enrollment";
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // EnrollmentManagementForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1178, 744);
+            ClientSize = new Size(942, 595);
             Controls.Add(btnCancel);
             Controls.Add(btnEnroll);
             Controls.Add(btnViewDetails);
@@ -134,6 +161,7 @@
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
             Controls.Add(lblTitle);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "EnrollmentManagementForm";
             Text = "Enrollment Management";
             Load += EnrollmentManagementForm_Load;
