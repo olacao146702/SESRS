@@ -30,3 +30,11 @@ C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.Sub
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.SectionManagementForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EnrollmentManagementForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.ReportsForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditStudentForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.ProgramManagementForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.AddProgramForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditProgramForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.AddSubjectForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditSubjectForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.AddSectionForm.resources
+C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditSectionForm.resources

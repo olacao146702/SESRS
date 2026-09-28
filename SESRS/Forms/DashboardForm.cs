@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using SESRS.Services;
 
 namespace SESRS.Forms
 {
     public partial class DashboardForm : Form
     {
+        private bool academicsExpanded = false;
+
+        private readonly StudentService _studentService = new();
+        private readonly SubjectService _subjectService = new();
+        private readonly SectionService _sectionService = new();
+
         public DashboardForm()
         {
             InitializeComponent();
@@ -12,7 +19,24 @@ namespace SESRS.Forms
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
+            CollapseAcademics();
             ShowDashboard();
+            LoadDashboardCounts();
+        }
+
+        private void LoadDashboardCounts()
+        {
+            lblStudentsCount.Text =
+                _studentService.GetTotalStudents().ToString();
+
+            lblSubjectsCount.Text =
+                _subjectService.GetTotalSubjects().ToString();
+
+            lblActiveStudentsCount.Text =
+                _studentService.GetTotalActiveStudents().ToString();
+
+            lblSectionsCount.Text =
+                _sectionService.GetTotalSections().ToString();
         }
 
         private void ShowDashboard()
@@ -47,16 +71,54 @@ namespace SESRS.Forms
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ShowDashboard();
+            LoadDashboardCounts();
         }
 
-        private void btnPendingStudents_Click(object sender, EventArgs e)
-        {
-            ShowPage(new PendingStudentsForm());
-
-        }
         private void btnStudents_Click(object sender, EventArgs e)
         {
             ShowPage(new StudentManagementForm());
+        }
+
+        // =========================
+        // ACADEMICS
+        // =========================
+
+        private void btnAcademics_Click(object sender, EventArgs e)
+        {
+            academicsExpanded = !academicsExpanded;
+
+            btnPrograms.Visible = academicsExpanded;
+            btnSubjects.Visible = academicsExpanded;
+            btnSections.Visible = academicsExpanded;
+
+            if (academicsExpanded)
+            {
+                btnAcademics.Text = "ACADEMICS ▲";
+                pnlAcademics.Height = 180;
+            }
+            else
+            {
+                btnAcademics.Text = "ACADEMICS ▼";
+                pnlAcademics.Height = 45;
+            }
+        }
+
+        private void CollapseAcademics()
+        {
+            academicsExpanded = false;
+
+            btnPrograms.Visible = false;
+            btnSubjects.Visible = false;
+            btnSections.Visible = false;
+
+            btnAcademics.Text = "ACADEMICS ▼";
+
+            pnlAcademics.Height = 45;
+        }
+
+        private void btnPrograms_Click(object sender, EventArgs e)
+        {
+            ShowPage(new ProgramManagementForm());
         }
 
         private void btnSubjects_Click(object sender, EventArgs e)
@@ -69,6 +131,10 @@ namespace SESRS.Forms
             ShowPage(new SectionManagementForm());
         }
 
+        // =========================
+        // OTHER MODULES
+        // =========================
+
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
             ShowPage(new EnrollmentManagementForm());
@@ -78,6 +144,15 @@ namespace SESRS.Forms
         {
             ShowPage(new ReportsForm());
         }
+
+        private void btnPendingStudents_Click(object sender, EventArgs e)
+        {
+            ShowPage(new PendingStudentsForm());
+        }
+
+        // =========================
+        // LOGOUT
+        // =========================
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

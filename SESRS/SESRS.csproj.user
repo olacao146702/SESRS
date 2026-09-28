@@ -1,7 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Forms\AddProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AddSectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AddSubjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EditProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EditSectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EditSubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\EnrollmentManagementForm.cs">
@@ -11,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\PendingStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProgramManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\ReportsForm.cs">

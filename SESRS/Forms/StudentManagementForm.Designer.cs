@@ -63,6 +63,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(429, 31);
             txtSearch.TabIndex = 2;
+            txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // btnSearch
             // 
@@ -72,6 +73,7 @@
             btnSearch.TabIndex = 3;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnRefresh
             // 
@@ -100,6 +102,7 @@
             btnEdit.TabIndex = 6;
             btnEdit.Text = "EDIT STUDENT";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDeactivate
             // 
@@ -109,6 +112,7 @@
             btnDeactivate.TabIndex = 7;
             btnDeactivate.Text = "DEACTIVATE";
             btnDeactivate.UseVisualStyleBackColor = true;
+            btnDeactivate.Click += btnDeactivate_Click;
             // 
             // StudentManagementForm
             // 

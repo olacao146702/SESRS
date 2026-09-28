@@ -5,11 +5,11 @@ using SESRS.Services;
 
 namespace SESRS.Forms
 {
-    public partial class SubjectManagementForm : Form
+    public partial class ProgramManagementForm : Form
     {
-        private readonly SubjectService _subjectService = new();
+        private readonly ProgramService _programService = new();
 
-        public SubjectManagementForm()
+        public ProgramManagementForm()
         {
             InitializeComponent();
 
@@ -17,15 +17,15 @@ namespace SESRS.Forms
             TopLevel = false;
             Dock = DockStyle.Fill;
 
-            dgvSubjects.SelectionChanged += dgvSubjects_SelectionChanged;
+            dgvPrograms.SelectionChanged += dgvPrograms_SelectionChanged;
         }
 
-        private void SubjectManagementForm_Load(object sender, EventArgs e)
+        private void ProgramManagementForm_Load(object sender, EventArgs e)
         {
-            LoadSubjects();
+            LoadPrograms();
         }
 
-        private void LoadSubjects(int? selectedSubjectId = null)
+        private void LoadPrograms(int? selectedProgramId = null)
         {
             try
             {
@@ -37,62 +37,54 @@ namespace SESRS.Forms
                 if (string.IsNullOrWhiteSpace(keyword))
                 {
                     table =
-                        _subjectService.GetAllSubjects();
+                        _programService.GetAllPrograms();
                 }
                 else
                 {
                     table =
-                        _subjectService.SearchSubjects(keyword);
+                        _programService.SearchPrograms(keyword);
                 }
 
-                dgvSubjects.AutoGenerateColumns = true;
-                dgvSubjects.DataSource = table;
+                dgvPrograms.AutoGenerateColumns = true;
+                dgvPrograms.DataSource = table;
 
-                dgvSubjects.AutoSizeColumnsMode =
+                dgvPrograms.AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill;
 
-                dgvSubjects.ReadOnly = true;
+                dgvPrograms.ReadOnly = true;
 
-                dgvSubjects.SelectionMode =
+                dgvPrograms.SelectionMode =
                     DataGridViewSelectionMode.FullRowSelect;
 
-                dgvSubjects.MultiSelect = false;
+                dgvPrograms.MultiSelect = false;
 
-                DataGridViewColumn? subjectIdColumn =
-                    dgvSubjects.Columns["subject_id"];
+                DataGridViewColumn? programIdColumn =
+                    dgvPrograms.Columns["program_id"];
 
-                if (subjectIdColumn != null)
+                if (programIdColumn != null)
                 {
-                    subjectIdColumn.Visible = false;
-                }
-
-                DataGridViewColumn? descriptionColumn =
-                    dgvSubjects.Columns["description"];
-
-                if (descriptionColumn != null)
-                {
-                    descriptionColumn.Visible = false;
+                    programIdColumn.Visible = false;
                 }
 
                 UpdateDeactivateButtonText();
 
-                if (selectedSubjectId.HasValue)
+                if (selectedProgramId.HasValue)
                 {
                     BeginInvoke(new Action(() =>
                     {
-                        foreach (DataGridViewRow row in dgvSubjects.Rows)
+                        foreach (DataGridViewRow row in dgvPrograms.Rows)
                         {
-                            if (row.Cells["subject_id"].Value != null &&
+                            if (row.Cells["program_id"].Value != null &&
                                 Convert.ToInt32(
-                                    row.Cells["subject_id"].Value
-                                ) == selectedSubjectId.Value)
+                                    row.Cells["program_id"].Value
+                                ) == selectedProgramId.Value)
                             {
-                                dgvSubjects.ClearSelection();
+                                dgvPrograms.ClearSelection();
 
                                 row.Selected = true;
 
-                                dgvSubjects.CurrentCell =
-                                    row.Cells["subject_code"];
+                                dgvPrograms.CurrentCell =
+                                    row.Cells["program_code"];
 
                                 UpdateDeactivateButtonText();
 
@@ -105,7 +97,7 @@ namespace SESRS.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Failed to load subjects.\n\n" +
+                    "Failed to load programs.\n\n" +
                     ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
@@ -116,14 +108,14 @@ namespace SESRS.Forms
 
         private void UpdateDeactivateButtonText()
         {
-            if (dgvSubjects.SelectedRows.Count == 0)
+            if (dgvPrograms.SelectedRows.Count == 0)
             {
                 btnDeactivate.Text = "DEACTIVATE";
                 return;
             }
 
             DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
+                dgvPrograms.SelectedRows[0];
 
             string status =
                 row.Cells["status"].Value?.ToString() ?? "";
@@ -140,55 +132,27 @@ namespace SESRS.Forms
             }
         }
 
-        private void dgvSubjects_SelectionChanged(object? sender, EventArgs e)
-        {
-            UpdateDeactivateButtonText();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
-
-            LoadSubjects();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            LoadSubjects();
-        }
-
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSearch_Click(sender, e);
-
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-            }
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddSubjectForm addForm =
-                new AddSubjectForm();
+            AddProgramForm addForm =
+                new AddProgramForm();
 
             DialogResult result =
                 addForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                LoadSubjects();
+                LoadPrograms();
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvSubjects.SelectedRows.Count == 0)
+            if (dgvPrograms.SelectedRows.Count == 0)
             {
                 MessageBox.Show(
-                    "Please select a subject first.",
-                    "Edit Subject",
+                    "Please select a program first.",
+                    "Edit Program",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -197,32 +161,32 @@ namespace SESRS.Forms
             }
 
             DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
+                dgvPrograms.SelectedRows[0];
 
-            int subjectId =
+            int programId =
                 Convert.ToInt32(
-                    row.Cells["subject_id"].Value
+                    row.Cells["program_id"].Value
                 );
 
-            EditSubjectForm editForm =
-                new EditSubjectForm(subjectId);
+            EditProgramForm editForm =
+                new EditProgramForm(programId);
 
             DialogResult result =
                 editForm.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                LoadSubjects(subjectId);
+                LoadPrograms(programId);
             }
         }
 
         private void btnDeactivate_Click(object sender, EventArgs e)
         {
-            if (dgvSubjects.SelectedRows.Count == 0)
+            if (dgvPrograms.SelectedRows.Count == 0)
             {
                 MessageBox.Show(
-                    "Please select a subject first.",
-                    "Subject Status",
+                    "Please select a program first.",
+                    "Program Status",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -231,11 +195,11 @@ namespace SESRS.Forms
             }
 
             DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
+                dgvPrograms.SelectedRows[0];
 
-            int subjectId =
+            int programId =
                 Convert.ToInt32(
-                    row.Cells["subject_id"].Value
+                    row.Cells["program_id"].Value
                 );
 
             string status =
@@ -251,8 +215,8 @@ namespace SESRS.Forms
                 isActive ? "deactivate" : "activate";
 
             DialogResult result = MessageBox.Show(
-                $"Are you sure you want to {action} this subject?",
-                $"{(isActive ? "Deactivate" : "Activate")} Subject",
+                $"Are you sure you want to {action} this program?",
+                $"{(isActive ? "Deactivate" : "Activate")} Program",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
@@ -265,24 +229,24 @@ namespace SESRS.Forms
             try
             {
                 bool success =
-                    _subjectService.ToggleSubjectStatus(subjectId);
+                    _programService.ToggleProgramStatus(programId);
 
                 if (success)
                 {
                     MessageBox.Show(
-                        $"Subject has been {action}d successfully.",
-                        "Subject Status",
+                        $"Program has been {action}d successfully.",
+                        "Program Status",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
 
-                    LoadSubjects(subjectId);
+                    LoadPrograms(programId);
                 }
                 else
                 {
                     MessageBox.Show(
-                        $"Subject could not be {action}d.",
-                        "Subject Status",
+                        $"Program could not be {action}d.",
+                        "Program Status",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
@@ -291,13 +255,41 @@ namespace SESRS.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    $"Failed to {action} subject.\n\n" +
+                    $"Failed to {action} program.\n\n" +
                     ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadPrograms();
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(sender, e);
+
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+
+            LoadPrograms();
+        }
+
+        private void dgvPrograms_SelectionChanged(object? sender,EventArgs e)
+        {
+            UpdateDeactivateButtonText();
         }
     }
 }

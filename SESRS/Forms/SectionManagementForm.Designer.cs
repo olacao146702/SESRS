@@ -64,6 +64,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(429, 31);
             txtSearch.TabIndex = 2;
+            txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // btnSearch
             // 
@@ -73,6 +74,7 @@
             btnSearch.TabIndex = 3;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnRefresh
             // 
@@ -101,6 +103,7 @@
             btnAdd.TabIndex = 6;
             btnAdd.Text = "ADD SECTION";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -110,6 +113,7 @@
             btnEdit.TabIndex = 7;
             btnEdit.Text = "EDIT SECTION";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDeactivate
             // 
@@ -119,6 +123,7 @@
             btnDeactivate.TabIndex = 8;
             btnDeactivate.Text = "DEACTIVATE";
             btnDeactivate.UseVisualStyleBackColor = true;
+            btnDeactivate.Click += btnDeactivate_Click;
             // 
             // SectionManagementForm
             // 
@@ -137,6 +142,7 @@
             Name = "SectionManagementForm";
             Text = "Section Management";
             ((System.ComponentModel.ISupportInitialize)dgvSections).EndInit();
+            Load += SectionManagementForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

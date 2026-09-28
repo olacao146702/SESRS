@@ -506,4 +506,233 @@ public class StudentService
 
         return table;
     }
+
+    public DataTable SearchStudents(string keyword)
+    {
+        DataTable table = new DataTable();
+
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+        SELECT
+            s.student_id,
+            s.student_number,
+            CONCAT(
+                s.first_name, ' ',
+                IFNULL(s.middle_name, ''), ' ',
+                s.last_name
+            ) AS student_name,
+            s.email,
+            p.program_code,
+            p.program_name,
+            s.year_level,
+            s.gender,
+            s.phone,
+            s.status
+        FROM students s
+        LEFT JOIN programs p
+            ON s.program_id = p.program_id
+        WHERE
+            s.student_number LIKE @keyword
+            OR CONCAT(
+                s.first_name, ' ',
+                IFNULL(s.middle_name, ''), ' ',
+                s.last_name
+            ) LIKE @keyword
+            OR s.email LIKE @keyword
+            OR p.program_code LIKE @keyword
+            OR p.program_name LIKE @keyword
+            OR s.status LIKE @keyword
+        ORDER BY s.student_number;
+        """;
+
+        using var command = new MySqlCommand(query, connection);
+
+        command.Parameters.AddWithValue(
+            "@keyword",
+            "%" + keyword + "%"
+        );
+
+        using var adapter = new MySqlDataAdapter(command);
+
+        adapter.Fill(table);
+
+        return table;
+    }
+
+    public DataTable GetStudentById(int studentId)
+    {
+        DataTable table = new DataTable();
+
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+        SELECT
+            s.student_id,
+            s.student_number,
+            s.first_name,
+            s.middle_name,
+            s.last_name,
+            s.gender,
+            s.birth_date,
+            s.email,
+            s.phone,
+            s.address,
+            s.program_id,
+            s.year_level,
+            s.status
+        FROM students s
+        WHERE s.student_id = @studentId;
+        """;
+
+        using var command = new MySqlCommand(query, connection);
+
+        command.Parameters.AddWithValue(
+            "@studentId",
+            studentId
+        );
+
+        using var adapter = new MySqlDataAdapter(command);
+
+        adapter.Fill(table);
+
+        return table;
+    }
+
+    public bool UpdateStudent(
+    int studentId,
+    string firstName,
+    string middleName,
+    string lastName,
+    string gender,
+    DateTime birthDate,
+    string email,
+    string phone,
+    string address,
+    int programId,
+    int yearLevel)
+    {
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+    UPDATE students
+    SET
+        first_name = @firstName,
+        middle_name = @middleName,
+        last_name = @lastName,
+        gender = @gender,
+        birth_date = @birthDate,
+        email = @email,
+        phone = @phone,
+        address = @address,
+        program_id = @programId,
+        year_level = @yearLevel
+    WHERE student_id = @studentId;
+    """;
+
+        using var command = new MySqlCommand(query, connection);
+
+        command.Parameters.AddWithValue(
+            "@firstName",
+            firstName);
+
+        command.Parameters.AddWithValue(
+            "@middleName",
+            middleName);
+
+        command.Parameters.AddWithValue(
+            "@lastName",
+            lastName);
+
+        command.Parameters.AddWithValue(
+            "@gender",
+            gender);
+
+        command.Parameters.AddWithValue(
+            "@birthDate",
+            birthDate);
+
+        command.Parameters.AddWithValue(
+            "@email",
+            email);
+
+        command.Parameters.AddWithValue(
+            "@phone",
+            phone);
+
+        command.Parameters.AddWithValue(
+            "@address",
+            address);
+
+        command.Parameters.AddWithValue(
+            "@programId",
+            programId);
+
+        command.Parameters.AddWithValue(
+            "@yearLevel",
+            yearLevel);
+
+        command.Parameters.AddWithValue(
+            "@studentId",
+            studentId);
+
+        int rowsAffected = command.ExecuteNonQuery();
+
+        return rowsAffected > 0;
+    }
+
+    public bool ToggleStudentStatus(int studentId)
+    {
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+    UPDATE students
+    SET status =
+        CASE
+            WHEN status = 'Active' THEN 'Inactive'
+            ELSE 'Active'
+        END
+    WHERE student_id = @studentId;
+    """;
+
+        using var command = new MySqlCommand(query, connection);
+
+        command.Parameters.AddWithValue("@studentId", studentId);
+
+        int rowsAffected = command.ExecuteNonQuery();
+
+        return rowsAffected > 0;
+    }
+
+    public int GetTotalStudents()
+    {
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = "SELECT COUNT(*) FROM students;";
+
+        using var command = new MySqlCommand(query, connection);
+
+        return Convert.ToInt32(command.ExecuteScalar());
+    }
+
+    public int GetTotalActiveStudents()
+    {
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        string query = """
+        SELECT COUNT(*)
+        FROM students
+        WHERE status = 'Active';
+        """;
+
+        using var command = new MySqlCommand(query, connection);
+
+        return Convert.ToInt32(command.ExecuteScalar());
+    }
 }

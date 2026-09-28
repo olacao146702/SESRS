@@ -10,13 +10,15 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.
+        /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -30,14 +32,17 @@
         {
             pnlSidebar = new Panel();
             btnPendingStudents = new Button();
-            btnLogout = new Button();
             btnReports = new Button();
             btnEnrollment = new Button();
+            pnlAcademics = new Panel();
             btnSections = new Button();
             btnSubjects = new Button();
+            btnPrograms = new Button();
+            btnAcademics = new Button();
             btnStudents = new Button();
             btnDashboard = new Button();
             lblLogo = new Label();
+            btnLogout = new Button();
             pnlContent = new Panel();
             pnlSectionsCard = new Panel();
             lblSectionsCount = new Label();
@@ -49,30 +54,34 @@
             lblSubjectsCount = new Label();
             lblSubjectsTitle = new Label();
             pnlStudentsCard = new Panel();
+            pnlActiveStudentsCard = new Panel();
+            lblActiveStudentsCount = new Label();
+            lblActiveStudentsTitle = new Label();
             lblStudentsCount = new Label();
             lblStudentsTitle = new Label();
             lblWelcome = new Label();
             lblDashboardTitle = new Label();
             pnlSidebar.SuspendLayout();
+            pnlAcademics.SuspendLayout();
             pnlContent.SuspendLayout();
             pnlSectionsCard.SuspendLayout();
             pnlEnrollmentCard.SuspendLayout();
             pnlSubjectsCard.SuspendLayout();
             pnlStudentsCard.SuspendLayout();
+            pnlActiveStudentsCard.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.DarkGreen;
             pnlSidebar.Controls.Add(btnPendingStudents);
-            pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnReports);
             pnlSidebar.Controls.Add(btnEnrollment);
-            pnlSidebar.Controls.Add(btnSections);
-            pnlSidebar.Controls.Add(btnSubjects);
+            pnlSidebar.Controls.Add(pnlAcademics);
             pnlSidebar.Controls.Add(btnStudents);
             pnlSidebar.Controls.Add(btnDashboard);
             pnlSidebar.Controls.Add(lblLogo);
+            pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
@@ -82,7 +91,7 @@
             // btnPendingStudents
             // 
             btnPendingStudents.Dock = DockStyle.Top;
-            btnPendingStudents.Location = new Point(0, 330);
+            btnPendingStudents.Location = new Point(0, 420);
             btnPendingStudents.Name = "btnPendingStudents";
             btnPendingStudents.Size = new Size(220, 45);
             btnPendingStudents.TabIndex = 7;
@@ -90,21 +99,10 @@
             btnPendingStudents.UseVisualStyleBackColor = true;
             btnPendingStudents.Click += btnPendingStudents_Click;
             // 
-            // btnLogout
-            // 
-            btnLogout.Dock = DockStyle.Bottom;
-            btnLogout.Location = new Point(0, 599);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(220, 45);
-            btnLogout.TabIndex = 1;
-            btnLogout.Text = "LOGOUT";
-            btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
-            // 
             // btnReports
             // 
             btnReports.Dock = DockStyle.Top;
-            btnReports.Location = new Point(0, 285);
+            btnReports.Location = new Point(0, 375);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(220, 45);
             btnReports.TabIndex = 6;
@@ -115,7 +113,7 @@
             // btnEnrollment
             // 
             btnEnrollment.Dock = DockStyle.Top;
-            btnEnrollment.Location = new Point(0, 240);
+            btnEnrollment.Location = new Point(0, 330);
             btnEnrollment.Name = "btnEnrollment";
             btnEnrollment.Size = new Size(220, 45);
             btnEnrollment.TabIndex = 5;
@@ -123,10 +121,24 @@
             btnEnrollment.UseVisualStyleBackColor = true;
             btnEnrollment.Click += btnEnrollment_Click;
             // 
+            // pnlAcademics
+            // 
+            pnlAcademics.AutoSize = true;
+            pnlAcademics.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            pnlAcademics.Controls.Add(btnSections);
+            pnlAcademics.Controls.Add(btnSubjects);
+            pnlAcademics.Controls.Add(btnPrograms);
+            pnlAcademics.Controls.Add(btnAcademics);
+            pnlAcademics.Dock = DockStyle.Top;
+            pnlAcademics.Location = new Point(0, 150);
+            pnlAcademics.Name = "pnlAcademics";
+            pnlAcademics.Size = new Size(220, 180);
+            pnlAcademics.TabIndex = 10;
+            // 
             // btnSections
             // 
             btnSections.Dock = DockStyle.Top;
-            btnSections.Location = new Point(0, 195);
+            btnSections.Location = new Point(0, 135);
             btnSections.Name = "btnSections";
             btnSections.Size = new Size(220, 45);
             btnSections.TabIndex = 4;
@@ -137,13 +149,35 @@
             // btnSubjects
             // 
             btnSubjects.Dock = DockStyle.Top;
-            btnSubjects.Location = new Point(0, 150);
+            btnSubjects.Location = new Point(0, 90);
             btnSubjects.Name = "btnSubjects";
             btnSubjects.Size = new Size(220, 45);
             btnSubjects.TabIndex = 3;
             btnSubjects.Text = "SUBJECTS";
             btnSubjects.UseVisualStyleBackColor = true;
             btnSubjects.Click += btnSubjects_Click;
+            // 
+            // btnPrograms
+            // 
+            btnPrograms.Dock = DockStyle.Top;
+            btnPrograms.Location = new Point(0, 45);
+            btnPrograms.Name = "btnPrograms";
+            btnPrograms.Size = new Size(220, 45);
+            btnPrograms.TabIndex = 8;
+            btnPrograms.Text = "PROGRAMS";
+            btnPrograms.UseVisualStyleBackColor = true;
+            btnPrograms.Click += btnPrograms_Click;
+            // 
+            // btnAcademics
+            // 
+            btnAcademics.Dock = DockStyle.Top;
+            btnAcademics.Location = new Point(0, 0);
+            btnAcademics.Name = "btnAcademics";
+            btnAcademics.Size = new Size(220, 45);
+            btnAcademics.TabIndex = 9;
+            btnAcademics.Text = "ACADEMICS ▼";
+            btnAcademics.UseVisualStyleBackColor = true;
+            btnAcademics.Click += btnAcademics_Click;
             // 
             // btnStudents
             // 
@@ -180,6 +214,17 @@
             lblLogo.Text = "SESRS";
             lblLogo.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnLogout
+            // 
+            btnLogout.Dock = DockStyle.Bottom;
+            btnLogout.Location = new Point(0, 599);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(220, 45);
+            btnLogout.TabIndex = 1;
+            btnLogout.Text = "LOGOUT";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // pnlContent
             // 
             pnlContent.BackColor = Color.WhiteSmoke;
@@ -201,7 +246,7 @@
             pnlSectionsCard.BorderStyle = BorderStyle.FixedSingle;
             pnlSectionsCard.Controls.Add(lblSectionsCount);
             pnlSectionsCard.Controls.Add(lblSectionsTitle);
-            pnlSectionsCard.Location = new Point(337, 295);
+            pnlSectionsCard.Location = new Point(337, 385);
             pnlSectionsCard.Name = "pnlSectionsCard";
             pnlSectionsCard.Size = new Size(250, 130);
             pnlSectionsCard.TabIndex = 5;
@@ -232,7 +277,7 @@
             pnlEnrollmentCard.BorderStyle = BorderStyle.FixedSingle;
             pnlEnrollmentCard.Controls.Add(lblEnrollmentCount);
             pnlEnrollmentCard.Controls.Add(lblEnrollmentTitle);
-            pnlEnrollmentCard.Location = new Point(45, 295);
+            pnlEnrollmentCard.Location = new Point(45, 385);
             pnlEnrollmentCard.Name = "pnlEnrollmentCard";
             pnlEnrollmentCard.Size = new Size(250, 130);
             pnlEnrollmentCard.TabIndex = 4;
@@ -265,14 +310,14 @@
             pnlSubjectsCard.Controls.Add(lblSubjectsTitle);
             pnlSubjectsCard.Location = new Point(337, 135);
             pnlSubjectsCard.Name = "pnlSubjectsCard";
-            pnlSubjectsCard.Size = new Size(250, 130);
+            pnlSubjectsCard.Size = new Size(250, 220);
             pnlSubjectsCard.TabIndex = 3;
             // 
             // lblSubjectsCount
             // 
             lblSubjectsCount.AutoSize = true;
             lblSubjectsCount.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSubjectsCount.Location = new Point(95, 50);
+            lblSubjectsCount.Location = new Point(95, 75);
             lblSubjectsCount.Name = "lblSubjectsCount";
             lblSubjectsCount.Size = new Size(56, 65);
             lblSubjectsCount.TabIndex = 1;
@@ -282,7 +327,7 @@
             // 
             lblSubjectsTitle.AutoSize = true;
             lblSubjectsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSubjectsTitle.Location = new Point(33, 20);
+            lblSubjectsTitle.Location = new Point(33, 25);
             lblSubjectsTitle.Name = "lblSubjectsTitle";
             lblSubjectsTitle.Size = new Size(171, 28);
             lblSubjectsTitle.TabIndex = 0;
@@ -292,18 +337,49 @@
             // 
             pnlStudentsCard.BackColor = Color.White;
             pnlStudentsCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlStudentsCard.Controls.Add(pnlActiveStudentsCard);
             pnlStudentsCard.Controls.Add(lblStudentsCount);
             pnlStudentsCard.Controls.Add(lblStudentsTitle);
             pnlStudentsCard.Location = new Point(45, 135);
             pnlStudentsCard.Name = "pnlStudentsCard";
-            pnlStudentsCard.Size = new Size(250, 130);
+            pnlStudentsCard.Size = new Size(250, 220);
             pnlStudentsCard.TabIndex = 2;
+            // 
+            // pnlActiveStudentsCard
+            // 
+            pnlActiveStudentsCard.BackColor = Color.WhiteSmoke;
+            pnlActiveStudentsCard.Controls.Add(lblActiveStudentsCount);
+            pnlActiveStudentsCard.Controls.Add(lblActiveStudentsTitle);
+            pnlActiveStudentsCard.Location = new Point(1, 120);
+            pnlActiveStudentsCard.Name = "pnlActiveStudentsCard";
+            pnlActiveStudentsCard.Size = new Size(246, 98);
+            pnlActiveStudentsCard.TabIndex = 6;
+            // 
+            // lblActiveStudentsCount
+            // 
+            lblActiveStudentsCount.AutoSize = true;
+            lblActiveStudentsCount.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblActiveStudentsCount.Location = new Point(105, 45);
+            lblActiveStudentsCount.Name = "lblActiveStudentsCount";
+            lblActiveStudentsCount.Size = new Size(38, 45);
+            lblActiveStudentsCount.TabIndex = 1;
+            lblActiveStudentsCount.Text = "0";
+            // 
+            // lblActiveStudentsTitle
+            // 
+            lblActiveStudentsTitle.AutoSize = true;
+            lblActiveStudentsTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblActiveStudentsTitle.Location = new Point(15, 15);
+            lblActiveStudentsTitle.Name = "lblActiveStudentsTitle";
+            lblActiveStudentsTitle.Size = new Size(172, 25);
+            lblActiveStudentsTitle.TabIndex = 0;
+            lblActiveStudentsTitle.Text = "ACTIVE STUDENTS";
             // 
             // lblStudentsCount
             // 
             lblStudentsCount.AutoSize = true;
             lblStudentsCount.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentsCount.Location = new Point(95, 50);
+            lblStudentsCount.Location = new Point(95, 45);
             lblStudentsCount.Name = "lblStudentsCount";
             lblStudentsCount.Size = new Size(56, 65);
             lblStudentsCount.TabIndex = 1;
@@ -313,7 +389,7 @@
             // 
             lblStudentsTitle.AutoSize = true;
             lblStudentsTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudentsTitle.Location = new Point(33, 20);
+            lblStudentsTitle.Location = new Point(33, 15);
             lblStudentsTitle.Name = "lblStudentsTitle";
             lblStudentsTitle.Size = new Size(180, 28);
             lblStudentsTitle.TabIndex = 0;
@@ -353,6 +429,7 @@
             Load += DashboardForm_Load;
             pnlSidebar.ResumeLayout(false);
             pnlSidebar.PerformLayout();
+            pnlAcademics.ResumeLayout(false);
             pnlContent.ResumeLayout(false);
             pnlContent.PerformLayout();
             pnlSectionsCard.ResumeLayout(false);
@@ -363,35 +440,49 @@
             pnlSubjectsCard.PerformLayout();
             pnlStudentsCard.ResumeLayout(false);
             pnlStudentsCard.PerformLayout();
+            pnlActiveStudentsCard.ResumeLayout(false);
+            pnlActiveStudentsCard.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlSidebar;
-        private Label lblLogo;
+        private Panel pnlAcademics;
+        private Button btnAcademics;
+        private Button btnPrograms;
         private Button btnDashboard;
         private Button btnStudents;
         private Button btnSubjects;
         private Button btnSections;
         private Button btnEnrollment;
         private Button btnReports;
+        private Button btnPendingStudents;
         private Button btnLogout;
+        private Label lblLogo;
+
         private Panel pnlContent;
         private Label lblDashboardTitle;
         private Label lblWelcome;
+
         private Panel pnlStudentsCard;
         private Label lblStudentsTitle;
         private Label lblStudentsCount;
-        private Panel pnlSectionsCard;
-        private Label lblSectionsCount;
-        private Label lblSectionsTitle;
-        private Panel pnlEnrollmentCard;
-        private Label lblEnrollmentCount;
-        private Label lblEnrollmentTitle;
+
         private Panel pnlSubjectsCard;
-        private Label lblSubjectsCount;
         private Label lblSubjectsTitle;
-        private Button btnPendingStudents;
+        private Label lblSubjectsCount;
+
+        private Panel pnlActiveStudentsCard;
+        private Label lblActiveStudentsTitle;
+        private Label lblActiveStudentsCount;
+
+        private Panel pnlSectionsCard;
+        private Label lblSectionsTitle;
+        private Label lblSectionsCount;
+
+        private Panel pnlEnrollmentCard;
+        private Label lblEnrollmentTitle;
+        private Label lblEnrollmentCount;
     }
 }
