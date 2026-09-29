@@ -28,6 +28,9 @@
     <Compile Update="Forms\EnrollmentManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\EnrollStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

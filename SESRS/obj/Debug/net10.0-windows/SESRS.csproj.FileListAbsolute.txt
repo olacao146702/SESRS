@@ -38,3 +38,4 @@ C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.Add
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditSubjectForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.AddSectionForm.resources
 C:\Users\user\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EditSectionForm.resources
+C:\Users\User\source\repos\SESRS\SESRS\obj\Debug\net10.0-windows\SESRS.Forms.EnrollStudentForm.resources

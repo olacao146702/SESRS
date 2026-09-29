@@ -5,7 +5,7 @@ namespace SESRS.Data;
 public class DatabaseConnection
 {
     private readonly string connectionString =
-        "Server=localhost;Port=3306;Database=sesrs_db;User ID=root;Password=;";
+        "Server=localhost;Port=3306;Database=sesrs_db;User ID=root;Password= 1234 ;";
 
     public MySqlConnection GetConnection()
     {

@@ -16,6 +16,8 @@ namespace SESRS.Forms
             FormBorderStyle = FormBorderStyle.None;
             TopLevel = false;
             Dock = DockStyle.Fill;
+
+            btnEnroll.Click += btnEnroll_Click;
         }
 
         private void EnrollmentManagementForm_Load(object sender, EventArgs e)
@@ -69,5 +71,16 @@ namespace SESRS.Forms
             LoadEnrollments();
         }
 
+        private void btnEnroll_Click(object sender, EventArgs e)
+        {
+            using EnrollStudentForm form = new EnrollStudentForm();
+
+            DialogResult result = form.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                LoadEnrollments();
+            }
+        }
     }
 }
