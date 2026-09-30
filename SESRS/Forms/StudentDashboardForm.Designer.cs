@@ -39,18 +39,18 @@
             lblStudentPortal = new Label();
             lblSystemTitle = new Label();
             panel1 = new Panel();
-            lblYearLevel = new Label();
+            panel4 = new Panel();
             lblProgram = new Label();
+            panel3 = new Panel();
+            lblYearLevel = new Label();
+            panel2 = new Panel();
             lblStudentNumber = new Label();
             lblWelcome = new Label();
-            panel2 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
             pnlSidebar.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             panel4.SuspendLayout();
+            panel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSidebar
@@ -67,7 +67,7 @@
             pnlSidebar.Controls.Add(lblSystemTitle);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
-            pnlSidebar.Margin = new Padding(2, 2, 2, 2);
+            pnlSidebar.Margin = new Padding(2);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(176, 515);
             pnlSidebar.TabIndex = 0;
@@ -81,7 +81,7 @@
             btnLogout.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 479);
-            btnLogout.Margin = new Padding(2, 2, 2, 2);
+            btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(176, 36);
             btnLogout.TabIndex = 7;
@@ -97,7 +97,7 @@
             btnNotifications.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNotifications.ForeColor = Color.White;
             btnNotifications.Location = new Point(0, 241);
-            btnNotifications.Margin = new Padding(2, 2, 2, 2);
+            btnNotifications.Margin = new Padding(2);
             btnNotifications.Name = "btnNotifications";
             btnNotifications.Size = new Size(176, 36);
             btnNotifications.TabIndex = 6;
@@ -113,7 +113,7 @@
             btnHistory.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnHistory.ForeColor = Color.White;
             btnHistory.Location = new Point(0, 205);
-            btnHistory.Margin = new Padding(2, 2, 2, 2);
+            btnHistory.Margin = new Padding(2);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(176, 36);
             btnHistory.TabIndex = 5;
@@ -129,7 +129,7 @@
             btnSchedule.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSchedule.ForeColor = Color.White;
             btnSchedule.Location = new Point(0, 169);
-            btnSchedule.Margin = new Padding(2, 2, 2, 2);
+            btnSchedule.Margin = new Padding(2);
             btnSchedule.Name = "btnSchedule";
             btnSchedule.Size = new Size(176, 36);
             btnSchedule.TabIndex = 4;
@@ -145,7 +145,7 @@
             btnSubjects.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnSubjects.ForeColor = Color.White;
             btnSubjects.Location = new Point(0, 133);
-            btnSubjects.Margin = new Padding(2, 2, 2, 2);
+            btnSubjects.Margin = new Padding(2);
             btnSubjects.Name = "btnSubjects";
             btnSubjects.Size = new Size(176, 36);
             btnSubjects.TabIndex = 3;
@@ -161,7 +161,7 @@
             btnEnrollment.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEnrollment.ForeColor = Color.White;
             btnEnrollment.Location = new Point(0, 97);
-            btnEnrollment.Margin = new Padding(2, 2, 2, 2);
+            btnEnrollment.Margin = new Padding(2);
             btnEnrollment.Name = "btnEnrollment";
             btnEnrollment.Size = new Size(176, 36);
             btnEnrollment.TabIndex = 2;
@@ -177,7 +177,7 @@
             btnDashboard.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 61);
-            btnDashboard.Margin = new Padding(2, 2, 2, 2);
+            btnDashboard.Margin = new Padding(2);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(176, 36);
             btnDashboard.TabIndex = 1;
@@ -220,10 +220,42 @@
             panel1.Controls.Add(lblWelcome);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(176, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(766, 515);
             panel1.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(lblProgram);
+            panel4.Location = new Point(354, 145);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(260, 60);
+            panel4.TabIndex = 6;
+            // 
+            // lblProgram
+            // 
+            lblProgram.AutoSize = true;
+            lblProgram.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProgram.ForeColor = Color.FromArgb(90, 100, 95);
+            lblProgram.Location = new Point(13, 9);
+            lblProgram.Margin = new Padding(2, 0, 2, 0);
+            lblProgram.Name = "lblProgram";
+            lblProgram.Size = new Size(84, 20);
+            lblProgram.TabIndex = 2;
+            lblProgram.Text = "Program: -";
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(lblYearLevel);
+            panel3.Location = new Point(22, 234);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(260, 60);
+            panel3.TabIndex = 5;
             // 
             // lblYearLevel
             // 
@@ -237,17 +269,15 @@
             lblYearLevel.TabIndex = 3;
             lblYearLevel.Text = "Year Level: -";
             // 
-            // lblProgram
+            // panel2
             // 
-            lblProgram.AutoSize = true;
-            lblProgram.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblProgram.ForeColor = Color.FromArgb(90, 100, 95);
-            lblProgram.Location = new Point(13, 9);
-            lblProgram.Margin = new Padding(2, 0, 2, 0);
-            lblProgram.Name = "lblProgram";
-            lblProgram.Size = new Size(84, 20);
-            lblProgram.TabIndex = 2;
-            lblProgram.Text = "Program: -";
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(lblStudentNumber);
+            panel2.Location = new Point(22, 145);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(260, 60);
+            panel2.TabIndex = 4;
             // 
             // lblStudentNumber
             // 
@@ -272,36 +302,6 @@
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome, Student!";
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(lblStudentNumber);
-            panel2.Location = new Point(22, 145);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(260, 60);
-            panel2.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(lblYearLevel);
-            panel3.Location = new Point(22, 234);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(260, 60);
-            panel3.TabIndex = 5;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(lblProgram);
-            panel4.Location = new Point(354, 145);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(260, 60);
-            panel4.TabIndex = 6;
-            // 
             // StudentDashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -310,7 +310,7 @@
             Controls.Add(panel1);
             Controls.Add(pnlSidebar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "StudentDashboardForm";
@@ -320,12 +320,12 @@
             pnlSidebar.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 

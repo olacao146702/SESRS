@@ -47,7 +47,7 @@
             lblProgramCode.AutoSize = true;
             lblProgramCode.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblProgramCode.ForeColor = Color.FromArgb(90, 100, 95);
-            lblProgramCode.Location = new Point(32, 84);
+            lblProgramCode.Location = new Point(28, 115);
             lblProgramCode.Margin = new Padding(2, 0, 2, 0);
             lblProgramCode.Name = "lblProgramCode";
             lblProgramCode.Size = new Size(126, 23);
@@ -57,8 +57,8 @@
             // txtProgramCode
             // 
             txtProgramCode.Font = new Font("Segoe UI", 10F);
-            txtProgramCode.Location = new Point(32, 108);
-            txtProgramCode.Margin = new Padding(2, 2, 2, 2);
+            txtProgramCode.Location = new Point(28, 139);
+            txtProgramCode.Margin = new Padding(2);
             txtProgramCode.Name = "txtProgramCode";
             txtProgramCode.Size = new Size(337, 30);
             txtProgramCode.TabIndex = 2;
@@ -68,7 +68,7 @@
             lblProgramName.AutoSize = true;
             lblProgramName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblProgramName.ForeColor = Color.FromArgb(90, 100, 95);
-            lblProgramName.Location = new Point(32, 152);
+            lblProgramName.Location = new Point(28, 200);
             lblProgramName.Margin = new Padding(2, 0, 2, 0);
             lblProgramName.Name = "lblProgramName";
             lblProgramName.Size = new Size(132, 23);
@@ -78,8 +78,8 @@
             // txtProgramName
             // 
             txtProgramName.Font = new Font("Segoe UI", 10F);
-            txtProgramName.Location = new Point(32, 176);
-            txtProgramName.Margin = new Padding(2, 2, 2, 2);
+            txtProgramName.Location = new Point(28, 224);
+            txtProgramName.Margin = new Padding(2);
             txtProgramName.Name = "txtProgramName";
             txtProgramName.Size = new Size(337, 30);
             txtProgramName.TabIndex = 4;
@@ -89,7 +89,7 @@
             lblDuration.AutoSize = true;
             lblDuration.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDuration.ForeColor = Color.FromArgb(90, 100, 95);
-            lblDuration.Location = new Point(32, 220);
+            lblDuration.Location = new Point(28, 277);
             lblDuration.Margin = new Padding(2, 0, 2, 0);
             lblDuration.Name = "lblDuration";
             lblDuration.Size = new Size(138, 23);
@@ -99,8 +99,8 @@
             // numDuration
             // 
             numDuration.Font = new Font("Segoe UI", 10F);
-            numDuration.Location = new Point(32, 244);
-            numDuration.Margin = new Padding(2, 2, 2, 2);
+            numDuration.Location = new Point(28, 301);
+            numDuration.Margin = new Padding(2);
             numDuration.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numDuration.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numDuration.Name = "numDuration";
@@ -113,10 +113,10 @@
             btnSave.BackColor = Color.FromArgb(24, 82, 58);
             btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(197, 300);
-            btnSave.Margin = new Padding(2, 2, 2, 2);
+            btnSave.Location = new Point(321, 561);
+            btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(90, 40);
+            btnSave.Size = new Size(114, 47);
             btnSave.TabIndex = 7;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
@@ -127,10 +127,10 @@
             btnCancel.BackColor = Color.FromArgb(24, 82, 58);
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(301, 300);
-            btnCancel.Margin = new Padding(2, 2, 2, 2);
+            btnCancel.Location = new Point(439, 561);
+            btnCancel.Margin = new Padding(2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(90, 40);
+            btnCancel.Size = new Size(114, 47);
             btnCancel.TabIndex = 8;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -140,7 +140,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(416, 360);
+            ClientSize = new Size(594, 640);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(numDuration);
@@ -151,7 +151,7 @@
             Controls.Add(lblProgramCode);
             Controls.Add(lblTitle);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AddProgramForm";
