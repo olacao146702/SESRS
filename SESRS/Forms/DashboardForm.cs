@@ -24,6 +24,10 @@ namespace SESRS.Forms
             LoadDashboardCounts();
         }
 
+        // =========================
+        // DASHBOARD COUNTS
+        // =========================
+
         private void LoadDashboardCounts()
         {
             lblStudentsCount.Text =
@@ -37,23 +41,30 @@ namespace SESRS.Forms
 
             lblSectionsCount.Text =
                 _sectionService.GetTotalSections().ToString();
+
+            // Enrollment count will be connected later
+            // when EnrollmentService is added.
+            lblEnrollmentCount.Text = "0";
         }
+
+        // =========================
+        // SHOW DASHBOARD
+        // =========================
 
         private void ShowDashboard()
         {
             pnlContent.Controls.Clear();
 
-            pnlContent.Controls.Add(lblDashboardTitle);
-            pnlContent.Controls.Add(lblWelcome);
+            pnlContent.Controls.Add(pnlHeader);
+            pnlContent.Controls.Add(pnlStats);
 
-            pnlContent.Controls.Add(pnlStudentsCard);
-            pnlContent.Controls.Add(pnlSubjectsCard);
-            pnlContent.Controls.Add(pnlEnrollmentCard);
-            pnlContent.Controls.Add(pnlSectionsCard);
-
-            lblDashboardTitle.BringToFront();
-            lblWelcome.BringToFront();
+            pnlHeader.BringToFront();
+            pnlStats.BringToFront();
         }
+
+        // =========================
+        // SHOW PAGE
+        // =========================
 
         private void ShowPage(Form page)
         {
@@ -68,11 +79,19 @@ namespace SESRS.Forms
             page.Show();
         }
 
+        // =========================
+        // DASHBOARD BUTTON
+        // =========================
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ShowDashboard();
             LoadDashboardCounts();
         }
+
+        // =========================
+        // STUDENTS
+        // =========================
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
