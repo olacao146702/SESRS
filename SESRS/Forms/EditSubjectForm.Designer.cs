@@ -37,172 +37,157 @@
             lblSubjectName = new Label();
             lblDescription = new Label();
             lblUnits = new Label();
-
             txtSubjectCode = new TextBox();
             txtSubjectName = new TextBox();
             txtDescription = new TextBox();
             numUnits = new NumericUpDown();
-
             btnSave = new Button();
             btnCancel = new Button();
-
             ((System.ComponentModel.ISupportInitialize)numUnits).BeginInit();
             SuspendLayout();
-
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font(
-                "Segoe UI",
-                18F,
-                FontStyle.Bold
-            );
-            lblTitle.Location = new Point(40, 30);
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(24, 82, 58);
+            lblTitle.Location = new Point(46, 40);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(180, 32);
+            lblTitle.Size = new Size(187, 41);
+            lblTitle.TabIndex = 10;
             lblTitle.Text = "Edit Subject";
-
             // 
             // lblSubjectCode
             // 
             lblSubjectCode.AutoSize = true;
-            lblSubjectCode.Location = new Point(40, 95);
+            lblSubjectCode.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubjectCode.ForeColor = Color.FromArgb(90, 100, 95);
+            lblSubjectCode.Location = new Point(46, 127);
             lblSubjectCode.Name = "lblSubjectCode";
-            lblSubjectCode.Size = new Size(100, 15);
+            lblSubjectCode.Size = new Size(115, 23);
+            lblSubjectCode.TabIndex = 9;
             lblSubjectCode.Text = "Subject Code:";
-
-            // 
-            // txtSubjectCode
-            // 
-            txtSubjectCode.Location = new Point(40, 115);
-            txtSubjectCode.Name = "txtSubjectCode";
-            txtSubjectCode.Size = new Size(420, 27);
-            txtSubjectCode.TabIndex = 0;
-
             // 
             // lblSubjectName
             // 
             lblSubjectName.AutoSize = true;
-            lblSubjectName.Location = new Point(40, 165);
+            lblSubjectName.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubjectName.ForeColor = Color.FromArgb(90, 100, 95);
+            lblSubjectName.Location = new Point(46, 220);
             lblSubjectName.Name = "lblSubjectName";
-            lblSubjectName.Size = new Size(90, 15);
+            lblSubjectName.Size = new Size(121, 23);
+            lblSubjectName.TabIndex = 8;
             lblSubjectName.Text = "Subject Name:";
-
-            // 
-            // txtSubjectName
-            // 
-            txtSubjectName.Location = new Point(40, 185);
-            txtSubjectName.Name = "txtSubjectName";
-            txtSubjectName.Size = new Size(420, 27);
-            txtSubjectName.TabIndex = 1;
-
             // 
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(40, 235);
+            lblDescription.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDescription.ForeColor = Color.FromArgb(90, 100, 95);
+            lblDescription.Location = new Point(46, 313);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(75, 15);
+            lblDescription.Size = new Size(100, 23);
+            lblDescription.TabIndex = 7;
             lblDescription.Text = "Description:";
-
-            // 
-            // txtDescription
-            // 
-            txtDescription.Location = new Point(40, 255);
-            txtDescription.Multiline = true;
-            txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(420, 70);
-            txtDescription.TabIndex = 2;
-
             // 
             // lblUnits
             // 
             lblUnits.AutoSize = true;
-            lblUnits.Location = new Point(40, 350);
+            lblUnits.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUnits.ForeColor = Color.FromArgb(90, 100, 95);
+            lblUnits.Location = new Point(46, 467);
             lblUnits.Name = "lblUnits";
-            lblUnits.Size = new Size(38, 15);
+            lblUnits.Size = new Size(53, 23);
+            lblUnits.TabIndex = 6;
             lblUnits.Text = "Units:";
-
+            // 
+            // txtSubjectCode
+            // 
+            txtSubjectCode.Location = new Point(46, 153);
+            txtSubjectCode.Margin = new Padding(3, 4, 3, 4);
+            txtSubjectCode.Name = "txtSubjectCode";
+            txtSubjectCode.Size = new Size(479, 27);
+            txtSubjectCode.TabIndex = 0;
+            // 
+            // txtSubjectName
+            // 
+            txtSubjectName.Location = new Point(46, 247);
+            txtSubjectName.Margin = new Padding(3, 4, 3, 4);
+            txtSubjectName.Name = "txtSubjectName";
+            txtSubjectName.Size = new Size(479, 27);
+            txtSubjectName.TabIndex = 1;
+            // 
+            // txtDescription
+            // 
+            txtDescription.Location = new Point(46, 340);
+            txtDescription.Margin = new Padding(3, 4, 3, 4);
+            txtDescription.Multiline = true;
+            txtDescription.Name = "txtDescription";
+            txtDescription.Size = new Size(479, 92);
+            txtDescription.TabIndex = 2;
             // 
             // numUnits
             // 
-            numUnits.Location = new Point(40, 370);
-            numUnits.Maximum = new decimal(new int[] {
-                6,
-                0,
-                0,
-                0
-            });
-            numUnits.Minimum = new decimal(new int[] {
-                1,
-                0,
-                0,
-                0
-            });
+            numUnits.Location = new Point(46, 493);
+            numUnits.Margin = new Padding(3, 4, 3, 4);
+            numUnits.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
+            numUnits.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numUnits.Name = "numUnits";
-            numUnits.Size = new Size(120, 27);
+            numUnits.Size = new Size(137, 27);
             numUnits.TabIndex = 3;
-            numUnits.Value = new decimal(new int[] {
-                3,
-                0,
-                0,
-                0
-            });
-
+            numUnits.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(250, 370);
+            btnSave.BackColor = Color.FromArgb(24, 82, 58);
+            btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(286, 493);
+            btnSave.Margin = new Padding(3, 4, 3, 4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(100, 35);
+            btnSave.Size = new Size(114, 47);
             btnSave.TabIndex = 4;
-            btnSave.Text = "SAVE";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
-
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(360, 370);
+            btnCancel.BackColor = Color.FromArgb(24, 82, 58);
+            btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(411, 493);
+            btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(100, 35);
+            btnCancel.Size = new Size(114, 47);
             btnCancel.TabIndex = 5;
-            btnCancel.Text = "CANCEL";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
-
             // 
             // EditSubjectForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 450);
-
+            ClientSize = new Size(594, 600);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-
             Controls.Add(numUnits);
             Controls.Add(lblUnits);
-
             Controls.Add(txtDescription);
             Controls.Add(lblDescription);
-
             Controls.Add(txtSubjectName);
             Controls.Add(lblSubjectName);
-
             Controls.Add(txtSubjectCode);
             Controls.Add(lblSubjectCode);
-
             Controls.Add(lblTitle);
-
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
-            StartPosition = FormStartPosition.CenterParent;
             Name = "EditSubjectForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Edit Subject";
-
             ((System.ComponentModel.ISupportInitialize)numUnits).EndInit();
             ResumeLayout(false);
             PerformLayout();

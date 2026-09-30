@@ -55,201 +55,252 @@
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(189, 56);
+            txtFirstName.Location = new Point(150, 113);
+            txtFirstName.Margin = new Padding(2, 2, 2, 2);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(150, 31);
+            txtFirstName.Size = new Size(241, 27);
             txtFirstName.TabIndex = 0;
             // 
             // txtMiddleName
             // 
-            txtMiddleName.Location = new Point(189, 93);
+            txtMiddleName.Location = new Point(150, 158);
+            txtMiddleName.Margin = new Padding(2, 2, 2, 2);
             txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(150, 31);
+            txtMiddleName.Size = new Size(241, 27);
             txtMiddleName.TabIndex = 1;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(189, 130);
+            txtLastName.Location = new Point(150, 198);
+            txtLastName.Margin = new Padding(2, 2, 2, 2);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(150, 31);
+            txtLastName.Size = new Size(241, 27);
             txtLastName.TabIndex = 2;
             // 
             // cmbGender
             // 
             cmbGender.FormattingEnabled = true;
-            cmbGender.Location = new Point(189, 167);
+            cmbGender.Location = new Point(150, 238);
+            cmbGender.Margin = new Padding(2, 2, 2, 2);
             cmbGender.Name = "cmbGender";
-            cmbGender.Size = new Size(150, 33);
+            cmbGender.Size = new Size(135, 28);
             cmbGender.TabIndex = 3;
             // 
             // dtpBirthDate
             // 
-            dtpBirthDate.Location = new Point(189, 206);
+            dtpBirthDate.Location = new Point(150, 279);
+            dtpBirthDate.Margin = new Padding(2, 2, 2, 2);
             dtpBirthDate.Name = "dtpBirthDate";
-            dtpBirthDate.Size = new Size(300, 31);
+            dtpBirthDate.Size = new Size(241, 27);
             dtpBirthDate.TabIndex = 4;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(189, 243);
+            txtEmail.Location = new Point(150, 321);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(197, 31);
+            txtEmail.Size = new Size(241, 27);
             txtEmail.TabIndex = 5;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(189, 280);
+            txtPhone.Location = new Point(150, 364);
+            txtPhone.Margin = new Padding(2, 2, 2, 2);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(150, 31);
+            txtPhone.Size = new Size(241, 27);
             txtPhone.TabIndex = 6;
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(189, 317);
+            txtAddress.Location = new Point(150, 405);
+            txtAddress.Margin = new Padding(2, 2, 2, 2);
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(197, 31);
+            txtAddress.Size = new Size(158, 27);
             txtAddress.TabIndex = 7;
             // 
             // cmbProgram
             // 
             cmbProgram.FormattingEnabled = true;
-            cmbProgram.Location = new Point(189, 354);
+            cmbProgram.Location = new Point(150, 445);
+            cmbProgram.Margin = new Padding(2, 2, 2, 2);
             cmbProgram.Name = "cmbProgram";
-            cmbProgram.Size = new Size(150, 33);
+            cmbProgram.Size = new Size(135, 28);
             cmbProgram.TabIndex = 8;
             // 
             // cmbYearLevel
             // 
             cmbYearLevel.FormattingEnabled = true;
-            cmbYearLevel.Location = new Point(189, 393);
+            cmbYearLevel.Location = new Point(150, 486);
+            cmbYearLevel.Margin = new Padding(2, 2, 2, 2);
             cmbYearLevel.Name = "cmbYearLevel";
-            cmbYearLevel.Size = new Size(150, 33);
+            cmbYearLevel.Size = new Size(135, 28);
             cmbYearLevel.TabIndex = 9;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(71, 461);
+            btnSave.BackColor = Color.FromArgb(24, 82, 58);
+            btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(248, 552);
+            btnSave.Margin = new Padding(2, 2, 2, 2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(112, 34);
+            btnSave.Size = new Size(114, 47);
             btnSave.TabIndex = 10;
-            btnSave.Text = "SAVE";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(189, 461);
+            btnCancel.BackColor = Color.FromArgb(24, 82, 58);
+            btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(379, 552);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(112, 34);
+            btnCancel.Size = new Size(114, 47);
             btnCancel.TabIndex = 11;
-            btnCancel.Text = "CANCEL";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // lblEditstudent
             // 
             lblEditstudent.AutoSize = true;
-            lblEditstudent.Location = new Point(143, 18);
+            lblEditstudent.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEditstudent.ForeColor = Color.FromArgb(24, 82, 58);
+            lblEditstudent.Location = new Point(47, 32);
+            lblEditstudent.Margin = new Padding(2, 0, 2, 0);
             lblEditstudent.Name = "lblEditstudent";
-            lblEditstudent.Size = new Size(128, 25);
+            lblEditstudent.Size = new Size(193, 41);
             lblEditstudent.TabIndex = 12;
-            lblEditstudent.Text = "EDIT STUDENT";
+            lblEditstudent.Text = "Edit Student";
             // 
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(82, 62);
+            lblFirstName.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblFirstName.ForeColor = Color.FromArgb(90, 100, 95);
+            lblFirstName.Location = new Point(27, 117);
+            lblFirstName.Margin = new Padding(2, 0, 2, 0);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(101, 25);
+            lblFirstName.Size = new Size(97, 23);
             lblFirstName.TabIndex = 13;
             lblFirstName.Text = "First Name:";
             // 
             // lblMiddleName
             // 
             lblMiddleName.AutoSize = true;
-            lblMiddleName.Location = new Point(60, 99);
+            lblMiddleName.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblMiddleName.ForeColor = Color.FromArgb(90, 100, 95);
+            lblMiddleName.Location = new Point(27, 160);
+            lblMiddleName.Margin = new Padding(2, 0, 2, 0);
             lblMiddleName.Name = "lblMiddleName";
-            lblMiddleName.Size = new Size(123, 25);
+            lblMiddleName.Size = new Size(118, 23);
             lblMiddleName.TabIndex = 14;
             lblMiddleName.Text = "Middle Name:";
             // 
             // lblLastName
             // 
             lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(84, 136);
+            lblLastName.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblLastName.ForeColor = Color.FromArgb(90, 100, 95);
+            lblLastName.Location = new Point(27, 202);
+            lblLastName.Margin = new Padding(2, 0, 2, 0);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(99, 25);
+            lblLastName.Size = new Size(95, 23);
             lblLastName.TabIndex = 15;
             lblLastName.Text = "Last Name:";
             // 
             // lblGender
             // 
             lblGender.AutoSize = true;
-            lblGender.Location = new Point(110, 175);
+            lblGender.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblGender.ForeColor = Color.FromArgb(90, 100, 95);
+            lblGender.Location = new Point(27, 243);
+            lblGender.Margin = new Padding(2, 0, 2, 0);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(73, 25);
+            lblGender.Size = new Size(71, 23);
             lblGender.TabIndex = 16;
             lblGender.Text = "Gender:";
             // 
             // lblBirthDate
             // 
             lblBirthDate.AutoSize = true;
-            lblBirthDate.Location = new Point(89, 212);
+            lblBirthDate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblBirthDate.ForeColor = Color.FromArgb(90, 100, 95);
+            lblBirthDate.Location = new Point(27, 281);
+            lblBirthDate.Margin = new Padding(2, 0, 2, 0);
             lblBirthDate.Name = "lblBirthDate";
-            lblBirthDate.Size = new Size(94, 25);
+            lblBirthDate.Size = new Size(91, 23);
             lblBirthDate.TabIndex = 17;
             lblBirthDate.Text = "Birth Date:";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(125, 249);
+            lblEmail.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblEmail.ForeColor = Color.FromArgb(90, 100, 95);
+            lblEmail.Location = new Point(27, 325);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(58, 25);
+            lblEmail.Size = new Size(55, 23);
             lblEmail.TabIndex = 18;
             lblEmail.Text = "Email:";
             // 
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Location = new Point(117, 286);
+            lblPhone.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblPhone.ForeColor = Color.FromArgb(90, 100, 95);
+            lblPhone.Location = new Point(27, 368);
+            lblPhone.Margin = new Padding(2, 0, 2, 0);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(66, 25);
+            lblPhone.Size = new Size(63, 23);
             lblPhone.TabIndex = 19;
             lblPhone.Text = "Phone:";
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(102, 323);
+            lblAddress.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblAddress.ForeColor = Color.FromArgb(90, 100, 95);
+            lblAddress.Location = new Point(27, 409);
+            lblAddress.Margin = new Padding(2, 0, 2, 0);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(81, 25);
+            lblAddress.Size = new Size(74, 23);
             lblAddress.TabIndex = 20;
             lblAddress.Text = "Address:";
             // 
             // lblProgram
             // 
             lblProgram.AutoSize = true;
-            lblProgram.Location = new Point(98, 362);
+            lblProgram.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblProgram.ForeColor = Color.FromArgb(90, 100, 95);
+            lblProgram.Location = new Point(27, 450);
+            lblProgram.Margin = new Padding(2, 0, 2, 0);
             lblProgram.Name = "lblProgram";
-            lblProgram.Size = new Size(85, 25);
+            lblProgram.Size = new Size(80, 23);
             lblProgram.TabIndex = 21;
             lblProgram.Text = "Program:";
             // 
             // lblYearLevel
             // 
             lblYearLevel.AutoSize = true;
-            lblYearLevel.Location = new Point(91, 401);
+            lblYearLevel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            lblYearLevel.ForeColor = Color.FromArgb(90, 100, 95);
+            lblYearLevel.Location = new Point(27, 491);
+            lblYearLevel.Margin = new Padding(2, 0, 2, 0);
             lblYearLevel.Name = "lblYearLevel";
-            lblYearLevel.Size = new Size(92, 25);
+            lblYearLevel.Size = new Size(90, 23);
             lblYearLevel.TabIndex = 22;
             lblYearLevel.Text = "Year Level:";
             // 
             // EditStudentForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(506, 538);
+            ClientSize = new Size(526, 613);
             Controls.Add(lblYearLevel);
             Controls.Add(lblProgram);
             Controls.Add(lblAddress);
@@ -273,6 +324,7 @@
             Controls.Add(txtLastName);
             Controls.Add(txtMiddleName);
             Controls.Add(txtFirstName);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "EditStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Student";
