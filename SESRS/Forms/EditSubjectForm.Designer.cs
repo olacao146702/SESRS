@@ -142,7 +142,7 @@
             btnSave.BackColor = Color.FromArgb(24, 82, 58);
             btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(286, 493);
+            btnSave.Location = new Point(343, 559);
             btnSave.Margin = new Padding(3, 4, 3, 4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(114, 47);
@@ -156,7 +156,7 @@
             btnCancel.BackColor = Color.FromArgb(24, 82, 58);
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(411, 493);
+            btnCancel.Location = new Point(468, 559);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(114, 47);
@@ -169,7 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(594, 600);
+            ClientSize = new Size(594, 640);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(numUnits);

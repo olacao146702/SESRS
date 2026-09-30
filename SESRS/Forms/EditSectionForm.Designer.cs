@@ -67,11 +67,11 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(24, 82, 58);
-            lblTitle.Location = new Point(34, 33);
+            lblTitle.Location = new Point(48, 38);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(169, 37);
+            lblTitle.Size = new Size(186, 41);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Edit Section";
             // 
@@ -80,7 +80,7 @@
             lblSectionCode.AutoSize = true;
             lblSectionCode.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSectionCode.ForeColor = Color.FromArgb(90, 100, 95);
-            lblSectionCode.Location = new Point(34, 107);
+            lblSectionCode.Location = new Point(35, 137);
             lblSectionCode.Name = "lblSectionCode";
             lblSectionCode.Size = new Size(115, 23);
             lblSectionCode.TabIndex = 1;
@@ -91,7 +91,7 @@
             lblSectionName.AutoSize = true;
             lblSectionName.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSectionName.ForeColor = Color.FromArgb(90, 100, 95);
-            lblSectionName.Location = new Point(34, 160);
+            lblSectionName.Location = new Point(35, 190);
             lblSectionName.Name = "lblSectionName";
             lblSectionName.Size = new Size(121, 23);
             lblSectionName.TabIndex = 3;
@@ -102,7 +102,7 @@
             lblProgram.AutoSize = true;
             lblProgram.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProgram.ForeColor = Color.FromArgb(90, 100, 95);
-            lblProgram.Location = new Point(34, 213);
+            lblProgram.Location = new Point(35, 243);
             lblProgram.Name = "lblProgram";
             lblProgram.Size = new Size(80, 23);
             lblProgram.TabIndex = 5;
@@ -113,7 +113,7 @@
             lblYearLevel.AutoSize = true;
             lblYearLevel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblYearLevel.ForeColor = Color.FromArgb(90, 100, 95);
-            lblYearLevel.Location = new Point(34, 267);
+            lblYearLevel.Location = new Point(35, 297);
             lblYearLevel.Name = "lblYearLevel";
             lblYearLevel.Size = new Size(90, 23);
             lblYearLevel.TabIndex = 7;
@@ -124,7 +124,7 @@
             lblSemester.AutoSize = true;
             lblSemester.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSemester.ForeColor = Color.FromArgb(90, 100, 95);
-            lblSemester.Location = new Point(34, 320);
+            lblSemester.Location = new Point(35, 350);
             lblSemester.Name = "lblSemester";
             lblSemester.Size = new Size(85, 23);
             lblSemester.TabIndex = 9;
@@ -135,7 +135,7 @@
             lblSchoolYear.AutoSize = true;
             lblSchoolYear.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSchoolYear.ForeColor = Color.FromArgb(90, 100, 95);
-            lblSchoolYear.Location = new Point(34, 373);
+            lblSchoolYear.Location = new Point(35, 403);
             lblSchoolYear.Name = "lblSchoolYear";
             lblSchoolYear.Size = new Size(103, 23);
             lblSchoolYear.TabIndex = 11;
@@ -146,7 +146,7 @@
             lblCapacity.AutoSize = true;
             lblCapacity.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCapacity.ForeColor = Color.FromArgb(90, 100, 95);
-            lblCapacity.Location = new Point(34, 427);
+            lblCapacity.Location = new Point(35, 457);
             lblCapacity.Name = "lblCapacity";
             lblCapacity.Size = new Size(80, 23);
             lblCapacity.TabIndex = 13;
@@ -154,7 +154,7 @@
             // 
             // txtSectionCode
             // 
-            txtSectionCode.Location = new Point(183, 101);
+            txtSectionCode.Location = new Point(184, 131);
             txtSectionCode.Margin = new Padding(3, 4, 3, 4);
             txtSectionCode.Name = "txtSectionCode";
             txtSectionCode.Size = new Size(354, 27);
@@ -162,7 +162,7 @@
             // 
             // txtSectionName
             // 
-            txtSectionName.Location = new Point(183, 155);
+            txtSectionName.Location = new Point(184, 185);
             txtSectionName.Margin = new Padding(3, 4, 3, 4);
             txtSectionName.Name = "txtSectionName";
             txtSectionName.Size = new Size(354, 27);
@@ -172,7 +172,7 @@
             // 
             cmbProgram.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProgram.FormattingEnabled = true;
-            cmbProgram.Location = new Point(183, 208);
+            cmbProgram.Location = new Point(184, 238);
             cmbProgram.Margin = new Padding(3, 4, 3, 4);
             cmbProgram.Name = "cmbProgram";
             cmbProgram.Size = new Size(354, 28);
@@ -182,7 +182,7 @@
             // 
             cmbYearLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbYearLevel.FormattingEnabled = true;
-            cmbYearLevel.Location = new Point(183, 261);
+            cmbYearLevel.Location = new Point(184, 291);
             cmbYearLevel.Margin = new Padding(3, 4, 3, 4);
             cmbYearLevel.Name = "cmbYearLevel";
             cmbYearLevel.Size = new Size(354, 28);
@@ -192,7 +192,7 @@
             // 
             cmbSemester.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSemester.FormattingEnabled = true;
-            cmbSemester.Location = new Point(183, 315);
+            cmbSemester.Location = new Point(184, 345);
             cmbSemester.Margin = new Padding(3, 4, 3, 4);
             cmbSemester.Name = "cmbSemester";
             cmbSemester.Size = new Size(354, 28);
@@ -200,7 +200,7 @@
             // 
             // txtSchoolYear
             // 
-            txtSchoolYear.Location = new Point(183, 368);
+            txtSchoolYear.Location = new Point(184, 398);
             txtSchoolYear.Margin = new Padding(3, 4, 3, 4);
             txtSchoolYear.Name = "txtSchoolYear";
             txtSchoolYear.Size = new Size(354, 27);
@@ -208,7 +208,7 @@
             // 
             // numCapacity
             // 
-            numCapacity.Location = new Point(183, 421);
+            numCapacity.Location = new Point(184, 451);
             numCapacity.Margin = new Padding(3, 4, 3, 4);
             numCapacity.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             numCapacity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -222,7 +222,7 @@
             btnSave.BackColor = Color.FromArgb(24, 82, 58);
             btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(183, 500);
+            btnSave.Location = new Point(285, 562);
             btnSave.Margin = new Padding(3, 4, 3, 4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(137, 47);
@@ -236,7 +236,7 @@
             btnCancel.BackColor = Color.FromArgb(24, 82, 58);
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(343, 500);
+            btnCancel.Location = new Point(445, 562);
             btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(137, 47);
@@ -249,7 +249,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(594, 600);
+            ClientSize = new Size(594, 640);
             Controls.Add(lblTitle);
             Controls.Add(lblSectionCode);
             Controls.Add(txtSectionCode);

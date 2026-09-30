@@ -56,7 +56,7 @@
             // txtFirstName
             // 
             txtFirstName.Location = new Point(150, 113);
-            txtFirstName.Margin = new Padding(2, 2, 2, 2);
+            txtFirstName.Margin = new Padding(2);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(241, 27);
             txtFirstName.TabIndex = 0;
@@ -64,7 +64,7 @@
             // txtMiddleName
             // 
             txtMiddleName.Location = new Point(150, 158);
-            txtMiddleName.Margin = new Padding(2, 2, 2, 2);
+            txtMiddleName.Margin = new Padding(2);
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(241, 27);
             txtMiddleName.TabIndex = 1;
@@ -72,7 +72,7 @@
             // txtLastName
             // 
             txtLastName.Location = new Point(150, 198);
-            txtLastName.Margin = new Padding(2, 2, 2, 2);
+            txtLastName.Margin = new Padding(2);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(241, 27);
             txtLastName.TabIndex = 2;
@@ -80,40 +80,40 @@
             // cmbGender
             // 
             cmbGender.FormattingEnabled = true;
-            cmbGender.Location = new Point(150, 238);
-            cmbGender.Margin = new Padding(2, 2, 2, 2);
+            cmbGender.Location = new Point(150, 256);
+            cmbGender.Margin = new Padding(2);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(135, 28);
             cmbGender.TabIndex = 3;
             // 
             // dtpBirthDate
             // 
-            dtpBirthDate.Location = new Point(150, 279);
-            dtpBirthDate.Margin = new Padding(2, 2, 2, 2);
+            dtpBirthDate.Location = new Point(150, 297);
+            dtpBirthDate.Margin = new Padding(2);
             dtpBirthDate.Name = "dtpBirthDate";
             dtpBirthDate.Size = new Size(241, 27);
             dtpBirthDate.TabIndex = 4;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(150, 321);
-            txtEmail.Margin = new Padding(2, 2, 2, 2);
+            txtEmail.Location = new Point(150, 339);
+            txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(241, 27);
             txtEmail.TabIndex = 5;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(150, 364);
-            txtPhone.Margin = new Padding(2, 2, 2, 2);
+            txtPhone.Location = new Point(150, 382);
+            txtPhone.Margin = new Padding(2);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(241, 27);
             txtPhone.TabIndex = 6;
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(150, 405);
-            txtAddress.Margin = new Padding(2, 2, 2, 2);
+            txtAddress.Location = new Point(150, 423);
+            txtAddress.Margin = new Padding(2);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(158, 27);
             txtAddress.TabIndex = 7;
@@ -121,8 +121,8 @@
             // cmbProgram
             // 
             cmbProgram.FormattingEnabled = true;
-            cmbProgram.Location = new Point(150, 445);
-            cmbProgram.Margin = new Padding(2, 2, 2, 2);
+            cmbProgram.Location = new Point(150, 479);
+            cmbProgram.Margin = new Padding(2);
             cmbProgram.Name = "cmbProgram";
             cmbProgram.Size = new Size(135, 28);
             cmbProgram.TabIndex = 8;
@@ -130,8 +130,8 @@
             // cmbYearLevel
             // 
             cmbYearLevel.FormattingEnabled = true;
-            cmbYearLevel.Location = new Point(150, 486);
-            cmbYearLevel.Margin = new Padding(2, 2, 2, 2);
+            cmbYearLevel.Location = new Point(150, 520);
+            cmbYearLevel.Margin = new Padding(2);
             cmbYearLevel.Name = "cmbYearLevel";
             cmbYearLevel.Size = new Size(135, 28);
             cmbYearLevel.TabIndex = 9;
@@ -141,8 +141,8 @@
             btnSave.BackColor = Color.FromArgb(24, 82, 58);
             btnSave.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(248, 552);
-            btnSave.Margin = new Padding(2, 2, 2, 2);
+            btnSave.Location = new Point(338, 562);
+            btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(114, 47);
             btnSave.TabIndex = 10;
@@ -155,8 +155,8 @@
             btnCancel.BackColor = Color.FromArgb(24, 82, 58);
             btnCancel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(379, 552);
-            btnCancel.Margin = new Padding(2, 2, 2, 2);
+            btnCancel.Location = new Point(469, 562);
+            btnCancel.Margin = new Padding(2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(114, 47);
             btnCancel.TabIndex = 11;
@@ -169,7 +169,7 @@
             lblEditstudent.AutoSize = true;
             lblEditstudent.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEditstudent.ForeColor = Color.FromArgb(24, 82, 58);
-            lblEditstudent.Location = new Point(47, 32);
+            lblEditstudent.Location = new Point(44, 39);
             lblEditstudent.Margin = new Padding(2, 0, 2, 0);
             lblEditstudent.Name = "lblEditstudent";
             lblEditstudent.Size = new Size(193, 41);
@@ -217,7 +217,7 @@
             lblGender.AutoSize = true;
             lblGender.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblGender.ForeColor = Color.FromArgb(90, 100, 95);
-            lblGender.Location = new Point(27, 243);
+            lblGender.Location = new Point(27, 261);
             lblGender.Margin = new Padding(2, 0, 2, 0);
             lblGender.Name = "lblGender";
             lblGender.Size = new Size(71, 23);
@@ -229,7 +229,7 @@
             lblBirthDate.AutoSize = true;
             lblBirthDate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblBirthDate.ForeColor = Color.FromArgb(90, 100, 95);
-            lblBirthDate.Location = new Point(27, 281);
+            lblBirthDate.Location = new Point(27, 299);
             lblBirthDate.Margin = new Padding(2, 0, 2, 0);
             lblBirthDate.Name = "lblBirthDate";
             lblBirthDate.Size = new Size(91, 23);
@@ -241,7 +241,7 @@
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblEmail.ForeColor = Color.FromArgb(90, 100, 95);
-            lblEmail.Location = new Point(27, 325);
+            lblEmail.Location = new Point(27, 343);
             lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(55, 23);
@@ -253,7 +253,7 @@
             lblPhone.AutoSize = true;
             lblPhone.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblPhone.ForeColor = Color.FromArgb(90, 100, 95);
-            lblPhone.Location = new Point(27, 368);
+            lblPhone.Location = new Point(27, 386);
             lblPhone.Margin = new Padding(2, 0, 2, 0);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(63, 23);
@@ -265,7 +265,7 @@
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblAddress.ForeColor = Color.FromArgb(90, 100, 95);
-            lblAddress.Location = new Point(27, 409);
+            lblAddress.Location = new Point(27, 427);
             lblAddress.Margin = new Padding(2, 0, 2, 0);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(74, 23);
@@ -277,7 +277,7 @@
             lblProgram.AutoSize = true;
             lblProgram.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblProgram.ForeColor = Color.FromArgb(90, 100, 95);
-            lblProgram.Location = new Point(27, 450);
+            lblProgram.Location = new Point(27, 484);
             lblProgram.Margin = new Padding(2, 0, 2, 0);
             lblProgram.Name = "lblProgram";
             lblProgram.Size = new Size(80, 23);
@@ -289,7 +289,7 @@
             lblYearLevel.AutoSize = true;
             lblYearLevel.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             lblYearLevel.ForeColor = Color.FromArgb(90, 100, 95);
-            lblYearLevel.Location = new Point(27, 491);
+            lblYearLevel.Location = new Point(27, 525);
             lblYearLevel.Margin = new Padding(2, 0, 2, 0);
             lblYearLevel.Name = "lblYearLevel";
             lblYearLevel.Size = new Size(90, 23);
@@ -300,7 +300,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(526, 613);
+            ClientSize = new Size(594, 640);
             Controls.Add(lblYearLevel);
             Controls.Add(lblProgram);
             Controls.Add(lblAddress);
@@ -324,7 +324,7 @@
             Controls.Add(txtLastName);
             Controls.Add(txtMiddleName);
             Controls.Add(txtFirstName);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "EditStudentForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Student";
