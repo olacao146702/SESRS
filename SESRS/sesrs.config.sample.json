@@ -1,0 +1,3 @@
+{
+  "ConnectionString": "Server=localhost;Port=3306;Database=sesrs_db;User ID=sesrs_app;Password=CHANGE_ME;"
+}

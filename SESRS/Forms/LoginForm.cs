@@ -1,5 +1,7 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
+using SESRS.Helpers;
+using SESRS.Models;
 using SESRS.Services;
 
 namespace SESRS.Forms
@@ -9,7 +11,6 @@ namespace SESRS.Forms
         public LoginForm()
         {
             InitializeComponent();
-
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
@@ -30,73 +31,100 @@ namespace SESRS.Forms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-
                 return;
             }
 
+            btnLogin.Enabled = false;
+            UseWaitCursor = true;
+
             try
             {
-                UserService userService = new UserService();
+                LoginResult result = new UserService().Login(username, password);
 
-                var user = userService.Login(username, password);
-
-                if (user != null)
+                switch (result.Status)
                 {
-                    if (user.Role == "Admin")
-                    {
-                        DashboardForm dashboard = new DashboardForm();
+                    case LoginStatus.Success:
+                        OpenPortal(result.User!);
+                        break;
 
-                        dashboard.Show();
-                        this.Hide();
-                    }
-                    else if (user.Role == "Student")
-                    {
-                        StudentDashboardForm studentDashboard =
-                            new StudentDashboardForm(user);
-
-                        studentDashboard.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            "Invalid user role.",
-                            "Login Failed",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
+                    case LoginStatus.Locked:
+                        ShowLoginError(
+                            "Too many failed attempts. This account is locked until " +
+                            (result.LockedUntil?.ToString("h:mm tt") ?? "later") +
+                            ".\n\nPlease try again then, or ask the registrar's office to reset your password."
                         );
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Invalid username or password.",
-                        "Login Failed",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
+                        break;
+
+                    case LoginStatus.AccountInactive:
+                        ShowLoginError(
+                            "This account has been deactivated.\n\nPlease contact the registrar's office."
+                        );
+                        break;
+
+                    default:
+                        ShowLoginError("Invalid username or password.");
+                        break;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Unable to connect to the database.\n\n" + ex.Message,
-                    "Database Error",
+                    "Unable to sign in.\n\n" + ErrorHandler.Friendly(ex),
+                    "Login Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
+            finally
+            {
+                UseWaitCursor = false;
+                btnLogin.Enabled = true;
+                txtPassword.Clear();
+            }
         }
 
-        private void btnCreateAccount_Click(object? sender, EventArgs e)
+        private void OpenPortal(User user)
         {
-            this.Hide();
+            Session.Start(user);
 
-            StudentSignUpForm signUpForm = new StudentSignUpForm();
+            // Accounts created or reset by an administrator use a temporary
+            // password that must be replaced before anything else.
+            if (user.MustChangePassword)
+            {
+                using var changePassword = new ChangePasswordForm(forced: true);
 
-            signUpForm.ShowDialog();
+                if (changePassword.ShowDialog(this) != DialogResult.OK)
+                {
+                    Session.End();
+                    return;
+                }
+            }
 
-            this.Show();
+            if (user.Role == "Admin")
+            {
+                new DashboardForm().Show();
+                Hide();
+            }
+            else if (user.Role == "Student")
+            {
+                new StudentDashboardForm(user).Show();
+                Hide();
+            }
+            else
+            {
+                Session.End();
+                ShowLoginError("Your account does not have a valid role.");
+            }
+        }
+
+        private static void ShowLoginError(string message)
+        {
+            MessageBox.Show(
+                message,
+                "Login Failed",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
         }
     }
 }

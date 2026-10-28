@@ -1,4 +1,5 @@
-﻿using System.Data;
+using SESRS.Helpers;
+using System.Data;
 using MySqlConnector;
 using SESRS.Data;
 
@@ -7,9 +8,12 @@ namespace SESRS.Services
     public class SubjectService
     {
         private readonly DatabaseConnection _database = new();
+        private readonly AuditService _audit = new();
 
         public DataTable GetAllSubjects()
         {
+            Session.RequireAdmin();
+
             DataTable table = new DataTable();
 
             using var connection = _database.GetConnection();
@@ -36,6 +40,8 @@ namespace SESRS.Services
 
         public DataTable SearchSubjects(string keyword)
         {
+            Session.RequireAdmin();
+
             DataTable table = new DataTable();
 
             using var connection = _database.GetConnection();
@@ -75,6 +81,10 @@ namespace SESRS.Services
     string description,
     int units)
         {
+            Session.RequireAdmin();
+
+            Validate.Subject(subjectCode, subjectName, description, units);
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -111,11 +121,18 @@ namespace SESRS.Services
 
             int rowsAffected = command.ExecuteNonQuery();
 
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "SUBJECT_CREATED", "subject", command.LastInsertedId.ToString(), subjectCode);
+            }
+
             return rowsAffected > 0;
         }
 
         public DataTable GetSubjectById(int subjectId)
         {
+            Session.RequireAdmin();
+
             DataTable table = new DataTable();
 
             using var connection = _database.GetConnection();
@@ -154,6 +171,10 @@ namespace SESRS.Services
             string description,
             int units)
         {
+            Session.RequireAdmin();
+
+            Validate.Subject(subjectCode, subjectName, description, units);
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -198,11 +219,18 @@ namespace SESRS.Services
 
             int rowsAffected = command.ExecuteNonQuery();
 
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "SUBJECT_UPDATED", "subject", subjectId.ToString(), subjectCode);
+            }
+
             return rowsAffected > 0;
         }
 
         public bool ToggleSubjectStatus(int subjectId)
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -226,11 +254,18 @@ namespace SESRS.Services
             int rowsAffected =
                 command.ExecuteNonQuery();
 
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "SUBJECT_STATUS_CHANGED", "subject", subjectId.ToString(), null);
+            }
+
             return rowsAffected > 0;
         }
 
         public int GetTotalSubjects()
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
 

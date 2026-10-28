@@ -1,303 +1,84 @@
-﻿using System;
 using System.Data;
-using System.Windows.Forms;
 using SESRS.Services;
 
-namespace SESRS.Forms
+namespace SESRS.Forms;
+
+public partial class SubjectManagementForm : Form
 {
-    public partial class SubjectManagementForm : Form
+    private readonly SubjectService _service = new();
+    private readonly ListGrid _list;
+
+    public SubjectManagementForm()
     {
-        private readonly SubjectService _subjectService = new();
+        InitializeComponent();
 
-        public SubjectManagementForm()
+        _list = new ListGrid(this, dgv, txtSearch, lblEmpty, lblPageInfo, btnPrev, btnNext, lblStatus, lblSubtitle)
         {
-            InitializeComponent();
+            EmptyMessage = "No subjects yet. Click ADD SUBJECT to create the first one."
+        };
+        _list.RowActivated += (_, _) => _list.Run(Edit);
+    }
 
-            FormBorderStyle = FormBorderStyle.None;
-            TopLevel = false;
-            Dock = DockStyle.Fill;
+    private void SubjectManagementForm_Load(object? sender, EventArgs e) => ReloadData();
 
-            dgvSubjects.SelectionChanged += dgvSubjects_SelectionChanged;
+    private void ReloadData() => _list.Run(() => _list.SetData(_service.GetAllSubjects(), "subject_id"));
+
+    private void btnAdd_Click(object? sender, EventArgs e) => _list.Run(() => ShowEditor(null));
+    private void btnEdit_Click(object? sender, EventArgs e) => _list.Run(Edit);
+    private void btnToggle_Click(object? sender, EventArgs e) => _list.Run(Toggle);
+    private void btnExport_Click(object? sender, EventArgs e) => _list.Run(() => _list.ExportCsv("subjects"));
+
+    private void Edit()
+    {
+        DataRow? row = _list.RequireRow("subject");
+
+        if (row == null)
+        {
+            return;
         }
 
-        private void SubjectManagementForm_Load(object sender, EventArgs e)
+        DataTable t = _service.GetSubjectById(Convert.ToInt32(row["subject_id"]));
+
+        if (t.Rows.Count == 0)
         {
-            LoadSubjects();
+            ReloadData();
+            return;
         }
 
-        private void LoadSubjects(int? selectedSubjectId = null)
+        ShowEditor(t.Rows[0]);
+    }
+
+    private void Toggle()
+    {
+        DataRow? row = _list.RequireRow("subject");
+
+        if (row == null)
         {
-            try
-            {
-                string keyword =
-                    txtSearch.Text.Trim();
-
-                DataTable table;
-
-                if (string.IsNullOrWhiteSpace(keyword))
-                {
-                    table =
-                        _subjectService.GetAllSubjects();
-                }
-                else
-                {
-                    table =
-                        _subjectService.SearchSubjects(keyword);
-                }
-
-                dgvSubjects.AutoGenerateColumns = true;
-                dgvSubjects.DataSource = table;
-
-                dgvSubjects.AutoSizeColumnsMode =
-                    DataGridViewAutoSizeColumnsMode.Fill;
-
-                dgvSubjects.ReadOnly = true;
-
-                dgvSubjects.SelectionMode =
-                    DataGridViewSelectionMode.FullRowSelect;
-
-                dgvSubjects.MultiSelect = false;
-
-                DataGridViewColumn? subjectIdColumn =
-                    dgvSubjects.Columns["subject_id"];
-
-                if (subjectIdColumn != null)
-                {
-                    subjectIdColumn.Visible = false;
-                }
-
-                DataGridViewColumn? descriptionColumn =
-                    dgvSubjects.Columns["description"];
-
-                if (descriptionColumn != null)
-                {
-                    descriptionColumn.Visible = false;
-                }
-
-                UpdateDeactivateButtonText();
-
-                if (selectedSubjectId.HasValue)
-                {
-                    BeginInvoke(new Action(() =>
-                    {
-                        foreach (DataGridViewRow row in dgvSubjects.Rows)
-                        {
-                            if (row.Cells["subject_id"].Value != null &&
-                                Convert.ToInt32(
-                                    row.Cells["subject_id"].Value
-                                ) == selectedSubjectId.Value)
-                            {
-                                dgvSubjects.ClearSelection();
-
-                                row.Selected = true;
-
-                                dgvSubjects.CurrentCell =
-                                    row.Cells["subject_code"];
-
-                                UpdateDeactivateButtonText();
-
-                                break;
-                            }
-                        }
-                    }));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Failed to load subjects.\n\n" +
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
+            return;
         }
 
-        private void UpdateDeactivateButtonText()
+        bool active = Convert.ToString(row["status"]) == "Active";
+
+        string warning = active ? "\n\nIt will no longer be offered to students for new enrollments." : "";
+
+        if (!_list.Confirm($"{(active ? "Deactivate" : "Activate")} {row["subject_code"]}?{warning}"))
         {
-            if (dgvSubjects.SelectedRows.Count == 0)
-            {
-                btnDeactivate.Text = "DEACTIVATE";
-                return;
-            }
-
-            DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
-
-            string status =
-                row.Cells["status"].Value?.ToString() ?? "";
-
-            if (status.Equals(
-                "Active",
-                StringComparison.OrdinalIgnoreCase))
-            {
-                btnDeactivate.Text = "DEACTIVATE";
-            }
-            else
-            {
-                btnDeactivate.Text = "ACTIVATE";
-            }
+            return;
         }
 
-        private void dgvSubjects_SelectionChanged(object? sender, EventArgs e)
+        _service.ToggleSubjectStatus(Convert.ToInt32(row["subject_id"]));
+        _list.Success("Status updated.");
+        ReloadData();
+    }
+
+    private void ShowEditor(DataRow? existing)
+    {
+        using var dialog = new SubjectEditDialog(existing);
+
+        if (dialog.ShowDialog(this) == DialogResult.OK)
         {
-            UpdateDeactivateButtonText();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            txtSearch.Clear();
-
-            LoadSubjects();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            LoadSubjects();
-        }
-
-        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                btnSearch_Click(sender, e);
-
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            AddSubjectForm addForm =
-                new AddSubjectForm();
-
-            DialogResult result =
-                addForm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                LoadSubjects();
-            }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvSubjects.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Please select a subject first.",
-                    "Edit Subject",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
-
-            int subjectId =
-                Convert.ToInt32(
-                    row.Cells["subject_id"].Value
-                );
-
-            EditSubjectForm editForm =
-                new EditSubjectForm(subjectId);
-
-            DialogResult result =
-                editForm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                LoadSubjects(subjectId);
-            }
-        }
-
-        private void btnDeactivate_Click(object sender, EventArgs e)
-        {
-            if (dgvSubjects.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Please select a subject first.",
-                    "Subject Status",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-            DataGridViewRow row =
-                dgvSubjects.SelectedRows[0];
-
-            int subjectId =
-                Convert.ToInt32(
-                    row.Cells["subject_id"].Value
-                );
-
-            string status =
-                row.Cells["status"].Value?.ToString() ?? "";
-
-            bool isActive =
-                status.Equals(
-                    "Active",
-                    StringComparison.OrdinalIgnoreCase
-                );
-
-            string action =
-                isActive ? "deactivate" : "activate";
-
-            DialogResult result = MessageBox.Show(
-                $"Are you sure you want to {action} this subject?",
-                $"{(isActive ? "Deactivate" : "Activate")} Subject",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result != DialogResult.Yes)
-            {
-                return;
-            }
-
-            try
-            {
-                bool success =
-                    _subjectService.ToggleSubjectStatus(subjectId);
-
-                if (success)
-                {
-                    MessageBox.Show(
-                        $"Subject has been {action}d successfully.",
-                        "Subject Status",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-
-                    LoadSubjects(subjectId);
-                }
-                else
-                {
-                    MessageBox.Show(
-                        $"Subject could not be {action}d.",
-                        "Subject Status",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning
-                    );
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    $"Failed to {action} subject.\n\n" +
-                    ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
+            _list.Success(existing == null ? "Subject added." : "Subject updated.");
+            ReloadData();
         }
     }
 }

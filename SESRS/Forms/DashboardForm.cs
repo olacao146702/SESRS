@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 using SESRS.Services;
 
@@ -17,43 +18,73 @@ namespace SESRS.Forms
             InitializeComponent();
         }
 
+        // =========================================================
+        // FORM LOAD
+        // =========================================================
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             CollapseAcademics();
+            RefreshNotificationBadge();
             ShowDashboard();
             LoadDashboardCounts();
+
+            SetActiveMainButton(btnDashboard);
         }
+
+        // =========================================================
+        // DASHBOARD COUNTS
+        // =========================================================
 
         private void LoadDashboardCounts()
         {
-            lblStudentsCount.Text =
-                _studentService.GetTotalStudents().ToString();
+            try
+            {
+                lblStudentsCount.Text =
+                    _studentService.GetTotalStudents().ToString();
 
-            lblSubjectsCount.Text =
-                _subjectService.GetTotalSubjects().ToString();
+                lblSubjectsCount.Text =
+                    _subjectService.GetTotalSubjects().ToString();
 
-            lblActiveStudentsCount.Text =
-                _studentService.GetTotalActiveStudents().ToString();
+                lblActiveStudentsCount.Text =
+                    _studentService.GetTotalActiveStudents().ToString();
 
-            lblSectionsCount.Text =
-                _sectionService.GetTotalSections().ToString();
+                lblSectionsCount.Text =
+                    _sectionService.GetTotalSections().ToString();
+
+                lblEnrollmentCount.Text =
+                    new EnrollmentService().GetTotalEnrollments().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Unable to load dashboard information.\n\n" +
+                    SESRS.Helpers.ErrorHandler.Friendly(ex),
+                    "Dashboard Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
+
+        // =========================================================
+        // SHOW DASHBOARD
+        // =========================================================
 
         private void ShowDashboard()
         {
             pnlContent.Controls.Clear();
 
-            pnlContent.Controls.Add(lblDashboardTitle);
-            pnlContent.Controls.Add(lblWelcome);
+            pnlContent.Controls.Add(pnlStats);
+            pnlContent.Controls.Add(pnlHeader);
 
-            pnlContent.Controls.Add(pnlStudentsCard);
-            pnlContent.Controls.Add(pnlSubjectsCard);
-            pnlContent.Controls.Add(pnlEnrollmentCard);
-            pnlContent.Controls.Add(pnlSectionsCard);
-
-            lblDashboardTitle.BringToFront();
-            lblWelcome.BringToFront();
+            pnlHeader.BringToFront();
+            pnlStats.BringToFront();
         }
+
+        // =========================================================
+        // SHOW PAGE
+        // =========================================================
 
         private void ShowPage(Form page)
         {
@@ -68,20 +99,122 @@ namespace SESRS.Forms
             page.Show();
         }
 
+        // =========================================================
+        // ACTIVE MAIN NAVIGATION
+        // =========================================================
+
+        private void SetActiveMainButton(Button activeButton)
+        {
+            Color normalColor = Color.FromArgb(24, 82, 58);
+            Color activeColor = Color.FromArgb(42, 112, 80);
+
+            // Reset main buttons
+            btnDashboard.BackColor = normalColor;
+            btnStudents.BackColor = normalColor;
+            btnEnrollment.BackColor = normalColor;
+            btnReports.BackColor = normalColor;
+            btnGrades.BackColor = normalColor;
+            btnNotifications.BackColor = normalColor;
+            btnAnnouncements.BackColor = normalColor;
+            btnAccounts.BackColor = normalColor;
+            btnAuditLog.BackColor = normalColor;
+
+            // Reset fonts
+            btnDashboard.Font =
+                new Font("Segoe UI", 10F);
+
+            btnStudents.Font =
+                new Font("Segoe UI", 10F);
+
+            btnEnrollment.Font =
+                new Font("Segoe UI", 10F);
+
+            btnReports.Font =
+                new Font("Segoe UI", 10F);
+
+            btnNotifications.Font =
+                new Font("Segoe UI", 10F);
+
+            btnGrades.Font =
+                new Font("Segoe UI", 10F);
+
+            btnAnnouncements.Font = new Font("Segoe UI", 10F);
+            btnAccounts.Font = new Font("Segoe UI", 10F);
+            btnAuditLog.Font = new Font("Segoe UI", 10F);
+
+            // Highlight selected button
+            activeButton.BackColor = activeColor;
+
+            activeButton.Font =
+                new Font("Segoe UI", 10F, FontStyle.Bold);
+        }
+
+        // =========================================================
+        // ACTIVE ACADEMIC NAVIGATION
+        // =========================================================
+
+        private void SetActiveAcademicButton(Button activeButton)
+        {
+            Color normalColor = Color.FromArgb(31, 96, 68);
+            Color activeColor = Color.FromArgb(48, 119, 84);
+
+            // Reset academic buttons
+            btnPrograms.BackColor = normalColor;
+            btnSubjects.BackColor = normalColor;
+            btnSections.BackColor = normalColor;
+            btnCurriculum.BackColor = normalColor;
+            btnSchedules.BackColor = normalColor;
+            btnPeriods.BackColor = normalColor;
+            btnGradingSetup.BackColor = normalColor;
+
+            // Reset fonts
+            btnPrograms.Font =
+                new Font("Segoe UI", 9F);
+
+            btnSubjects.Font =
+                new Font("Segoe UI", 9F);
+
+            btnSections.Font =
+                new Font("Segoe UI", 9F);
+
+            btnCurriculum.Font = new Font("Segoe UI", 9F);
+            btnSchedules.Font = new Font("Segoe UI", 9F);
+            btnPeriods.Font = new Font("Segoe UI", 9F);
+            btnGradingSetup.Font = new Font("Segoe UI", 9F);
+
+            // Highlight selected academic button
+            activeButton.BackColor = activeColor;
+
+            activeButton.Font =
+                new Font("Segoe UI", 9F, FontStyle.Bold);
+        }
+
+        // =========================================================
+        // DASHBOARD BUTTON
+        // =========================================================
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ShowDashboard();
             LoadDashboardCounts();
+
+            SetActiveMainButton(btnDashboard);
         }
+
+        // =========================================================
+        // STUDENTS
+        // =========================================================
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
             ShowPage(new StudentManagementForm());
+
+            SetActiveMainButton(btnStudents);
         }
 
-        // =========================
-        // ACADEMICS
-        // =========================
+        // =========================================================
+        // ACADEMICS DROPDOWN
+        // =========================================================
 
         private void btnAcademics_Click(object sender, EventArgs e)
         {
@@ -90,16 +223,22 @@ namespace SESRS.Forms
             btnPrograms.Visible = academicsExpanded;
             btnSubjects.Visible = academicsExpanded;
             btnSections.Visible = academicsExpanded;
+            btnCurriculum.Visible = academicsExpanded;
+            btnSchedules.Visible = academicsExpanded;
+            btnPeriods.Visible = academicsExpanded;
+            btnGradingSetup.Visible = academicsExpanded;
 
             if (academicsExpanded)
             {
-                btnAcademics.Text = "ACADEMICS ▲";
-                pnlAcademics.Height = 180;
+                btnAcademics.Text = "  Academics    ▲";
+
+                pnlAcademics.Height = 384;
             }
             else
             {
-                btnAcademics.Text = "ACADEMICS ▼";
-                pnlAcademics.Height = 45;
+                btnAcademics.Text = "  Academics    ▼";
+
+                pnlAcademics.Height = 48;
             }
         }
 
@@ -110,49 +249,176 @@ namespace SESRS.Forms
             btnPrograms.Visible = false;
             btnSubjects.Visible = false;
             btnSections.Visible = false;
+            btnCurriculum.Visible = false;
+            btnSchedules.Visible = false;
+            btnPeriods.Visible = false;
+            btnGradingSetup.Visible = false;
 
-            btnAcademics.Text = "ACADEMICS ▼";
+            btnAcademics.Text = "  Academics    ▼";
 
-            pnlAcademics.Height = 45;
+            pnlAcademics.Height = 48;
         }
+
+        // =========================================================
+        // PROGRAMS
+        // =========================================================
 
         private void btnPrograms_Click(object sender, EventArgs e)
         {
             ShowPage(new ProgramManagementForm());
+
+            SetActiveAcademicButton(btnPrograms);
         }
+
+        // =========================================================
+        // SUBJECTS
+        // =========================================================
 
         private void btnSubjects_Click(object sender, EventArgs e)
         {
             ShowPage(new SubjectManagementForm());
+
+            SetActiveAcademicButton(btnSubjects);
         }
+
+        // =========================================================
+        // SECTIONS
+        // =========================================================
 
         private void btnSections_Click(object sender, EventArgs e)
         {
             ShowPage(new SectionManagementForm());
+
+            SetActiveAcademicButton(btnSections);
         }
 
-        // =========================
-        // OTHER MODULES
-        // =========================
+        private void btnCurriculum_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new CurriculumManagementForm());
+
+            SetActiveAcademicButton(btnCurriculum);
+        }
+
+        private void btnSchedules_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new ScheduleManagementForm());
+
+            SetActiveAcademicButton(btnSchedules);
+        }
+
+        private void btnPeriods_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new PeriodManagementForm());
+
+            SetActiveAcademicButton(btnPeriods);
+        }
+
+        // =========================================================
+        // ENROLLMENT
+        // =========================================================
 
         private void btnEnrollment_Click(object sender, EventArgs e)
         {
             ShowPage(new EnrollmentManagementForm());
+
+            SetActiveMainButton(btnEnrollment);
         }
+
+        // =========================================================
+        // REPORTS
+        // =========================================================
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            ShowPage(new ReportsForm());
+            ShowPage(new ReportCenterForm());
+
+            SetActiveMainButton(btnReports);
         }
 
-        private void btnPendingStudents_Click(object sender, EventArgs e)
+        private void btnNotifications_Click(object? sender, EventArgs e)
         {
-            ShowPage(new PendingStudentsForm());
+            ShowPage(new NotificationsForm(NavigateFromNotification, RefreshNotificationBadge));
+
+            SetActiveMainButton(btnNotifications);
         }
 
-        // =========================
+        /// <summary>Follows the link stored in a notification.</summary>
+        private void NavigateFromNotification(string link)
+        {
+            switch (link)
+            {
+                case "enrollment_review":
+                case "enrollment":
+                    btnEnrollment_Click(btnEnrollment, EventArgs.Empty);
+                    break;
+
+                case "students":
+                    btnStudents_Click(btnStudents, EventArgs.Empty);
+                    break;
+
+                case "reports":
+                    btnReports_Click(btnReports, EventArgs.Empty);
+                    break;
+            }
+        }
+
+        private void RefreshNotificationBadge()
+        {
+            try
+            {
+                int unread = new NotificationService().CountUnread();
+                btnNotifications.Text = unread > 0 ? $"  Notifications ({unread})" : "  Notifications";
+            }
+            catch
+            {
+                // The badge is a convenience; never interrupt the user for it.
+            }
+        }
+
+        private void btnGrades_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new GradeSheetForm());
+
+            SetActiveMainButton(btnGrades);
+        }
+
+        private void btnGradingSetup_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new GradingSetupForm());
+
+            SetActiveAcademicButton(btnGradingSetup);
+        }
+
+        private void btnAnnouncements_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new AnnouncementManagementForm());
+
+            SetActiveMainButton(btnAnnouncements);
+        }
+
+        private void btnAccounts_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new AccountsForm());
+
+            SetActiveMainButton(btnAccounts);
+        }
+
+        private void btnAuditLog_Click(object? sender, EventArgs e)
+        {
+            ShowPage(new AuditLogForm());
+
+            SetActiveMainButton(btnAuditLog);
+        }
+
+        private void btnChangePassword_Click(object? sender, EventArgs e)
+        {
+            using var form = new ChangePasswordForm(forced: false);
+            form.ShowDialog(this);
+        }
+
+        // =========================================================
         // LOGOUT
-        // =========================
+        // =========================================================
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -165,6 +431,8 @@ namespace SESRS.Forms
 
             if (result == DialogResult.Yes)
             {
+                SESRS.Helpers.Session.End();
+
                 LoginForm loginForm = new LoginForm();
 
                 loginForm.Show();

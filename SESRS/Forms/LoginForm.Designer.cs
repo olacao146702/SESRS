@@ -1,4 +1,4 @@
-﻿namespace SESRS.Forms
+namespace SESRS.Forms
 {
     partial class LoginForm
     {
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             pnlLogin = new Panel();
-            lblNoaccountyet = new Label();
-            btnCreateAccount = new Button();
+            lblAccountNotice = new Label();
             btnLogin = new Button();
             txtPassword = new TextBox();
             lblPassword = new Label();
@@ -45,8 +44,7 @@
             // 
             pnlLogin.BackColor = Color.White;
             pnlLogin.BorderStyle = BorderStyle.FixedSingle;
-            pnlLogin.Controls.Add(lblNoaccountyet);
-            pnlLogin.Controls.Add(btnCreateAccount);
+            pnlLogin.Controls.Add(lblAccountNotice);
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(txtPassword);
             pnlLogin.Controls.Add(lblPassword);
@@ -59,26 +57,16 @@
             pnlLogin.Size = new Size(495, 598);
             pnlLogin.TabIndex = 0;
             // 
-            // lblNoaccountyet
+            // lblAccountNotice
             // 
-            lblNoaccountyet.AutoSize = true;
-            lblNoaccountyet.Location = new Point(134, 471);
-            lblNoaccountyet.Name = "lblNoaccountyet";
-            lblNoaccountyet.Size = new Size(216, 28);
-            lblNoaccountyet.TabIndex = 6;
-            lblNoaccountyet.Text = "Don't have an account?";
-            // 
-            // btnCreateAccount
-            // 
-            btnCreateAccount.BackColor = Color.DarkGreen;
-            btnCreateAccount.ForeColor = Color.White;
-            btnCreateAccount.Location = new Point(147, 502);
-            btnCreateAccount.Name = "btnCreateAccount";
-            btnCreateAccount.Size = new Size(186, 41);
-            btnCreateAccount.TabIndex = 1;
-            btnCreateAccount.Text = "CREATE ACCOUNT";
-            btnCreateAccount.UseVisualStyleBackColor = false;
-            btnCreateAccount.Click += btnCreateAccount_Click;
+            lblAccountNotice.AutoSize = false;
+            lblAccountNotice.ForeColor = Color.DimGray;
+            lblAccountNotice.Location = new Point(55, 465);
+            lblAccountNotice.Name = "lblAccountNotice";
+            lblAccountNotice.Size = new Size(385, 110);
+            lblAccountNotice.TabIndex = 6;
+            lblAccountNotice.Text = "Student accounts are created by the registrar's office. Forgot your password? Visit the registrar to have it reset.";
+            lblAccountNotice.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnLogin
             // 
@@ -137,6 +125,7 @@
             lblSubtitle.Size = new Size(400, 40);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Student Enrollment & Registration System";
+            lblSubtitle.UseMnemonic = false;
             lblSubtitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTitle
@@ -182,7 +171,6 @@
         private Label lblUsername;
         private Button btnLogin;
         private TextBox txtPassword;
-        private Button btnCreateAccount;
-        private Label lblNoaccountyet;
+        private Label lblAccountNotice;
     }
 }

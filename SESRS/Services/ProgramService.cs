@@ -1,4 +1,5 @@
-﻿using System.Data;
+using SESRS.Helpers;
+using System.Data;
 using MySqlConnector;
 using SESRS.Data;
 
@@ -7,9 +8,12 @@ namespace SESRS.Services
     public class ProgramService
     {
         private readonly DatabaseConnection _database = new();
+        private readonly AuditService _audit = new();
 
         public DataTable GetAllPrograms()
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -35,6 +39,8 @@ namespace SESRS.Services
 
         public DataTable SearchPrograms(string keyword)
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -74,6 +80,10 @@ namespace SESRS.Services
     string programName,
     int durationYears)
         {
+            Session.RequireAdmin();
+
+            Validate.Program(programCode, programName, durationYears);
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -103,11 +113,18 @@ namespace SESRS.Services
 
             int rowsAffected = command.ExecuteNonQuery();
 
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "PROGRAM_CREATED", "program", command.LastInsertedId.ToString(), programCode);
+            }
+
             return rowsAffected > 0;
         }
 
         public DataTable GetProgramById(int programId)
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -143,6 +160,10 @@ namespace SESRS.Services
             string programName,
             int durationYears)
         {
+            Session.RequireAdmin();
+
+            Validate.Program(programCode, programName, durationYears);
+
             using var connection = _database.GetConnection();
             connection.Open();
 
@@ -180,13 +201,31 @@ namespace SESRS.Services
             int rowsAffected =
                 command.ExecuteNonQuery();
 
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "PROGRAM_UPDATED", "program", programId.ToString(), programCode);
+            }
+
             return rowsAffected > 0;
         }
 
         public bool ToggleProgramStatus(int programId)
         {
+            Session.RequireAdmin();
+
             using var connection = _database.GetConnection();
             connection.Open();
+
+            if (Sql.Int(connection, null,
+                    "SELECT COUNT(*) FROM programs WHERE program_id = @id AND status = 'Active';",
+                    ("@id", programId)) > 0 &&
+                Sql.Int(connection, null,
+                    "SELECT COUNT(*) FROM students WHERE program_id = @id AND status = 'Active';",
+                    ("@id", programId)) > 0)
+            {
+                throw new BusinessRuleException(
+                    "This program still has active students. Move or deactivate them before deactivating the program.");
+            }
 
             string query = """
         UPDATE programs
@@ -208,6 +247,11 @@ namespace SESRS.Services
 
             int rowsAffected =
                 command.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                _audit.Log(connection, null, "PROGRAM_STATUS_CHANGED", "program", programId.ToString(), null);
+            }
 
             return rowsAffected > 0;
         }
