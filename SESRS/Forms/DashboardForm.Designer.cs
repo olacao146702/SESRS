@@ -19,21 +19,19 @@ namespace SESRS.Forms
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
-            btnLogout = new Button();
             btnChangePassword = new Button();
-            btnReports = new Button();
-            btnAnnouncements = new Button();
-            btnAccounts = new Button();
+            btnLogout = new Button();
             btnAuditLog = new Button();
-            btnGrades = new Button();
+            btnAccounts = new Button();
+            btnAnnouncements = new Button();
             btnNotifications = new Button();
+            btnReports = new Button();
             btnEnrollment = new Button();
             pnlAcademics = new Panel();
-            btnSections = new Button();
-            btnGradingSetup = new Button();
-            btnCurriculum = new Button();
-            btnSchedules = new Button();
             btnPeriods = new Button();
+            btnSchedules = new Button();
+            btnCurriculum = new Button();
+            btnSections = new Button();
             btnSubjects = new Button();
             btnPrograms = new Button();
             btnAcademics = new Button();
@@ -91,7 +89,6 @@ namespace SESRS.Forms
             pnlSidebar.Controls.Add(btnAnnouncements);
             pnlSidebar.Controls.Add(btnNotifications);
             pnlSidebar.Controls.Add(btnReports);
-            pnlSidebar.Controls.Add(btnGrades);
             pnlSidebar.Controls.Add(btnEnrollment);
             pnlSidebar.Controls.Add(pnlAcademics);
             pnlSidebar.Controls.Add(btnStudents);
@@ -143,26 +140,6 @@ namespace SESRS.Forms
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
-            // btnReports
-            // 
-            btnReports.BackColor = Color.FromArgb(24, 82, 58);
-            btnReports.Dock = DockStyle.Top;
-            btnReports.FlatAppearance.BorderSize = 0;
-            btnReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 112, 80);
-            btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.Font = new Font("Segoe UI", 10F);
-            btnReports.ForeColor = Color.White;
-            btnReports.Location = new Point(0, 489);
-            btnReports.Margin = new Padding(2);
-            btnReports.Name = "btnReports";
-            btnReports.Padding = new Padding(20, 0, 0, 0);
-            btnReports.Size = new Size(245, 48);
-            btnReports.TabIndex = 5;
-            btnReports.Text = "  Reports";
-            btnReports.TextAlign = ContentAlignment.MiddleLeft;
-            btnReports.UseVisualStyleBackColor = false;
-            btnReports.Click += btnReports_Click;
-            // 
             // btnAuditLog
             // 
             btnAuditLog.BackColor = Color.FromArgb(24, 82, 58);
@@ -172,7 +149,7 @@ namespace SESRS.Forms
             btnAuditLog.FlatStyle = FlatStyle.Flat;
             btnAuditLog.Font = new Font("Segoe UI", 10F);
             btnAuditLog.ForeColor = Color.White;
-            btnAuditLog.Location = new Point(0, 489);
+            btnAuditLog.Location = new Point(0, 825);
             btnAuditLog.Margin = new Padding(2);
             btnAuditLog.Name = "btnAuditLog";
             btnAuditLog.Padding = new Padding(20, 0, 0, 0);
@@ -192,7 +169,7 @@ namespace SESRS.Forms
             btnAccounts.FlatStyle = FlatStyle.Flat;
             btnAccounts.Font = new Font("Segoe UI", 10F);
             btnAccounts.ForeColor = Color.White;
-            btnAccounts.Location = new Point(0, 489);
+            btnAccounts.Location = new Point(0, 777);
             btnAccounts.Margin = new Padding(2);
             btnAccounts.Name = "btnAccounts";
             btnAccounts.Padding = new Padding(20, 0, 0, 0);
@@ -212,7 +189,7 @@ namespace SESRS.Forms
             btnAnnouncements.FlatStyle = FlatStyle.Flat;
             btnAnnouncements.Font = new Font("Segoe UI", 10F);
             btnAnnouncements.ForeColor = Color.White;
-            btnAnnouncements.Location = new Point(0, 489);
+            btnAnnouncements.Location = new Point(0, 729);
             btnAnnouncements.Margin = new Padding(2);
             btnAnnouncements.Name = "btnAnnouncements";
             btnAnnouncements.Padding = new Padding(20, 0, 0, 0);
@@ -223,26 +200,6 @@ namespace SESRS.Forms
             btnAnnouncements.UseVisualStyleBackColor = false;
             btnAnnouncements.Click += btnAnnouncements_Click;
             // 
-            // btnGrades
-            // 
-            btnGrades.BackColor = Color.FromArgb(24, 82, 58);
-            btnGrades.Dock = DockStyle.Top;
-            btnGrades.FlatAppearance.BorderSize = 0;
-            btnGrades.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 112, 80);
-            btnGrades.FlatStyle = FlatStyle.Flat;
-            btnGrades.Font = new Font("Segoe UI", 10F);
-            btnGrades.ForeColor = Color.White;
-            btnGrades.Location = new Point(0, 489);
-            btnGrades.Margin = new Padding(2);
-            btnGrades.Name = "btnGrades";
-            btnGrades.Padding = new Padding(20, 0, 0, 0);
-            btnGrades.Size = new Size(245, 48);
-            btnGrades.TabIndex = 13;
-            btnGrades.Text = "  Grades";
-            btnGrades.TextAlign = ContentAlignment.MiddleLeft;
-            btnGrades.UseVisualStyleBackColor = false;
-            btnGrades.Click += btnGrades_Click;
-            // 
             // btnNotifications
             // 
             btnNotifications.BackColor = Color.FromArgb(24, 82, 58);
@@ -252,7 +209,7 @@ namespace SESRS.Forms
             btnNotifications.FlatStyle = FlatStyle.Flat;
             btnNotifications.Font = new Font("Segoe UI", 10F);
             btnNotifications.ForeColor = Color.White;
-            btnNotifications.Location = new Point(0, 489);
+            btnNotifications.Location = new Point(0, 681);
             btnNotifications.Margin = new Padding(2);
             btnNotifications.Name = "btnNotifications";
             btnNotifications.Padding = new Padding(20, 0, 0, 0);
@@ -263,6 +220,26 @@ namespace SESRS.Forms
             btnNotifications.UseVisualStyleBackColor = false;
             btnNotifications.Click += btnNotifications_Click;
             // 
+            // btnReports
+            // 
+            btnReports.BackColor = Color.FromArgb(24, 82, 58);
+            btnReports.Dock = DockStyle.Top;
+            btnReports.FlatAppearance.BorderSize = 0;
+            btnReports.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 112, 80);
+            btnReports.FlatStyle = FlatStyle.Flat;
+            btnReports.Font = new Font("Segoe UI", 10F);
+            btnReports.ForeColor = Color.White;
+            btnReports.Location = new Point(0, 633);
+            btnReports.Margin = new Padding(2);
+            btnReports.Name = "btnReports";
+            btnReports.Padding = new Padding(20, 0, 0, 0);
+            btnReports.Size = new Size(245, 48);
+            btnReports.TabIndex = 5;
+            btnReports.Text = "  Reports";
+            btnReports.TextAlign = ContentAlignment.MiddleLeft;
+            btnReports.UseVisualStyleBackColor = false;
+            btnReports.Click += btnReports_Click;
+            // 
             // btnEnrollment
             // 
             btnEnrollment.BackColor = Color.FromArgb(24, 82, 58);
@@ -272,7 +249,7 @@ namespace SESRS.Forms
             btnEnrollment.FlatStyle = FlatStyle.Flat;
             btnEnrollment.Font = new Font("Segoe UI", 10F);
             btnEnrollment.ForeColor = Color.White;
-            btnEnrollment.Location = new Point(0, 441);
+            btnEnrollment.Location = new Point(0, 585);
             btnEnrollment.Margin = new Padding(2);
             btnEnrollment.Name = "btnEnrollment";
             btnEnrollment.Padding = new Padding(20, 0, 0, 0);
@@ -286,7 +263,6 @@ namespace SESRS.Forms
             // pnlAcademics
             // 
             pnlAcademics.BackColor = Color.FromArgb(24, 82, 58);
-            pnlAcademics.Controls.Add(btnGradingSetup);
             pnlAcademics.Controls.Add(btnPeriods);
             pnlAcademics.Controls.Add(btnSchedules);
             pnlAcademics.Controls.Add(btnCurriculum);
@@ -295,11 +271,71 @@ namespace SESRS.Forms
             pnlAcademics.Controls.Add(btnPrograms);
             pnlAcademics.Controls.Add(btnAcademics);
             pnlAcademics.Dock = DockStyle.Top;
-            pnlAcademics.Location = new Point(0, 249);
+            pnlAcademics.Location = new Point(0, 201);
             pnlAcademics.Margin = new Padding(2);
             pnlAcademics.Name = "pnlAcademics";
             pnlAcademics.Size = new Size(245, 384);
             pnlAcademics.TabIndex = 3;
+            // 
+            // btnPeriods
+            // 
+            btnPeriods.BackColor = Color.FromArgb(31, 96, 68);
+            btnPeriods.Dock = DockStyle.Top;
+            btnPeriods.FlatAppearance.BorderSize = 0;
+            btnPeriods.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
+            btnPeriods.FlatStyle = FlatStyle.Flat;
+            btnPeriods.Font = new Font("Segoe UI", 9F);
+            btnPeriods.ForeColor = Color.FromArgb(225, 240, 232);
+            btnPeriods.Location = new Point(0, 288);
+            btnPeriods.Margin = new Padding(2);
+            btnPeriods.Name = "btnPeriods";
+            btnPeriods.Padding = new Padding(42, 0, 0, 0);
+            btnPeriods.Size = new Size(245, 48);
+            btnPeriods.TabIndex = 8;
+            btnPeriods.Text = "Academic Periods";
+            btnPeriods.TextAlign = ContentAlignment.MiddleLeft;
+            btnPeriods.UseVisualStyleBackColor = false;
+            btnPeriods.Click += btnPeriods_Click;
+            // 
+            // btnSchedules
+            // 
+            btnSchedules.BackColor = Color.FromArgb(31, 96, 68);
+            btnSchedules.Dock = DockStyle.Top;
+            btnSchedules.FlatAppearance.BorderSize = 0;
+            btnSchedules.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
+            btnSchedules.FlatStyle = FlatStyle.Flat;
+            btnSchedules.Font = new Font("Segoe UI", 9F);
+            btnSchedules.ForeColor = Color.FromArgb(225, 240, 232);
+            btnSchedules.Location = new Point(0, 240);
+            btnSchedules.Margin = new Padding(2);
+            btnSchedules.Name = "btnSchedules";
+            btnSchedules.Padding = new Padding(42, 0, 0, 0);
+            btnSchedules.Size = new Size(245, 48);
+            btnSchedules.TabIndex = 7;
+            btnSchedules.Text = "Schedules";
+            btnSchedules.TextAlign = ContentAlignment.MiddleLeft;
+            btnSchedules.UseVisualStyleBackColor = false;
+            btnSchedules.Click += btnSchedules_Click;
+            // 
+            // btnCurriculum
+            // 
+            btnCurriculum.BackColor = Color.FromArgb(31, 96, 68);
+            btnCurriculum.Dock = DockStyle.Top;
+            btnCurriculum.FlatAppearance.BorderSize = 0;
+            btnCurriculum.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
+            btnCurriculum.FlatStyle = FlatStyle.Flat;
+            btnCurriculum.Font = new Font("Segoe UI", 9F);
+            btnCurriculum.ForeColor = Color.FromArgb(225, 240, 232);
+            btnCurriculum.Location = new Point(0, 192);
+            btnCurriculum.Margin = new Padding(2);
+            btnCurriculum.Name = "btnCurriculum";
+            btnCurriculum.Padding = new Padding(42, 0, 0, 0);
+            btnCurriculum.Size = new Size(245, 48);
+            btnCurriculum.TabIndex = 6;
+            btnCurriculum.Text = "Curriculum";
+            btnCurriculum.TextAlign = ContentAlignment.MiddleLeft;
+            btnCurriculum.UseVisualStyleBackColor = false;
+            btnCurriculum.Click += btnCurriculum_Click;
             // 
             // btnSections
             // 
@@ -320,86 +356,6 @@ namespace SESRS.Forms
             btnSections.TextAlign = ContentAlignment.MiddleLeft;
             btnSections.UseVisualStyleBackColor = false;
             btnSections.Click += btnSections_Click;
-            // 
-            // btnGradingSetup
-            // 
-            btnGradingSetup.BackColor = Color.FromArgb(31, 96, 68);
-            btnGradingSetup.Dock = DockStyle.Top;
-            btnGradingSetup.FlatAppearance.BorderSize = 0;
-            btnGradingSetup.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
-            btnGradingSetup.FlatStyle = FlatStyle.Flat;
-            btnGradingSetup.Font = new Font("Segoe UI", 9F);
-            btnGradingSetup.ForeColor = Color.FromArgb(225, 240, 232);
-            btnGradingSetup.Location = new Point(0, 144);
-            btnGradingSetup.Margin = new Padding(2);
-            btnGradingSetup.Name = "btnGradingSetup";
-            btnGradingSetup.Padding = new Padding(42, 0, 0, 0);
-            btnGradingSetup.Size = new Size(245, 48);
-            btnGradingSetup.TabIndex = 9;
-            btnGradingSetup.Text = "Grading Setup";
-            btnGradingSetup.TextAlign = ContentAlignment.MiddleLeft;
-            btnGradingSetup.UseVisualStyleBackColor = false;
-            btnGradingSetup.Click += btnGradingSetup_Click;
-            // 
-            // btnCurriculum
-            // 
-            btnCurriculum.BackColor = Color.FromArgb(31, 96, 68);
-            btnCurriculum.Dock = DockStyle.Top;
-            btnCurriculum.FlatAppearance.BorderSize = 0;
-            btnCurriculum.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
-            btnCurriculum.FlatStyle = FlatStyle.Flat;
-            btnCurriculum.Font = new Font("Segoe UI", 9F);
-            btnCurriculum.ForeColor = Color.FromArgb(225, 240, 232);
-            btnCurriculum.Location = new Point(0, 144);
-            btnCurriculum.Margin = new Padding(2);
-            btnCurriculum.Name = "btnCurriculum";
-            btnCurriculum.Padding = new Padding(42, 0, 0, 0);
-            btnCurriculum.Size = new Size(245, 48);
-            btnCurriculum.TabIndex = 6;
-            btnCurriculum.Text = "Curriculum";
-            btnCurriculum.TextAlign = ContentAlignment.MiddleLeft;
-            btnCurriculum.UseVisualStyleBackColor = false;
-            btnCurriculum.Click += btnCurriculum_Click;
-            // 
-            // btnSchedules
-            // 
-            btnSchedules.BackColor = Color.FromArgb(31, 96, 68);
-            btnSchedules.Dock = DockStyle.Top;
-            btnSchedules.FlatAppearance.BorderSize = 0;
-            btnSchedules.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
-            btnSchedules.FlatStyle = FlatStyle.Flat;
-            btnSchedules.Font = new Font("Segoe UI", 9F);
-            btnSchedules.ForeColor = Color.FromArgb(225, 240, 232);
-            btnSchedules.Location = new Point(0, 144);
-            btnSchedules.Margin = new Padding(2);
-            btnSchedules.Name = "btnSchedules";
-            btnSchedules.Padding = new Padding(42, 0, 0, 0);
-            btnSchedules.Size = new Size(245, 48);
-            btnSchedules.TabIndex = 7;
-            btnSchedules.Text = "Schedules";
-            btnSchedules.TextAlign = ContentAlignment.MiddleLeft;
-            btnSchedules.UseVisualStyleBackColor = false;
-            btnSchedules.Click += btnSchedules_Click;
-            // 
-            // btnPeriods
-            // 
-            btnPeriods.BackColor = Color.FromArgb(31, 96, 68);
-            btnPeriods.Dock = DockStyle.Top;
-            btnPeriods.FlatAppearance.BorderSize = 0;
-            btnPeriods.FlatAppearance.MouseOverBackColor = Color.FromArgb(48, 119, 84);
-            btnPeriods.FlatStyle = FlatStyle.Flat;
-            btnPeriods.Font = new Font("Segoe UI", 9F);
-            btnPeriods.ForeColor = Color.FromArgb(225, 240, 232);
-            btnPeriods.Location = new Point(0, 144);
-            btnPeriods.Margin = new Padding(2);
-            btnPeriods.Name = "btnPeriods";
-            btnPeriods.Padding = new Padding(42, 0, 0, 0);
-            btnPeriods.Size = new Size(245, 48);
-            btnPeriods.TabIndex = 8;
-            btnPeriods.Text = "Academic Periods";
-            btnPeriods.TextAlign = ContentAlignment.MiddleLeft;
-            btnPeriods.UseVisualStyleBackColor = false;
-            btnPeriods.Click += btnPeriods_Click;
             // 
             // btnSubjects
             // 
@@ -470,7 +426,7 @@ namespace SESRS.Forms
             btnStudents.FlatStyle = FlatStyle.Flat;
             btnStudents.Font = new Font("Segoe UI", 10F);
             btnStudents.ForeColor = Color.White;
-            btnStudents.Location = new Point(0, 201);
+            btnStudents.Location = new Point(0, 153);
             btnStudents.Margin = new Padding(2);
             btnStudents.Name = "btnStudents";
             btnStudents.Padding = new Padding(20, 0, 0, 0);
@@ -551,6 +507,7 @@ namespace SESRS.Forms
             pnlContent.Padding = new Padding(35);
             pnlContent.Size = new Size(1445, 720);
             pnlContent.TabIndex = 1;
+            pnlContent.Paint += pnlContent_Paint;
             // 
             // pnlStats
             // 
@@ -915,7 +872,6 @@ namespace SESRS.Forms
         private Button btnPrograms;
         private Button btnSubjects;
         private Button btnSections;
-        private Button btnGradingSetup;
         private Button btnCurriculum;
         private Button btnSchedules;
         private Button btnPeriods;
@@ -925,7 +881,6 @@ namespace SESRS.Forms
         private Button btnAnnouncements;
         private Button btnAccounts;
         private Button btnAuditLog;
-        private Button btnGrades;
         private Button btnNotifications;
         private Button btnLogout;
         private Button btnChangePassword;

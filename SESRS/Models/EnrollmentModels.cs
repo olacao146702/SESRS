@@ -69,10 +69,71 @@ public sealed class SectionOffer
 
     public int Available => Math.Max(0, Capacity - Taken);
 
+
     public string ScheduleText => Meetings.Count == 0
         ? "No schedule"
-        : string.Join("; ", Meetings.Select(m =>
-            m.Text + (string.IsNullOrWhiteSpace(m.Room) ? "" : " @ " + m.Room)));
+        : string.Join("; ", Meetings
+            .GroupBy(m => new
+            {
+                m.Start,
+                m.End,
+                m.Room,
+                m.Instructor
+            })
+            .Select(group =>
+            {
+                var days = group
+                    .Select(m => m.Day)
+                    .Distinct()
+                    .OrderBy(day => Array.IndexOf(Academic.Days, day))
+                    .ToList();
+
+                string dayText = FormatDays(days);
+
+                string timeText =
+                    $"{Academic.FormatTime(group.Key.Start)}-" +
+                    $"{Academic.FormatTime(group.Key.End)}";
+
+                string roomText = string.IsNullOrWhiteSpace(group.Key.Room)
+                    ? ""
+                    : $" @ {group.Key.Room}";
+
+                return $"{dayText} {timeText}{roomText}";
+            }));
+
+    private static string FormatDays(List<string> days)
+    {
+        var abbreviations = days.Select(day => day switch
+        {
+            "Monday" => "M",
+            "Tuesday" => "T",
+            "Wednesday" => "W",
+            "Thursday" => "TH",
+            "Friday" => "F",
+            "Saturday" => "SAT",
+            "Sunday" => "SUN",
+            _ => day
+        }).ToList();
+
+        if (days.SequenceEqual(new[]
+            { "Monday", "Wednesday", "Friday" }))
+            return "MWF";
+
+        if (days.SequenceEqual(new[]
+            { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" }))
+            return "Monday-Friday";
+
+        if (days.SequenceEqual(new[]
+            { "Monday", "Tuesday", "Wednesday" }))
+            return "MSAT1";
+
+        if (days.SequenceEqual(new[]
+            { "Thursday", "Friday", "Saturday" }))
+            return "MSAT2";
+
+        return string.Join("", abbreviations);
+    }
+
 
     public string InstructorText => string.Join(
         ", ",

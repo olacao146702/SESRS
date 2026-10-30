@@ -305,7 +305,6 @@ namespace SESRS.Forms
             this.btnRecord.FlatAppearance.BorderSize = 1;
             this.btnRecord.UseVisualStyleBackColor = false;
             this.btnRecord.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // btnTranscript
             // 

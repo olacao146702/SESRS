@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Forms\AccountsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AnnouncementEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AnnouncementManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\AuditLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ContactEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CreateStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CredentialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CurriculumAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\CurriculumManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EnrollmentHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\EnrollmentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MyCurriculumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MyScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NewAdministratorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NotificationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PeriodEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PeriodManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\PrerequisiteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProgramEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProgramManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReasonDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ReportCenterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ScheduleManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ScheduleMeetingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SectionEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SectionManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentAnnouncementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentEnrollmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SubjectEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\SubjectManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TableDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\TextDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Ui\TimetableView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

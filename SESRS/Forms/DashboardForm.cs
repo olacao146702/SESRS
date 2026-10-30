@@ -113,7 +113,6 @@ namespace SESRS.Forms
             btnStudents.BackColor = normalColor;
             btnEnrollment.BackColor = normalColor;
             btnReports.BackColor = normalColor;
-            btnGrades.BackColor = normalColor;
             btnNotifications.BackColor = normalColor;
             btnAnnouncements.BackColor = normalColor;
             btnAccounts.BackColor = normalColor;
@@ -133,9 +132,6 @@ namespace SESRS.Forms
                 new Font("Segoe UI", 10F);
 
             btnNotifications.Font =
-                new Font("Segoe UI", 10F);
-
-            btnGrades.Font =
                 new Font("Segoe UI", 10F);
 
             btnAnnouncements.Font = new Font("Segoe UI", 10F);
@@ -165,7 +161,6 @@ namespace SESRS.Forms
             btnCurriculum.BackColor = normalColor;
             btnSchedules.BackColor = normalColor;
             btnPeriods.BackColor = normalColor;
-            btnGradingSetup.BackColor = normalColor;
 
             // Reset fonts
             btnPrograms.Font =
@@ -180,7 +175,6 @@ namespace SESRS.Forms
             btnCurriculum.Font = new Font("Segoe UI", 9F);
             btnSchedules.Font = new Font("Segoe UI", 9F);
             btnPeriods.Font = new Font("Segoe UI", 9F);
-            btnGradingSetup.Font = new Font("Segoe UI", 9F);
 
             // Highlight selected academic button
             activeButton.BackColor = activeColor;
@@ -226,7 +220,6 @@ namespace SESRS.Forms
             btnCurriculum.Visible = academicsExpanded;
             btnSchedules.Visible = academicsExpanded;
             btnPeriods.Visible = academicsExpanded;
-            btnGradingSetup.Visible = academicsExpanded;
 
             if (academicsExpanded)
             {
@@ -252,7 +245,6 @@ namespace SESRS.Forms
             btnCurriculum.Visible = false;
             btnSchedules.Visible = false;
             btnPeriods.Visible = false;
-            btnGradingSetup.Visible = false;
 
             btnAcademics.Text = "  Academics    ▼";
 
@@ -375,20 +367,6 @@ namespace SESRS.Forms
             }
         }
 
-        private void btnGrades_Click(object? sender, EventArgs e)
-        {
-            ShowPage(new GradeSheetForm());
-
-            SetActiveMainButton(btnGrades);
-        }
-
-        private void btnGradingSetup_Click(object? sender, EventArgs e)
-        {
-            ShowPage(new GradingSetupForm());
-
-            SetActiveAcademicButton(btnGradingSetup);
-        }
-
         private void btnAnnouncements_Click(object? sender, EventArgs e)
         {
             ShowPage(new AnnouncementManagementForm());
@@ -439,6 +417,11 @@ namespace SESRS.Forms
 
                 this.Close();
             }
+        }
+
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

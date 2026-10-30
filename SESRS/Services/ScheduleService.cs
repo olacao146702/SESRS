@@ -13,6 +13,8 @@ public class ScheduleService
     private readonly AuditService _audit = new();
     private readonly NotificationService _notifications = new();
 
+
+
     public DataTable GetForSection(int sectionId)
     {
         Session.RequireAdmin();
@@ -20,17 +22,105 @@ public class ScheduleService
         using var connection = _database.GetConnection();
         connection.Open();
 
-        return Sql.Table(connection, null, """
-            SELECT sc.schedule_id, s.subject_code, s.subject_name,
-                   sc.day, sc.start_time, sc.end_time,
-                   COALESCE(sc.room, '') AS room, COALESCE(sc.instructor, '') AS instructor
-            FROM schedules sc
-            JOIN subjects s ON s.subject_id = sc.subject_id
-            WHERE sc.section_id = @sectionId
-            ORDER BY FIELD(sc.day, 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'),
-                     sc.start_time;
-            """, ("@sectionId", sectionId));
+        DataTable table = Sql.Table(connection, null, """
+        SELECT
+            MIN(sc.schedule_id) AS schedule_id,
+
+            GROUP_CONCAT(
+                sc.schedule_id
+                ORDER BY FIELD(
+                    sc.day, 'Monday', 'Tuesday', 'Wednesday',
+                    'Thursday', 'Friday', 'Saturday', 'Sunday'
+                )
+                SEPARATOR ','
+            ) AS schedule_ids,
+
+            GROUP_CONCAT(
+                sc.day
+                ORDER BY FIELD(
+                    sc.day, 'Monday', 'Tuesday', 'Wednesday',
+                    'Thursday', 'Friday', 'Saturday', 'Sunday'
+                )
+                SEPARATOR ','
+            ) AS raw_days,
+
+            s.subject_code,
+            s.subject_name,
+            sc.start_time,
+            sc.end_time,
+            COALESCE(sc.room, '') AS room,
+            COALESCE(sc.instructor, '') AS instructor
+
+        FROM schedules sc
+        JOIN subjects s ON s.subject_id = sc.subject_id
+
+        WHERE sc.section_id = @sectionId
+
+        GROUP BY
+            sc.subject_id,
+            s.subject_code,
+            s.subject_name,
+            sc.start_time,
+            sc.end_time,
+            sc.room,
+            sc.instructor
+
+        ORDER BY
+            MIN(FIELD(
+                sc.day, 'Monday', 'Tuesday', 'Wednesday',
+                'Thursday', 'Friday', 'Saturday', 'Sunday'
+            )),
+            sc.start_time;
+        """, ("@sectionId", sectionId));
+
+        // Add a separate column for the readable day pattern.
+        if (!table.Columns.Contains("days_display"))
+        {
+            table.Columns.Add("days_display", typeof(string));
+        }
+
+        foreach (DataRow row in table.Rows)
+        {
+            string rawDays = Convert.ToString(row["raw_days"]) ?? "";
+
+            string[] days = rawDays.Split(
+                ',',
+                StringSplitOptions.RemoveEmptyEntries |
+                StringSplitOptions.TrimEntries);
+
+            var daySet = days.ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+            string displayPattern =
+                daySet.SetEquals(new[] { "Monday", "Wednesday", "Friday" })
+                    ? "MWF"
+                : daySet.SetEquals(new[]
+                    {
+                    "Monday", "Tuesday", "Wednesday",
+                    "Thursday", "Friday"
+                    })
+                    ? "Monday-Friday"
+                : daySet.SetEquals(new[] { "Monday", "Tuesday", "Wednesday" })
+                    ? "MSAT1"
+                : daySet.SetEquals(new[] { "Thursday", "Friday", "Saturday" })
+                    ? "MSAT2"
+                : string.Join(", ", days.Select(day => day switch
+                {
+                    "Monday" => "M",
+                    "Tuesday" => "T",
+                    "Wednesday" => "W",
+                    "Thursday" => "Th",
+                    "Friday" => "F",
+                    "Saturday" => "Sat",
+                    "Sunday" => "Sun",
+                    _ => day
+                }));
+
+            row["days_display"] = displayPattern;
+        }
+
+        return table;
     }
+
 
     /// <summary>Sections as dropdown choices.</summary>
     public DataTable GetSectionChoices()
@@ -221,9 +311,20 @@ public class ScheduleService
         }
     }
 
+
     public void Delete(int scheduleId)
     {
+        DeleteMany(new[] { scheduleId });
+    }
+
+    public void DeleteMany(IEnumerable<int> scheduleIds)
+    {
         Session.RequireAdmin();
+
+        int[] ids = scheduleIds.Distinct().ToArray();
+
+        if (ids.Length == 0)
+            throw new BusinessRuleException("No schedule meetings were selected.");
 
         using var connection = _database.GetConnection();
         connection.Open();
@@ -232,22 +333,30 @@ public class ScheduleService
 
         try
         {
-            ScheduleEntry? entry = ReadEntry(connection, transaction, scheduleId);
-
-            if (entry == null)
+            foreach (int id in ids)
             {
-                transaction.Rollback();
-                return;
+                ScheduleEntry? entry = ReadEntry(connection, transaction, id);
+
+                if (entry == null)
+                    throw new BusinessRuleException(
+                        $"Schedule meeting ID {id} no longer exists.");
+
+                Sql.Exec(connection, transaction,
+                    "DELETE FROM schedules WHERE schedule_id = @id;",
+                    ("@id", id));
+
+                NotifyAffected(
+                    connection, transaction,
+                    entry.SectionId, entry.SubjectId,
+                    "Schedule changed",
+                    $"A class meeting on {entry.Day} " +
+                    $"{Academic.FormatTime(entry.Start)} was removed. " +
+                    "Please review your timetable.");
+
+                _audit.Log(
+                    connection, transaction,
+                    "SCHEDULE_DELETED", "schedule", id.ToString());
             }
-
-            Sql.Exec(connection, transaction,
-                "DELETE FROM schedules WHERE schedule_id = @id;", ("@id", scheduleId));
-
-            NotifyAffected(connection, transaction, entry.SectionId, entry.SubjectId,
-                "Schedule changed",
-                $"A class meeting on {entry.Day} {Academic.FormatTime(entry.Start)} was removed. Please review your timetable.");
-
-            _audit.Log(connection, transaction, "SCHEDULE_DELETED", "schedule", scheduleId.ToString());
 
             transaction.Commit();
         }
@@ -257,6 +366,7 @@ public class ScheduleService
             throw;
         }
     }
+
 
     // ---------------------------------------------------------------
     // Conflict detection
@@ -395,4 +505,131 @@ public class ScheduleService
                 title, message, "schedule");
         }
     }
+
+
+    public void SavePattern(
+        int sectionId,
+        int subjectId,
+        string? instructor,
+        string? room,
+        IEnumerable<string> selectedDays,
+        TimeSpan start,
+        TimeSpan end)
+    {
+        Session.RequireAdmin();
+
+        string[] days = selectedDays
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+        if (days.Length == 0 || days.Any(day => !Academic.Days.Contains(day)))
+        {
+            throw new BusinessRuleException("Please choose valid schedule days.");
+        }
+
+        if (end <= start)
+        {
+            throw new BusinessRuleException("The end time must be after the start time.");
+        }
+
+        instructor = string.IsNullOrWhiteSpace(instructor) ? null : instructor.Trim();
+        room = string.IsNullOrWhiteSpace(room) ? null : room.Trim();
+
+        using var connection = _database.GetConnection();
+        connection.Open();
+
+        using var transaction = connection.BeginTransaction();
+
+        try
+        {
+            DataTable sectionTable = Sql.Table(connection, transaction, """
+            SELECT section_id, section_code, program_id, year_level,
+                   semester, school_year, status
+            FROM sections
+            WHERE section_id = @id
+            FOR UPDATE;
+            """, ("@id", sectionId));
+
+            if (sectionTable.Rows.Count == 0)
+            {
+                throw new BusinessRuleException("That section no longer exists.");
+            }
+
+            DataRow section = sectionTable.Rows[0];
+
+            int inCurriculum = Sql.Int(connection, transaction, """
+            SELECT COUNT(*)
+            FROM curriculum
+            WHERE program_id = @p
+              AND subject_id = @s
+              AND year_level = @y
+              AND semester = @sem;
+            """,
+                ("@p", section["program_id"]),
+                ("@s", subjectId),
+                ("@y", section["year_level"]),
+                ("@sem", section["semester"]));
+
+            if (inCurriculum == 0)
+            {
+                throw new BusinessRuleException(
+                    "That subject is not in this section's curriculum.");
+            }
+
+            foreach (string day in days)
+            {
+                var entry = new ScheduleEntry(
+                    0,
+                    sectionId,
+                    subjectId,
+                    instructor,
+                    room,
+                    day,
+                    start,
+                    end);
+
+                // Reuse the existing conflict-checking logic.
+                CheckResourceConflicts(connection, transaction, entry, section);
+                CheckEnrolledStudentConflicts(connection, transaction, entry);
+
+                int id = (int)Sql.Insert(connection, transaction, """
+                INSERT INTO schedules
+                    (section_id, subject_id, instructor, room, day,
+                     start_time, end_time)
+                VALUES
+                    (@sec, @sub, @ins, @room, @day, @start, @end);
+                """,
+                    ("@sec", sectionId),
+                    ("@sub", subjectId),
+                    ("@ins", instructor),
+                    ("@room", room),
+                    ("@day", day),
+                    ("@start", start),
+                    ("@end", end));
+
+                string description =
+                    $"{section["section_code"]}: {day} " +
+                    $"{Academic.FormatTime(start)}-{Academic.FormatTime(end)}" +
+                    (room == null ? "" : " @ " + room);
+
+                NotifyAffected(
+                    connection, transaction, sectionId, subjectId,
+                    "Schedule changed",
+                    "A class meeting was added: " + description +
+                    ". Please review your timetable.");
+
+                _audit.Log(
+                    connection, transaction,
+                    "SCHEDULE_ADDED", "schedule", id.ToString(), description);
+            }
+
+            transaction.Commit();
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
+        }
+    }
+
 }

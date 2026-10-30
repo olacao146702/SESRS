@@ -126,5 +126,10 @@ namespace SESRS.Forms
                 MessageBoxIcon.Error
             );
         }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

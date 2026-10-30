@@ -43,7 +43,7 @@ namespace SESRS.Forms
             // pnlLogin
             // 
             pnlLogin.BackColor = Color.White;
-            pnlLogin.BorderStyle = BorderStyle.FixedSingle;
+            pnlLogin.BorderStyle = BorderStyle.Fixed3D;
             pnlLogin.Controls.Add(lblAccountNotice);
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(txtPassword);
@@ -52,14 +52,14 @@ namespace SESRS.Forms
             pnlLogin.Controls.Add(lblUsername);
             pnlLogin.Controls.Add(lblSubtitle);
             pnlLogin.Controls.Add(lblTitle);
-            pnlLogin.Location = new Point(117, 62);
+            pnlLogin.Location = new Point(688, 139);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(495, 598);
             pnlLogin.TabIndex = 0;
+            pnlLogin.Paint += pnlLogin_Paint;
             // 
             // lblAccountNotice
             // 
-            lblAccountNotice.AutoSize = false;
             lblAccountNotice.ForeColor = Color.DimGray;
             lblAccountNotice.Location = new Point(55, 465);
             lblAccountNotice.Name = "lblAccountNotice";
@@ -125,8 +125,8 @@ namespace SESRS.Forms
             lblSubtitle.Size = new Size(400, 40);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Student Enrollment & Registration System";
-            lblSubtitle.UseMnemonic = false;
             lblSubtitle.TextAlign = ContentAlignment.MiddleCenter;
+            lblSubtitle.UseMnemonic = false;
             // 
             // lblTitle
             // 
@@ -145,14 +145,15 @@ namespace SESRS.Forms
             AcceptButton = btnLogin;
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(752, 706);
+            BackColor = Color.FromArgb(19, 68, 48);
+            ClientSize = new Size(1924, 961);
             Controls.Add(pnlLogin);
             Font = new Font("Segoe UI", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Location = new Point(225, 30);
             MaximizeBox = false;
             MinimizeBox = false;
+            MinimumSize = new Size(1100, 647);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SESRS - Login";

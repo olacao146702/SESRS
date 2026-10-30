@@ -8,7 +8,6 @@ namespace SESRS.Forms;
 public partial class StudentManagementForm : Form
 {
     private readonly StudentService _service = new();
-    private readonly GradeService _grades = new();
     private readonly StudentPortalService _portal = new();
     private readonly ListGrid _list;
 
@@ -62,7 +61,6 @@ public partial class StudentManagementForm : Form
     private void btnEdit_Click(object? sender, EventArgs e) => _list.Run(Edit);
     private void btnToggle_Click(object? sender, EventArgs e) => _list.Run(Toggle);
     private void btnReset_Click(object? sender, EventArgs e) => _list.Run(ResetPassword);
-    private void btnRecord_Click(object? sender, EventArgs e) => _list.Run(ShowRecord);
     private void btnTranscript_Click(object? sender, EventArgs e) => _list.Run(PrintTranscript);
     private void btnExport_Click(object? sender, EventArgs e) => _list.Run(() => _list.ExportCsv("students"));
 
@@ -155,23 +153,6 @@ public partial class StudentManagementForm : Form
         form.ShowDialog(this);
     }
 
-    private void ShowRecord()
-    {
-        DataRow? row = _list.RequireRow("student");
-
-        if (row == null)
-        {
-            return;
-        }
-
-        DataTable record = _grades.GetStudentRecord(Convert.ToInt32(row["student_id"]));
-
-        using var dialog = new TableDialog("Academic Record",
-            $"{row["student_name"]}   |   {row["student_number"]}   |   all grades including drafts",
-            record, "academic_record_" + row["student_number"]);
-
-        dialog.ShowDialog(this);
-    }
 
     private void PrintTranscript()
     {
@@ -184,8 +165,6 @@ public partial class StudentManagementForm : Form
 
         int id = Convert.ToInt32(row["student_id"]);
         StudentProfile profile = _portal.GetProfile(id);
-        GradeSummary summary = _grades.GetSummary(id);
-        DataTable grades = _grades.GetMyGrades(id);
 
         var document = new ReportDocument { Title = "Transcript of Records", Subtitle = "Published grades only" };
 
@@ -202,19 +181,6 @@ public partial class StudentManagementForm : Form
         document.AddColumn("Grade", 0.7f);
         document.AddColumn("Result", 0.9f);
 
-        foreach (DataRow r in grades.Rows)
-        {
-            document.Rows.Add(new[]
-            {
-                Convert.ToString(r["school_year"]) ?? "", Convert.ToString(r["semester"]) ?? "",
-                Convert.ToString(r["subject_code"]) ?? "", Convert.ToString(r["subject_name"]) ?? "",
-                Convert.ToString(r["units"]) ?? "",
-                r["final_grade"] == DBNull.Value ? "-" : Convert.ToDecimal(r["final_grade"]).ToString("0.00"),
-                Convert.ToString(r["result"]) ?? ""
-            });
-        }
-
-        document.Footer.Add($"General weighted average: {(summary.Gpa?.ToString("0.00") ?? "-")}     Units earned: {summary.UnitsEarned}");
 
         PrintReport.Preview(this, document);
     }

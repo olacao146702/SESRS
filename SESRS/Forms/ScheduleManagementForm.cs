@@ -49,20 +49,33 @@ public partial class ScheduleManagementForm : Form
         }
     }
 
+
+
     private void ReloadData()
     {
         _list.Run(() =>
         {
             if (SectionId is not int sectionId)
             {
-                _list.EmptyMessage = "There are no sections yet. Create sections under Academics > Sections first.";
+                _list.EmptyMessage =
+                    "There are no sections yet. Create sections under Academics > Sections first.";
+
                 _list.SetData(new DataTable());
                 return;
             }
 
-            _list.SetData(_service.GetForSection(sectionId), "schedule_id");
+            DataTable schedules = _service.GetForSection(sectionId);
+
+            _list.SetData(
+                schedules,
+                "schedule_id",
+                "schedule_ids",
+                "raw_days"
+            );
         });
     }
+
+
 
     private void btnAdd_Click(object? sender, EventArgs e) => _list.Run(() => ShowEditor(null));
     private void btnEdit_Click(object? sender, EventArgs e) => _list.Run(Edit);
@@ -90,20 +103,69 @@ public partial class ScheduleManagementForm : Form
         ShowEditor(entry);
     }
 
+
+
+
     private void Delete()
     {
         DataRow? row = _list.RequireRow("meeting");
 
-        if (row == null || !_list.Confirm($"Delete the {row["day"]} meeting of {row["subject_code"]}?\n\n" +
-                                          "Students enrolled in it will be notified."))
+        if (row == null)
+            return;
+
+        if (!row.Table.Columns.Contains("schedule_ids"))
+        {
+            throw new InvalidOperationException(
+                "The schedule_ids column is missing. Please refresh the schedule list.");
+        }
+
+        string scheduleIds = Convert.ToString(row["schedule_ids"]) ?? "";
+
+        if (string.IsNullOrWhiteSpace(scheduleIds))
+        {
+            throw new InvalidOperationException(
+                "No schedule IDs were found for the selected meeting.");
+        }
+
+        string days = "selected days";
+
+        if (row.Table.Columns.Contains("days_display"))
+        {
+            days = Convert.ToString(row["days_display"]) ?? days;
+        }
+        else if (row.Table.Columns.Contains("raw_days"))
+        {
+            days = Convert.ToString(row["raw_days"]) ?? days;
+        }
+
+        string subjectCode = row.Table.Columns.Contains("subject_code")
+            ? Convert.ToString(row["subject_code"]) ?? "this subject"
+            : "this subject";
+
+        if (!_list.Confirm(
+            $"Delete the {days} meetings of {subjectCode}?\n\n" +
+            "Students enrolled in this subject will be notified."))
         {
             return;
         }
 
-        _service.Delete(Convert.ToInt32(row["schedule_id"]));
-        _list.Success("Meeting deleted.");
+        int[] ids = scheduleIds
+            .Split(
+                ',',
+                StringSplitOptions.RemoveEmptyEntries |
+                StringSplitOptions.TrimEntries)
+            .Select(int.Parse)
+            .ToArray();
+
+        _service.DeleteMany(ids);
+
+        _list.Success("Schedule meetings deleted.");
+
         ReloadData();
     }
+
+
+
 
     private void ShowClassList()
     {

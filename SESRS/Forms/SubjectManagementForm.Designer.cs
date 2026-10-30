@@ -1,36 +1,28 @@
+
 namespace SESRS.Forms
 {
     partial class SubjectManagementForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.lblEmpty = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -43,6 +35,7 @@ namespace SESRS.Forms
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnToggle = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.pnlStatus = new System.Windows.Forms.Panel();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -50,6 +43,7 @@ namespace SESRS.Forms
             this.btnPrev = new System.Windows.Forms.Button();
             this.lblPageInfo = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlGrid.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -58,17 +52,15 @@ namespace SESRS.Forms
             this.pnlStatus.SuspendLayout();
             this.flowPager.SuspendLayout();
             this.SuspendLayout();
-            // 
+
             // pnlGrid
-            // 
             this.pnlGrid.Name = "pnlGrid";
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.TabIndex = 5;
             this.pnlGrid.Controls.Add(this.lblEmpty);
             this.pnlGrid.Controls.Add(this.dgv);
-            // 
+
             // lblEmpty
-            // 
             this.lblEmpty.Name = "lblEmpty";
             this.lblEmpty.BackColor = System.Drawing.Color.White;
             this.lblEmpty.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -77,9 +69,8 @@ namespace SESRS.Forms
             this.lblEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblEmpty.Visible = false;
             this.lblEmpty.Text = "";
-            // 
+
             // dgv
-            // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(24, 82, 58);
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,7 +78,9 @@ namespace SESRS.Forms
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(24, 82, 58);
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(244, 248, 245);
+
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,6 +88,7 @@ namespace SESRS.Forms
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(198, 226, 208);
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+
             this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.DefaultCellStyle = dataGridViewCellStyle3;
@@ -115,9 +109,8 @@ namespace SESRS.Forms
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.TabIndex = 4;
             this.dgv.RowTemplate.Height = 32;
-            // 
+
             // pnlHeader
-            // 
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -127,9 +120,8 @@ namespace SESRS.Forms
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Controls.Add(this.lblSubtitle);
             this.pnlHeader.Controls.Add(this.txtSearch);
-            // 
+
             // lblTitle
-            // 
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.AutoSize = true;
             this.lblTitle.Location = new System.Drawing.Point(20, 10);
@@ -137,9 +129,8 @@ namespace SESRS.Forms
             this.lblTitle.Text = "Subjects";
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkGreen;
-            // 
+
             // lblSubtitle
-            // 
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Location = new System.Drawing.Point(22, 48);
@@ -147,18 +138,16 @@ namespace SESRS.Forms
             this.lblSubtitle.Text = "Courses that can be placed in curricula and class sections";
             this.lblSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtitle.ForeColor = System.Drawing.Color.DimGray;
-            // 
+
             // txtSearch
-            // 
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.txtSearch.Location = new System.Drawing.Point(716, 22);
             this.txtSearch.PlaceholderText = "Search...";
             this.txtSearch.Size = new System.Drawing.Size(260, 23);
             this.txtSearch.TabIndex = 3;
-            // 
+
             // pnlBottom
-            // 
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.BackColor = System.Drawing.Color.White;
             this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -167,9 +156,8 @@ namespace SESRS.Forms
             this.pnlBottom.TabIndex = 17;
             this.pnlBottom.Controls.Add(this.flowButtons);
             this.pnlBottom.Controls.Add(this.pnlStatus);
-            // 
+
             // flowButtons
-            // 
             this.flowButtons.Name = "flowButtons";
             this.flowButtons.AutoScroll = true;
             this.flowButtons.Dock = System.Windows.Forms.DockStyle.Top;
@@ -179,10 +167,10 @@ namespace SESRS.Forms
             this.flowButtons.Controls.Add(this.btnAdd);
             this.flowButtons.Controls.Add(this.btnEdit);
             this.flowButtons.Controls.Add(this.btnToggle);
+            this.flowButtons.Controls.Add(this.btnDelete);
             this.flowButtons.Controls.Add(this.btnExport);
-            // 
+
             // btnAdd
-            // 
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(160, 36);
             this.btnAdd.TabIndex = 7;
@@ -196,9 +184,8 @@ namespace SESRS.Forms
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
+
             // btnEdit
-            // 
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(110, 36);
             this.btnEdit.TabIndex = 8;
@@ -213,9 +200,8 @@ namespace SESRS.Forms
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
+
             // btnToggle
-            // 
             this.btnToggle.Name = "btnToggle";
             this.btnToggle.Size = new System.Drawing.Size(230, 36);
             this.btnToggle.TabIndex = 9;
@@ -230,12 +216,27 @@ namespace SESRS.Forms
             this.btnToggle.UseVisualStyleBackColor = false;
             this.btnToggle.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             this.btnToggle.Click += new System.EventHandler(this.btnToggle_Click);
-            // 
+
+            // btnDelete
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(150, 36);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "DELETE UNUSED";
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.ForeColor = System.Drawing.Color.Firebrick;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
+            this.btnDelete.FlatAppearance.BorderSize = 1;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+
             // btnExport
-            // 
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(130, 36);
-            this.btnExport.TabIndex = 10;
+            this.btnExport.TabIndex = 11;
             this.btnExport.Text = "EXPORT CSV";
             this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,27 +248,24 @@ namespace SESRS.Forms
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
+
             // pnlStatus
-            // 
             this.pnlStatus.Name = "pnlStatus";
             this.pnlStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlStatus.Size = new System.Drawing.Size(1000, 28);
             this.pnlStatus.TabIndex = 16;
             this.pnlStatus.Controls.Add(this.lblStatus);
             this.pnlStatus.Controls.Add(this.flowPager);
-            // 
+
             // lblStatus
-            // 
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblStatus.TabIndex = 11;
             this.lblStatus.Text = "";
-            // 
+
             // flowPager
-            // 
             this.flowPager.Name = "flowPager";
             this.flowPager.AutoSize = true;
             this.flowPager.Dock = System.Windows.Forms.DockStyle.Right;
@@ -277,9 +275,8 @@ namespace SESRS.Forms
             this.flowPager.Controls.Add(this.btnPrev);
             this.flowPager.Controls.Add(this.lblPageInfo);
             this.flowPager.Controls.Add(this.btnNext);
-            // 
+
             // btnPrev
-            // 
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(72, 26);
             this.btnPrev.TabIndex = 13;
@@ -292,9 +289,8 @@ namespace SESRS.Forms
             this.btnPrev.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnPrev.FlatAppearance.BorderSize = 1;
             this.btnPrev.UseVisualStyleBackColor = false;
-            // 
+
             // lblPageInfo
-            // 
             this.lblPageInfo.Name = "lblPageInfo";
             this.lblPageInfo.AutoSize = true;
             this.lblPageInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,9 +298,8 @@ namespace SESRS.Forms
             this.lblPageInfo.Margin = new System.Windows.Forms.Padding(8, 6, 8, 0);
             this.lblPageInfo.TabIndex = 14;
             this.lblPageInfo.Text = "0 records";
-            // 
+
             // btnNext
-            // 
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(72, 26);
             this.btnNext.TabIndex = 15;
@@ -317,9 +312,8 @@ namespace SESRS.Forms
             this.btnNext.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
             this.btnNext.FlatAppearance.BorderSize = 1;
             this.btnNext.UseVisualStyleBackColor = false;
-            // 
+
             // SubjectManagementForm
-            // 
             this.Name = "SubjectManagementForm";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,6 +325,7 @@ namespace SESRS.Forms
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlBottom);
             this.Load += new System.EventHandler(this.SubjectManagementForm_Load);
+
             this.flowPager.ResumeLayout(false);
             this.flowPager.PerformLayout();
             this.pnlStatus.ResumeLayout(false);
@@ -362,6 +357,7 @@ namespace SESRS.Forms
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnToggle;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Panel pnlStatus;
         private System.Windows.Forms.Label lblStatus;

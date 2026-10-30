@@ -28,212 +28,227 @@ namespace SESRS.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblIntro = new System.Windows.Forms.Label();
-            this.lblSubject = new System.Windows.Forms.Label();
-            this.cmbSubject = new System.Windows.Forms.ComboBox();
-            this.lblDay = new System.Windows.Forms.Label();
-            this.cmbDay = new System.Windows.Forms.ComboBox();
-            this.lblStart = new System.Windows.Forms.Label();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.lblEnd = new System.Windows.Forms.Label();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.lblRoom = new System.Windows.Forms.Label();
-            this.txtRoom = new System.Windows.Forms.TextBox();
-            this.lblInstructor = new System.Windows.Forms.Label();
-            this.txtInstructor = new System.Windows.Forms.TextBox();
-            this.lblError = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            lblIntro = new Label();
+            lblSubject = new Label();
+            cmbSubject = new ComboBox();
+            lblDay = new Label();
+            cmbDay = new ComboBox();
+            lblStart = new Label();
+            dtpStart = new DateTimePicker();
+            lblEnd = new Label();
+            dtpEnd = new DateTimePicker();
+            lblRoom = new Label();
+            txtRoom = new TextBox();
+            lblInstructor = new Label();
+            txtInstructor = new TextBox();
+            lblError = new Label();
+            btnSave = new Button();
+            btnCancel = new Button();
+            SuspendLayout();
             // 
             // lblIntro
             // 
-            this.lblIntro.Name = "lblIntro";
-            this.lblIntro.Location = new System.Drawing.Point(24, 20);
-            this.lblIntro.Size = new System.Drawing.Size(392, 36);
-            this.lblIntro.TabIndex = 0;
-            this.lblIntro.Text = "Conflicts with this section, the room, or the instructor are detected automatically.";
-            this.lblIntro.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIntro.ForeColor = System.Drawing.Color.DimGray;
+            lblIntro.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIntro.ForeColor = Color.DimGray;
+            lblIntro.Location = new Point(34, 33);
+            lblIntro.Margin = new Padding(4, 0, 4, 0);
+            lblIntro.Name = "lblIntro";
+            lblIntro.Size = new Size(560, 60);
+            lblIntro.TabIndex = 0;
+            lblIntro.Text = "Conflicts with this section, the room, or the instructor are detected automatically.";
             // 
             // lblSubject
             // 
-            this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Location = new System.Drawing.Point(24, 66);
-            this.lblSubject.Size = new System.Drawing.Size(392, 20);
-            this.lblSubject.TabIndex = 1;
-            this.lblSubject.Text = "Subject *";
+            lblSubject.Location = new Point(34, 110);
+            lblSubject.Margin = new Padding(4, 0, 4, 0);
+            lblSubject.Name = "lblSubject";
+            lblSubject.Size = new Size(560, 33);
+            lblSubject.TabIndex = 1;
+            lblSubject.Text = "Subject *";
             // 
             // cmbSubject
             // 
-            this.cmbSubject.Name = "cmbSubject";
-            this.cmbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSubject.FormattingEnabled = true;
-            this.cmbSubject.Location = new System.Drawing.Point(24, 88);
-            this.cmbSubject.Size = new System.Drawing.Size(392, 23);
-            this.cmbSubject.TabIndex = 2;
+            cmbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbSubject.FormattingEnabled = true;
+            cmbSubject.Location = new Point(34, 147);
+            cmbSubject.Margin = new Padding(4, 5, 4, 5);
+            cmbSubject.Name = "cmbSubject";
+            cmbSubject.Size = new Size(558, 33);
+            cmbSubject.TabIndex = 2;
             // 
             // lblDay
             // 
-            this.lblDay.Name = "lblDay";
-            this.lblDay.Location = new System.Drawing.Point(24, 125);
-            this.lblDay.Size = new System.Drawing.Size(392, 20);
-            this.lblDay.TabIndex = 3;
-            this.lblDay.Text = "Day *";
+            lblDay.Location = new Point(34, 208);
+            lblDay.Margin = new Padding(4, 0, 4, 0);
+            lblDay.Name = "lblDay";
+            lblDay.Size = new Size(560, 33);
+            lblDay.TabIndex = 3;
+            lblDay.Text = "Day *";
             // 
             // cmbDay
             // 
-            this.cmbDay.Items.AddRange(new object[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" });
-            this.cmbDay.Name = "cmbDay";
-            this.cmbDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDay.FormattingEnabled = true;
-            this.cmbDay.Location = new System.Drawing.Point(24, 147);
-            this.cmbDay.Size = new System.Drawing.Size(392, 23);
-            this.cmbDay.TabIndex = 4;
+            cmbDay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDay.FormattingEnabled = true;
+            cmbDay.Items.AddRange(new object[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "MWF", "Monday-Friday", "MSAT1", "MSAT2" });
+            cmbDay.Location = new Point(34, 245);
+            cmbDay.Margin = new Padding(4, 5, 4, 5);
+            cmbDay.Name = "cmbDay";
+            cmbDay.Size = new Size(558, 33);
+            cmbDay.TabIndex = 4;
             // 
             // lblStart
             // 
-            this.lblStart.Name = "lblStart";
-            this.lblStart.Location = new System.Drawing.Point(24, 184);
-            this.lblStart.Size = new System.Drawing.Size(190, 20);
-            this.lblStart.TabIndex = 5;
-            this.lblStart.Text = "Start time";
+            lblStart.Location = new Point(34, 307);
+            lblStart.Margin = new Padding(4, 0, 4, 0);
+            lblStart.Name = "lblStart";
+            lblStart.Size = new Size(271, 33);
+            lblStart.TabIndex = 5;
+            lblStart.Text = "Start time";
             // 
             // dtpStart
             // 
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.CustomFormat = "h:mm tt";
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(24, 206);
-            this.dtpStart.ShowUpDown = true;
-            this.dtpStart.Size = new System.Drawing.Size(190, 23);
-            this.dtpStart.TabIndex = 6;
+            dtpStart.CustomFormat = "h:mm tt";
+            dtpStart.Format = DateTimePickerFormat.Custom;
+            dtpStart.Location = new Point(34, 343);
+            dtpStart.Margin = new Padding(4, 5, 4, 5);
+            dtpStart.Name = "dtpStart";
+            dtpStart.ShowUpDown = true;
+            dtpStart.Size = new Size(270, 31);
+            dtpStart.TabIndex = 6;
             // 
             // lblEnd
             // 
-            this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Location = new System.Drawing.Point(226, 184);
-            this.lblEnd.Size = new System.Drawing.Size(190, 20);
-            this.lblEnd.TabIndex = 7;
-            this.lblEnd.Text = "End time";
+            lblEnd.Location = new Point(323, 307);
+            lblEnd.Margin = new Padding(4, 0, 4, 0);
+            lblEnd.Name = "lblEnd";
+            lblEnd.Size = new Size(271, 33);
+            lblEnd.TabIndex = 7;
+            lblEnd.Text = "End time";
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.CustomFormat = "h:mm tt";
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(226, 206);
-            this.dtpEnd.ShowUpDown = true;
-            this.dtpEnd.Size = new System.Drawing.Size(190, 23);
-            this.dtpEnd.TabIndex = 8;
+            dtpEnd.CustomFormat = "h:mm tt";
+            dtpEnd.Format = DateTimePickerFormat.Custom;
+            dtpEnd.Location = new Point(323, 343);
+            dtpEnd.Margin = new Padding(4, 5, 4, 5);
+            dtpEnd.Name = "dtpEnd";
+            dtpEnd.ShowUpDown = true;
+            dtpEnd.Size = new Size(270, 31);
+            dtpEnd.TabIndex = 8;
             // 
             // lblRoom
             // 
-            this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Location = new System.Drawing.Point(24, 243);
-            this.lblRoom.Size = new System.Drawing.Size(190, 20);
-            this.lblRoom.TabIndex = 9;
-            this.lblRoom.Text = "Room";
+            lblRoom.Location = new Point(34, 405);
+            lblRoom.Margin = new Padding(4, 0, 4, 0);
+            lblRoom.Name = "lblRoom";
+            lblRoom.Size = new Size(271, 33);
+            lblRoom.TabIndex = 9;
+            lblRoom.Text = "Room";
             // 
             // txtRoom
             // 
-            this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Location = new System.Drawing.Point(24, 265);
-            this.txtRoom.Size = new System.Drawing.Size(190, 23);
-            this.txtRoom.TabIndex = 10;
-            this.txtRoom.MaxLength = 50;
+            txtRoom.Location = new Point(34, 442);
+            txtRoom.Margin = new Padding(4, 5, 4, 5);
+            txtRoom.MaxLength = 50;
+            txtRoom.Name = "txtRoom";
+            txtRoom.Size = new Size(270, 31);
+            txtRoom.TabIndex = 10;
             // 
             // lblInstructor
             // 
-            this.lblInstructor.Name = "lblInstructor";
-            this.lblInstructor.Location = new System.Drawing.Point(226, 243);
-            this.lblInstructor.Size = new System.Drawing.Size(190, 20);
-            this.lblInstructor.TabIndex = 11;
-            this.lblInstructor.Text = "Instructor";
+            lblInstructor.Location = new Point(323, 405);
+            lblInstructor.Margin = new Padding(4, 0, 4, 0);
+            lblInstructor.Name = "lblInstructor";
+            lblInstructor.Size = new Size(271, 33);
+            lblInstructor.TabIndex = 11;
+            lblInstructor.Text = "Instructor";
             // 
             // txtInstructor
             // 
-            this.txtInstructor.Name = "txtInstructor";
-            this.txtInstructor.Location = new System.Drawing.Point(226, 265);
-            this.txtInstructor.Size = new System.Drawing.Size(190, 23);
-            this.txtInstructor.TabIndex = 12;
-            this.txtInstructor.MaxLength = 100;
+            txtInstructor.Location = new Point(323, 442);
+            txtInstructor.Margin = new Padding(4, 5, 4, 5);
+            txtInstructor.MaxLength = 100;
+            txtInstructor.Name = "txtInstructor";
+            txtInstructor.Size = new Size(270, 31);
+            txtInstructor.TabIndex = 12;
             // 
             // lblError
             // 
-            this.lblError.Name = "lblError";
-            this.lblError.Location = new System.Drawing.Point(24, 302);
-            this.lblError.Size = new System.Drawing.Size(392, 36);
-            this.lblError.TabIndex = 13;
-            this.lblError.Text = "";
-            this.lblError.ForeColor = System.Drawing.Color.Firebrick;
+            lblError.ForeColor = Color.Firebrick;
+            lblError.Location = new Point(34, 503);
+            lblError.Margin = new Padding(4, 0, 4, 0);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(560, 60);
+            lblError.TabIndex = 13;
             // 
             // btnSave
             // 
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Location = new System.Drawing.Point(24, 342);
-            this.btnSave.Size = new System.Drawing.Size(190, 38);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.BackColor = Color.DarkGreen;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.FlatAppearance.BorderSize = 0;
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(34, 570);
+            btnSave.Margin = new Padding(4, 5, 4, 5);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(271, 63);
+            btnSave.TabIndex = 14;
+            btnSave.Text = "SAVE";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Location = new System.Drawing.Point(226, 342);
-            this.btnCancel.Size = new System.Drawing.Size(190, 38);
-            this.btnCancel.TabIndex = 15;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.BackColor = System.Drawing.Color.White;
-            this.btnCancel.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnCancel.FlatAppearance.BorderSize = 1;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            btnCancel.BackColor = Color.White;
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.FlatAppearance.BorderColor = Color.DarkGreen;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.ForeColor = Color.DarkGreen;
+            btnCancel.Location = new Point(323, 570);
+            btnCancel.Margin = new Padding(4, 5, 4, 5);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(271, 63);
+            btnCancel.TabIndex = 15;
+            btnCancel.Text = "CANCEL";
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // ScheduleMeetingDialog
             // 
-            this.Name = "ScheduleMeetingDialog";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(440, 402);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Class Meeting";
-            this.CancelButton = this.btnCancel;
-            this.AcceptButton = this.btnSave;
-            this.Controls.Add(this.lblIntro);
-            this.Controls.Add(this.lblSubject);
-            this.Controls.Add(this.cmbSubject);
-            this.Controls.Add(this.lblDay);
-            this.Controls.Add(this.cmbDay);
-            this.Controls.Add(this.lblStart);
-            this.Controls.Add(this.dtpStart);
-            this.Controls.Add(this.lblEnd);
-            this.Controls.Add(this.dtpEnd);
-            this.Controls.Add(this.lblRoom);
-            this.Controls.Add(this.txtRoom);
-            this.Controls.Add(this.lblInstructor);
-            this.Controls.Add(this.txtInstructor);
-            this.Controls.Add(this.lblError);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = btnSave;
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            CancelButton = btnCancel;
+            ClientSize = new Size(629, 670);
+            Controls.Add(lblIntro);
+            Controls.Add(lblSubject);
+            Controls.Add(cmbSubject);
+            Controls.Add(lblDay);
+            Controls.Add(cmbDay);
+            Controls.Add(lblStart);
+            Controls.Add(dtpStart);
+            Controls.Add(lblEnd);
+            Controls.Add(dtpEnd);
+            Controls.Add(lblRoom);
+            Controls.Add(txtRoom);
+            Controls.Add(lblInstructor);
+            Controls.Add(txtInstructor);
+            Controls.Add(lblError);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "ScheduleMeetingDialog";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Class Meeting";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

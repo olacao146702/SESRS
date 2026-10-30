@@ -119,7 +119,6 @@ namespace SESRS.Forms
                 "subjects" => new MyCurriculumForm(RequireStudentId()),
                 "schedule" => new MyScheduleForm(RequireStudentId()),
                 "history" => new EnrollmentHistoryForm(RequireStudentId()),
-                "grades" => new MyGradesForm(RequireStudentId()),
                 "notifications" => new NotificationsForm(Navigate, RefreshNotificationBadge),
                 "announcements" => new StudentAnnouncementsForm(RequireStudentId()),
                 "profile" => new ProfileForm(RequireStudentId()),
@@ -203,11 +202,6 @@ namespace SESRS.Forms
         private void btnHistory_Click(object? sender, EventArgs e)
         {
             Navigate("history");
-        }
-
-        private void btnGrades_Click(object? sender, EventArgs e)
-        {
-            Navigate("grades");
         }
 
         private void btnNotifications_Click(object? sender, EventArgs e)

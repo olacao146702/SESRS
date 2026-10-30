@@ -29,13 +29,12 @@ namespace SESRS.Forms
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
-            btnLogout = new Button();
             btnChangePassword = new Button();
-            btnNotifications = new Button();
-            btnAnnouncements = new Button();
+            btnLogout = new Button();
             btnProfile = new Button();
+            btnAnnouncements = new Button();
+            btnNotifications = new Button();
             btnHistory = new Button();
-            btnGrades = new Button();
             btnSchedule = new Button();
             btnSubjects = new Button();
             btnEnrollment = new Button();
@@ -66,7 +65,6 @@ namespace SESRS.Forms
             pnlSidebar.Controls.Add(btnAnnouncements);
             pnlSidebar.Controls.Add(btnNotifications);
             pnlSidebar.Controls.Add(btnHistory);
-            pnlSidebar.Controls.Add(btnGrades);
             pnlSidebar.Controls.Add(btnSchedule);
             pnlSidebar.Controls.Add(btnSubjects);
             pnlSidebar.Controls.Add(btnEnrollment);
@@ -88,7 +86,7 @@ namespace SESRS.Forms
             btnChangePassword.FlatStyle = FlatStyle.Flat;
             btnChangePassword.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnChangePassword.ForeColor = Color.White;
-            btnChangePassword.Location = new Point(0, 826);
+            btnChangePassword.Location = new Point(0, 829);
             btnChangePassword.Margin = new Padding(2);
             btnChangePassword.Name = "btnChangePassword";
             btnChangePassword.Size = new Size(220, 45);
@@ -114,6 +112,40 @@ namespace SESRS.Forms
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
+            // btnProfile
+            // 
+            btnProfile.BackColor = Color.FromArgb(24, 82, 58);
+            btnProfile.Dock = DockStyle.Top;
+            btnProfile.FlatAppearance.BorderSize = 0;
+            btnProfile.FlatStyle = FlatStyle.Flat;
+            btnProfile.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnProfile.ForeColor = Color.White;
+            btnProfile.Location = new Point(0, 388);
+            btnProfile.Margin = new Padding(2);
+            btnProfile.Name = "btnProfile";
+            btnProfile.Size = new Size(220, 45);
+            btnProfile.TabIndex = 21;
+            btnProfile.Text = "My Profile";
+            btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
+            // 
+            // btnAnnouncements
+            // 
+            btnAnnouncements.BackColor = Color.FromArgb(24, 82, 58);
+            btnAnnouncements.Dock = DockStyle.Top;
+            btnAnnouncements.FlatAppearance.BorderSize = 0;
+            btnAnnouncements.FlatStyle = FlatStyle.Flat;
+            btnAnnouncements.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAnnouncements.ForeColor = Color.White;
+            btnAnnouncements.Location = new Point(0, 343);
+            btnAnnouncements.Margin = new Padding(2);
+            btnAnnouncements.Name = "btnAnnouncements";
+            btnAnnouncements.Size = new Size(220, 45);
+            btnAnnouncements.TabIndex = 20;
+            btnAnnouncements.Text = "Announcements";
+            btnAnnouncements.UseVisualStyleBackColor = false;
+            btnAnnouncements.Click += btnAnnouncements_Click;
+            // 
             // btnNotifications
             // 
             btnNotifications.BackColor = Color.FromArgb(24, 82, 58);
@@ -131,40 +163,6 @@ namespace SESRS.Forms
             btnNotifications.UseVisualStyleBackColor = false;
             btnNotifications.Click += btnNotifications_Click;
             // 
-            // btnAnnouncements
-            // 
-            btnAnnouncements.BackColor = Color.FromArgb(24, 82, 58);
-            btnAnnouncements.Dock = DockStyle.Top;
-            btnAnnouncements.FlatAppearance.BorderSize = 0;
-            btnAnnouncements.FlatStyle = FlatStyle.Flat;
-            btnAnnouncements.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAnnouncements.ForeColor = Color.White;
-            btnAnnouncements.Location = new Point(0, 298);
-            btnAnnouncements.Margin = new Padding(2);
-            btnAnnouncements.Name = "btnAnnouncements";
-            btnAnnouncements.Size = new Size(220, 45);
-            btnAnnouncements.TabIndex = 20;
-            btnAnnouncements.Text = "Announcements";
-            btnAnnouncements.UseVisualStyleBackColor = false;
-            btnAnnouncements.Click += btnAnnouncements_Click;
-            // 
-            // btnProfile
-            // 
-            btnProfile.BackColor = Color.FromArgb(24, 82, 58);
-            btnProfile.Dock = DockStyle.Top;
-            btnProfile.FlatAppearance.BorderSize = 0;
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnProfile.ForeColor = Color.White;
-            btnProfile.Location = new Point(0, 298);
-            btnProfile.Margin = new Padding(2);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(220, 45);
-            btnProfile.TabIndex = 21;
-            btnProfile.Text = "My Profile";
-            btnProfile.UseVisualStyleBackColor = false;
-            btnProfile.Click += btnProfile_Click;
-            // 
             // btnHistory
             // 
             btnHistory.BackColor = Color.FromArgb(24, 82, 58);
@@ -181,23 +179,6 @@ namespace SESRS.Forms
             btnHistory.Text = "History";
             btnHistory.UseVisualStyleBackColor = false;
             btnHistory.Click += btnHistory_Click;
-            // 
-            // btnGrades
-            // 
-            btnGrades.BackColor = Color.FromArgb(24, 82, 58);
-            btnGrades.Dock = DockStyle.Top;
-            btnGrades.FlatAppearance.BorderSize = 0;
-            btnGrades.FlatStyle = FlatStyle.Flat;
-            btnGrades.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnGrades.ForeColor = Color.White;
-            btnGrades.Location = new Point(0, 253);
-            btnGrades.Margin = new Padding(2);
-            btnGrades.Name = "btnGrades";
-            btnGrades.Size = new Size(220, 45);
-            btnGrades.TabIndex = 22;
-            btnGrades.Text = "Grades";
-            btnGrades.UseVisualStyleBackColor = false;
-            btnGrades.Click += btnGrades_Click;
             // 
             // btnSchedule
             // 
@@ -425,7 +406,6 @@ namespace SESRS.Forms
         private Button btnSubjects;
         private Button btnSchedule;
         private Button btnHistory;
-        private Button btnGrades;
         private Button btnNotifications;
         private Button btnAnnouncements;
         private Button btnProfile;
